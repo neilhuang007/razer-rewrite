@@ -1,2 +1,2 @@
-# razer-rewrite
-........ good luck, my friend
+# razer
+1.8.9 client
