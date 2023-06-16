@@ -798,7 +798,7 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
         {
             if (this.guiScreenServer instanceof GuiScreenRealmsProxy)
             {
-                this.gameController.displayGuiScreen((new DisconnectedRealmsScreen(((GuiScreenRealmsProxy)this.guiScreenServer).func_154321_a(), "disconnect.lost", reason)).getProxy());
+                //this.gameController.displayGuiScreen((new DisconnectedRealmsScreen(((GuiScreenRealmsProxy)this.guiScreenServer).func_154321_a(), "disconnect.lost", reason)).getProxy());
             }
             else
             {

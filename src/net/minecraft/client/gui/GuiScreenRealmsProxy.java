@@ -161,10 +161,10 @@ public class GuiScreenRealmsProxy extends GuiScreen
         super.buttonList.clear();
     }
 
-    public void func_154327_a(RealmsButton p_154327_1_)
-    {
-        super.buttonList.add(p_154327_1_.getProxy());
-    }
+//    public void func_154327_a(RealmsButton p_154327_1_)
+//    {
+//        super.buttonList.add(p_154327_1_.getProxy());
+//    }
 
     public List<RealmsButton> func_154320_j()
     {
