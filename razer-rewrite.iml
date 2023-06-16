@@ -56,5 +56,14 @@
     <orderEntry type="library" name="log4j-core-2.0-beta9" level="project" />
     <orderEntry type="library" name="commons-compress-1.8.1" level="project" />
     <orderEntry type="library" name="1.8" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.26/lombok-1.18.26.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

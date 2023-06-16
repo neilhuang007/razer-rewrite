@@ -37,6 +37,7 @@ import java.util.concurrent.FutureTask;
 import javax.imageio.ImageIO;
 
 import dev.razer.Razer;
+import dev.razer.ui.impl.menu.Mainmenu;
 import jdk.nashorn.internal.objects.annotations.Getter;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -400,6 +401,13 @@ public class Minecraft implements IThreadListener, IPlayerUsage
         Bootstrap.register();
     }
 
+
+    private final long startMillisTime = System.currentTimeMillis();
+
+    public long getStartMillisTime() {
+        return startMillisTime;
+    }
+
     public void run()
     {
         this.running = true;
@@ -574,11 +582,11 @@ public class Minecraft implements IThreadListener, IPlayerUsage
 
         if (this.serverName != null)
         {
-            this.displayGuiScreen(new GuiConnecting(new GuiMainMenu(), this, this.serverName, this.serverPort));
+            this.displayGuiScreen(new GuiConnecting(new Mainmenu(), this, this.serverName, this.serverPort));
         }
         else
         {
-            this.displayGuiScreen(new GuiMainMenu());
+            this.displayGuiScreen(new Mainmenu());
         }
 
         this.renderEngine.deleteTexture(this.mojangLogo);
@@ -998,14 +1006,14 @@ public class Minecraft implements IThreadListener, IPlayerUsage
 
         if (guiScreenIn == null && this.theWorld == null)
         {
-            guiScreenIn = new GuiMainMenu();
+            guiScreenIn = new Mainmenu();
         }
         else if (guiScreenIn == null && this.thePlayer.getHealth() <= 0.0F)
         {
             guiScreenIn = new GuiGameOver();
         }
 
-        if (guiScreenIn instanceof GuiMainMenu)
+        if (guiScreenIn instanceof Mainmenu)
         {
             this.gameSettings.showDebugProfilerChart = false;
             this.ingameGUI.getChatGUI().clearChatMessages();

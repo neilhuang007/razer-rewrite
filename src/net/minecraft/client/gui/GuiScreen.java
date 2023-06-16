@@ -15,6 +15,8 @@ import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
+
+import dev.razer.util.interfaces.InstanceAccess;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.stream.GuiTwitchUserMode;
 import net.minecraft.client.renderer.GlStateManager;
@@ -44,7 +46,7 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import tv.twitch.chat.ChatUserInfo;
 
-public abstract class GuiScreen extends Gui implements GuiYesNoCallback
+public abstract class GuiScreen extends Gui implements GuiYesNoCallback, InstanceAccess
 {
     private static final Logger LOGGER = LogManager.getLogger();
     private static final Set<String> PROTOCOLS = Sets.newHashSet(new String[] {"http", "https"});
@@ -63,6 +65,13 @@ public abstract class GuiScreen extends Gui implements GuiYesNoCallback
 
     /** The height of the screen object. */
     public int height;
+
+    public int getwidth(){
+        return this.width;
+    }
+    public int getheight(){
+        return this.height;
+    }
     protected List<GuiButton> buttonList = Lists.<GuiButton>newArrayList();
     protected List<GuiLabel> labelList = Lists.<GuiLabel>newArrayList();
     public boolean allowUserInput;
@@ -568,6 +577,7 @@ public abstract class GuiScreen extends Gui implements GuiYesNoCallback
      */
     public void initGui()
     {
+
     }
 
     /**

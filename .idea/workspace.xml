@@ -4,39 +4,320 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9ad04c4-c420-49a0-acba-06004f353030" name="Changes" comment="fix libraries &amp; dependencies&#10;rewrite minecraft code &amp; initialization page&#10;changed GetMojanglogoTexture in Config.java">
-      <change afterPath="$PROJECT_DIR$/src/dev/razer/Razer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dev/razer/managers/RenderManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/menu/Mainmenu.java" afterDir="false" />
+    <list default="true" id="c9ad04c4-c420-49a0-acba-06004f353030" name="Changes" comment="fully removal of realms code and add init method">
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/razer/shader/alpha.frag" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/razer/shader/bloom.frag" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/razer/shader/blur.frag" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/razer/shader/blur.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/razer/shader/main_menu/background.frag" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/razer/shader/main_menu/filter.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/razer/shader/main_menu/fxaa.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/razer/shader/main_menu/texture.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/razer/shader/outline.frag" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/razer/shader/rgq.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/razer/shader/rogq.frag" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/razer/shader/roq.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/razer/shader/rq.frag" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/razer/shader/vertex.vsh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/cape/RiseCape.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Avergent-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Biko_Regular.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Comfortaa.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Dreamscape.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Hack-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Icon-1.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Icon-2.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Icon-3.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Light.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Montserrat-Hairline.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Montserrat-Medium.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/MuseoSans_900.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/NotoSans-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Nunito-Bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Nunito-Light.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Nunito-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Poppins-Black.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Poppins-BlackItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Poppins-Bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Poppins-BoldItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Poppins-ExtraBold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Poppins-ExtraBoldItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Poppins-ExtraLight.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Poppins-ExtraLightItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Poppins-Italic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Poppins-Light.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Poppins-LightItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Poppins-Medium.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Poppins-MediumItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Poppins-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Poppins-SemiBold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Poppins-SemiBoldItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Poppins-Thin.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Poppins-ThinItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Quart-Outline.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Quart-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Quicksand-Light.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Quicksand-Medium.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Roboto-Light.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/SF-UI-Pro.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Somatic-Rounded.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/Tahoma.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/TahomaBold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/product_sans_bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/product_sans_bold_italic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/product_sans_italic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/product_sans_light.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/product_sans_medium.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/font/product_sans_regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/icons/click.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/icons/close.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/icons/language/de_DE.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/icons/language/en_AU.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/icons/language/en_CA.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/icons/language/en_GB.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/icons/language/en_US.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/icons/language/fr_CA.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/icons/language/fr_FR.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/icons/language/pl_PL.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/icons/language/ru_RU.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/icons/language/sv_SE.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/icons/language/uk_UA.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/icons/language/zh_ZH.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/icons/main_menu/CapsLock.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/icons/main_menu/LanguagesIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/icons/main_menu/SettingsIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/icons/radar/radarbeam.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/icons/radar/radardot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/icons/radar/radarscope.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/images/Alan.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/images/SpeedBuilderBackground.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/images/Vignette.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/images/background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/images/splash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/logo/wurst.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/shader/alpha.frag" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/shader/bloom.frag" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/shader/blur.frag" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/shader/blur.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/shader/main_menu/background.frag" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/shader/main_menu/filter.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/shader/main_menu/fxaa.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/shader/main_menu/texture.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/shader/outline.frag" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/shader/rgq.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/shader/rogq.frag" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/shader/roq.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/shader/rq.frag" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/shader/vertex.vsh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/text/en_US.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/text/fr_FR.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/text/pl_PL.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/text/ru_RU.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/text/sv_SE.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/text/zh_ZH.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (1).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (10).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (100).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (101).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (102).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (103).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (104).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (105).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (106).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (107).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (108).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (109).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (11).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (110).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (111).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (112).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (113).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (114).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (115).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (116).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (117).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (118).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (119).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (12).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (120).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (121).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (122).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (123).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (124).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (125).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (126).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (127).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (128).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (129).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (13).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (130).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (131).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (132).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (133).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (134).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (135).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (136).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (137).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (138).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (139).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (14).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (140).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (141).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (142).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (143).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (144).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (145).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (146).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (147).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (148).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (149).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (15).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (150).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (16).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (17).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (18).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (19).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (2).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (20).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (21).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (22).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (23).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (24).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (25).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (26).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (27).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (28).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (29).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (3).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (30).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (31).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (32).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (33).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (34).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (35).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (36).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (37).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (38).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (39).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (4).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (40).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (41).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (42).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (43).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (44).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (45).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (46).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (47).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (48).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (49).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (5).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (50).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (51).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (52).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (53).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (54).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (55).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (56).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (57).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (58).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (59).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (6).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (60).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (61).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (62).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (63).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (64).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (65).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (66).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (67).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (68).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (69).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (7).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (70).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (71).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (72).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (73).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (74).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (75).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (76).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (77).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (78).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (79).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (8).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (80).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (81).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (82).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (83).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (84).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (85).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (86).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (87).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (88).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (89).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (9).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (90).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (91).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (92).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (93).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (94).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (95).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (96).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (97).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (98).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/minecraft/rise/video/Main_Menu/mainmenuframe (99).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/managers/ColorManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/component/MenuComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/component/button/MenuButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/component/button/impl/MenuIconButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/component/button/impl/MenuTextButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/MenuColors.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/util/animation/Animation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/util/animation/Easing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/util/font/Font.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/util/font/FontManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/util/font/impl/minecraft/FontRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/util/font/impl/rise/FontCharacter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/util/font/impl/rise/FontRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/util/font/impl/rise/FontUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/util/interfaces/InstanceAccess.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/util/math/MathConst.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/util/math/MathUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/util/mouse/MouseUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/util/profiling/Profiler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/util/shader/RiseShaders.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/util/shader/ShaderUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/util/shader/base/RiseShader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/util/shader/base/RiseShaderProgram.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/util/shader/base/ShaderRenderType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/util/shader/base/ShaderUniforms.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/util/shader/impl/BloomShader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/util/shader/impl/GaussianBlurShader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/util/shader/impl/MainMenuBackgroundShader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/util/shader/impl/OutlineShader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/util/shader/impl/RGQShader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/util/shader/impl/ROGQShader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/util/shader/impl/ROQShader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/util/shader/impl/RQShader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/util/shader/kernel/GaussianKernel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/razer-rewrite.iml" beforeDir="false" afterPath="$PROJECT_DIR$/razer-rewrite.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/minecraft/razer/loading/SplashPage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/minecraft/razer/logo/razer_logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/minecraft/shaders/post/art.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/minecraft/shaders/post/art.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/managers/RenderManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/managers/RenderManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/ui/impl/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/ui/impl/menu/Mainmenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/menu/Mainmenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/net/minecraft/client/Minecraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/minecraft/client/Minecraft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/minecraft/client/gui/GuiGameOver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/minecraft/client/gui/GuiGameOver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/net/minecraft/client/gui/GuiIngameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/minecraft/client/gui/GuiIngameMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/net/minecraft/client/gui/GuiMainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/minecraft/client/gui/GuiMainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/minecraft/realms/DisconnectedRealmsScreen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/minecraft/realms/Realms.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/minecraft/realms/RealmsAnvilLevelStorageSource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/minecraft/realms/RealmsBridge.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/minecraft/realms/RealmsBufferBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/minecraft/realms/RealmsButton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/minecraft/realms/RealmsClickableScrolledSelectionList.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/minecraft/realms/RealmsConnect.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/minecraft/realms/RealmsDefaultVertexFormat.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/minecraft/realms/RealmsEditBox.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/minecraft/realms/RealmsLevelSummary.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/minecraft/realms/RealmsMth.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/minecraft/realms/RealmsScreen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/minecraft/realms/RealmsScrolledSelectionList.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/minecraft/realms/RealmsServerAddress.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/minecraft/realms/RealmsServerPing.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/minecraft/realms/RealmsServerStatusPinger.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/minecraft/realms/RealmsSharedConstants.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/minecraft/realms/RealmsSimpleScrolledSelectionList.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/minecraft/realms/RealmsSliderButton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/minecraft/realms/RealmsVertexFormat.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/minecraft/realms/RealmsVertexFormatElement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/minecraft/realms/Tezzelator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/minecraft/client/gui/GuiMemoryErrorScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/minecraft/client/gui/GuiMemoryErrorScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/minecraft/client/gui/GuiScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/minecraft/client/gui/GuiScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/minecraft/client/network/NetHandlerPlayClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/minecraft/client/network/NetHandlerPlayClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/ImgurUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/interfaces/Factory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/time/StopWatch.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/type/EvictingList.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,26 +342,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/neilhuang007/Documents/idea_projects/razer-rewrite/src/assets/minecraft/razer/logo&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;工件&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/neilhuang007/Documents/idea_projects/razer-rewrite/src/assets/minecraft",
+    "project.structure.last.edited": "工件",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\neilhuang007\Documents\idea_projects\razer-rewrite\src\assets\minecraft" />
+      <recent name="C:\Users\neilhuang007\Documents\idea_projects\razer-rewrite\src\assets\minecraft\razer" />
       <recent name="C:\Users\neilhuang007\Documents\idea_projects\razer-rewrite\src\assets\minecraft\razer\logo" />
       <recent name="C:\Users\neilhuang007\Documents\idea_projects\razer-rewrite\src\assets\minecraft\razer\loading" />
       <recent name="C:\Users\neilhuang007\Documents\idea_projects\razer-rewrite\src" />
-      <recent name="C:\Users\neilhuang007\Documents\idea_projects\razer-rewrite\src\assets\minecraft" />
-      <recent name="C:\Users\neilhuang007\Documents\idea_projects\razer-rewrite\src\net" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="dev.razer.ui.impl" />
     </key>
   </component>
   <component name="RunManager">
@@ -101,6 +389,14 @@
       <option name="presentableId" value="Default" />
       <updated>1686564698325</updated>
     </task>
+    <task id="LOCAL-00001" summary="fully removal of realms code and add init method">
+      <created>1686896426581</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1686896426581</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -116,6 +412,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix libraries &amp; dependencies&#10;rewrite minecraft code &amp; initialization page&#10;changed GetMojanglogoTexture in Config.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix libraries &amp; dependencies&#10;rewrite minecraft code &amp; initialization page&#10;changed GetMojanglogoTexture in Config.java" />
+    <MESSAGE value="fully removal of realms code and add init method" />
+    <option name="LAST_COMMIT_MESSAGE" value="fully removal of realms code and add init method" />
   </component>
 </project>

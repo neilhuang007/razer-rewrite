@@ -20,7 +20,6 @@ import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.settings.GameSettings;
-import net.minecraft.realms.RealmsBridge;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
@@ -72,7 +71,7 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback
 
     /** Link to the Mojang Support about minimum requirements */
     private String openGLWarningLink;
-    private static final ResourceLocation splashTexts = new ResourceLocation("texts/splashes.txt");
+    private static final ResourceLocation razersplashTexts = new ResourceLocation("texts/splashes.txt");
     private static final ResourceLocation minecraftTitleTextures = new ResourceLocation("textures/gui/title/minecraft.png");
 
     /** An array of all the paths to the panorama pictures. */
@@ -103,7 +102,7 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback
         try
         {
             List<String> list = Lists.<String>newArrayList();
-            bufferedreader = new BufferedReader(new InputStreamReader(Minecraft.getMinecraft().getResourceManager().getResource(splashTexts).getInputStream(), Charsets.UTF_8));
+            bufferedreader = new BufferedReader(new InputStreamReader(Minecraft.getMinecraft().getResourceManager().getResource(razersplashTexts).getInputStream(), Charsets.UTF_8));
             String s;
 
             while ((s = bufferedreader.readLine()) != null)
