@@ -4,7 +4,7 @@ import dev.razer.Razer;
 import dev.razer.util.font.Font;
 import dev.razer.util.font.FontManager;
 import dev.razer.util.profiling.Profiler;
-import dev.razer.util.shader.RiseShaders;
+import dev.razer.util.shader.RazerShaders;
 import dev.razer.util.shader.base.ShaderRenderType;
 import net.minecraft.client.Minecraft;
 
@@ -42,6 +42,8 @@ public interface InstanceAccess {
 
     Font montserratMediumNormal = FontManager.getMontserratMedium(18);
 
+    Font getMontserratItalic = FontManager.getMontserratItalic(56);
+
     Font nunitoBoldMedium = FontManager.getNunitoBold(18);
 
     Font nunitoLarge = FontManager.getNunito(42);
@@ -73,10 +75,10 @@ public interface InstanceAccess {
 
 
     static void render3DRunnables(float partialTicks) {
-        RiseShaders.OUTLINE_SHADER.run(ShaderRenderType.CAMERA, partialTicks, InstanceAccess.NORMAL_OUTLINE_RUNNABLES);
-        RiseShaders.POST_BLOOM_SHADER.run(ShaderRenderType.CAMERA, partialTicks, InstanceAccess.NORMAL_POST_BLOOM_RUNNABLES);
-        RiseShaders.UI_BLOOM_SHADER.run(ShaderRenderType.CAMERA, partialTicks, InstanceAccess.UI_BLOOM_RUNNABLES);
-        RiseShaders.GAUSSIAN_BLUR_SHADER.run(ShaderRenderType.CAMERA, partialTicks, InstanceAccess.NORMAL_BLUR_RUNNABLES);
+        RazerShaders.OUTLINE_SHADER.run(ShaderRenderType.CAMERA, partialTicks, InstanceAccess.NORMAL_OUTLINE_RUNNABLES);
+        RazerShaders.POST_BLOOM_SHADER.run(ShaderRenderType.CAMERA, partialTicks, InstanceAccess.NORMAL_POST_BLOOM_RUNNABLES);
+        RazerShaders.UI_BLOOM_SHADER.run(ShaderRenderType.CAMERA, partialTicks, InstanceAccess.UI_BLOOM_RUNNABLES);
+        RazerShaders.GAUSSIAN_BLUR_SHADER.run(ShaderRenderType.CAMERA, partialTicks, InstanceAccess.NORMAL_BLUR_RUNNABLES);
     }
 
     static void clearRunnables() {

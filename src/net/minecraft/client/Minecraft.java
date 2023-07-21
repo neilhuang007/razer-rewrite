@@ -37,6 +37,7 @@ import java.util.concurrent.FutureTask;
 import javax.imageio.ImageIO;
 
 import dev.razer.Razer;
+import dev.razer.ui.impl.intro.IntroSequence;
 import dev.razer.ui.impl.menu.Mainmenu;
 import jdk.nashorn.internal.objects.annotations.Getter;
 import net.minecraft.block.Block;
@@ -483,7 +484,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
      */
     private void startGame() throws LWJGLException, IOException
     {
-        Razer.INSTANCE.initRazer();
+
         this.gameSettings = new GameSettings(this, this.mcDataDir);
         this.defaultResourcePacks.add(this.mcDefaultResourcePack);
         this.startTimerHackThread();
@@ -499,9 +500,11 @@ public class Minecraft implements IThreadListener, IPlayerUsage
         this.setInitialDisplayMode();
         this.createDisplay();
         OpenGlHelper.initializeTextures();
+
         this.framebufferMc = new Framebuffer(this.displayWidth, this.displayHeight, true);
         this.framebufferMc.setFramebufferColor(0.0F, 0.0F, 0.0F, 0.0F);
         this.registerMetadataSerializers();
+
         this.mcResourcePackRepository = new ResourcePackRepository(this.fileResourcepacks, new File(this.mcDataDir, "server-resource-packs"), this.mcDefaultResourcePack, this.metadataSerializer_, this.gameSettings);
         this.mcResourceManager = new SimpleReloadableResourceManager(this.metadataSerializer_);
         this.mcLanguageManager = new LanguageManager(this.metadataSerializer_, this.gameSettings.forceUnicodeFont);
@@ -509,26 +512,35 @@ public class Minecraft implements IThreadListener, IPlayerUsage
         this.refreshResources();
         this.renderEngine = new TextureManager(this.mcResourceManager);
         this.mcResourceManager.registerReloadListener(this.renderEngine);
-        this.drawSplashScreen(this.renderEngine);
+        // init screen need to be loaded later than this in order for fonts & textures to work
+        System.out.println("draw intro");
+        IntroSequence.drawIntroSequence(getTextureManager());
         this.initStream();
+        IntroSequence.setProgress(1,"init stream");
         this.skinManager = new SkinManager(this.renderEngine, new File(this.fileAssets, "skins"), this.sessionService);
+        IntroSequence.setProgress(2,"skins");
         this.saveLoader = new AnvilSaveConverter(new File(this.mcDataDir, "saves"));
+        IntroSequence.setProgress(3,"loading worlds & options");
         this.mcSoundHandler = new SoundHandler(this.mcResourceManager, this.gameSettings);
+        IntroSequence.setProgress(4,"loading sound");
         this.mcResourceManager.registerReloadListener(this.mcSoundHandler);
+        IntroSequence.setProgress(5,"registering sound");
         this.mcMusicTicker = new MusicTicker(this);
+        IntroSequence.setProgress(6,"loading music");
         this.fontRendererObj = new FontRenderer(this.gameSettings, new ResourceLocation("textures/font/ascii.png"), this.renderEngine, false);
-
+        IntroSequence.setProgress(7,"loading font renderer");
         if (this.gameSettings.forceUnicodeFont != null)
         {
             this.fontRendererObj.setUnicodeFlag(this.isUnicode());
             this.fontRendererObj.setBidiFlag(this.mcLanguageManager.isCurrentLanguageBidirectional());
         }
-
+        IntroSequence.setProgress(8,"Setting up language unicode");
         this.standardGalacticFontRenderer = new FontRenderer(this.gameSettings, new ResourceLocation("textures/font/ascii_sga.png"), this.renderEngine, false);
         this.mcResourceManager.registerReloadListener(this.fontRendererObj);
         this.mcResourceManager.registerReloadListener(this.standardGalacticFontRenderer);
         this.mcResourceManager.registerReloadListener(new GrassColorReloadListener());
         this.mcResourceManager.registerReloadListener(new FoliageColorReloadListener());
+        IntroSequence.setProgress(9,"registering Managers");
         AchievementList.openInventory.setStatStringFormatter(new IStatStringFormat()
         {
             public String formatString(String str)
@@ -543,8 +555,10 @@ public class Minecraft implements IThreadListener, IPlayerUsage
                 }
             }
         });
+        IntroSequence.setProgress(10,"achievements");
         this.mouseHelper = new MouseHelper();
         this.checkGLError("Pre startup");
+        IntroSequence.setProgress(11,"pre startup completed");
         GlStateManager.enableTexture2D();
         GlStateManager.shadeModel(7425);
         GlStateManager.clearDepth(1.0D);
@@ -557,6 +571,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
         GlStateManager.loadIdentity();
         GlStateManager.matrixMode(5888);
         this.checkGLError("Startup");
+        IntroSequence.setProgress(12,"startup");
         this.textureMapBlocks = new TextureMap("textures");
         this.textureMapBlocks.setMipmapLevels(this.gameSettings.mipmapLevels);
         this.renderEngine.loadTickableTexture(TextureMap.locationBlocksTexture, this.textureMapBlocks);
@@ -577,19 +592,18 @@ public class Minecraft implements IThreadListener, IPlayerUsage
         this.guiAchievement = new GuiAchievement(this);
         GlStateManager.viewport(0, 0, this.displayWidth, this.displayHeight);
         this.effectRenderer = new EffectRenderer(this.theWorld, this.renderEngine);
+        IntroSequence.setProgress(13,"post startup");
         this.checkGLError("Post startup");
         this.ingameGUI = new GuiIngame(this);
 
-        if (this.serverName != null)
-        {
-            this.displayGuiScreen(new GuiConnecting(new Mainmenu(), this, this.serverName, this.serverPort));
-        }
-        else
-        {
-            this.displayGuiScreen(new Mainmenu());
-        }
+//        if (this.serverName != null) {
+//            this.displayGuiScreen(new GuiConnecting(new IntroSequence(), this, this.serverName, this.serverPort));
+//        } else {
+//            this.displayGuiScreen(new IntroSequence());
+//        }
 
         this.renderEngine.deleteTexture(this.mojangLogo);
+        IntroSequence.setProgress(14,"initing phase");
         this.mojangLogo = null;
         this.loadingScreen = new LoadingScreenRenderer(this);
 
@@ -607,7 +621,9 @@ public class Minecraft implements IThreadListener, IPlayerUsage
             this.gameSettings.enableVsync = false;
             this.gameSettings.saveOptions();
         }
-
+        IntroSequence.setProgress(15,"game optimizing");
+        Razer.INSTANCE.initRazer();
+        IntroSequence.setProgress(16,"init rise");
         this.renderGlobal.makeEntityOutlineShader();
     }
 

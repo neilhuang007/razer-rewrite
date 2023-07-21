@@ -11,7 +11,7 @@ public class ColorManager {
     public static Color withAlpha(final Color color, final int alpha) {
         return new Color(color.getRed(), color.getGreen(), color.getBlue(), (int) MathUtil.clamp(0, 255, alpha));
     }
-    static void glColor(final Color color) {
+    public static void glColor(final Color color) {
         GL11.glColor4f(color.getRed() / 255.0F, color.getGreen() / 255.0F, color.getBlue() / 255.0F, color.getAlpha() / 255.0F);
     }
 

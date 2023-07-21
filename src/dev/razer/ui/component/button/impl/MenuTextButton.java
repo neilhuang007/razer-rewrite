@@ -23,6 +23,8 @@ public class MenuTextButton extends MenuButton {
         this.name = name;
     }
 
+
+
     @Override
     public void draw(int mouseX, int mouseY, float partialTicks) {
         // Runs the animation update - keep this

@@ -1,6 +1,6 @@
 package dev.razer.util.shader.impl;
 
-import dev.razer.util.shader.base.RiseShaderProgram;
+import dev.razer.util.shader.base.RazerShaderProgram;
 import dev.razer.util.shader.base.ShaderUniforms;
 import net.minecraft.client.renderer.GlStateManager;
 import org.lwjgl.opengl.GL11;
@@ -9,7 +9,7 @@ import java.awt.*;
 
 public class RQShader {
 
-    private final RiseShaderProgram program = new RiseShaderProgram("rq.frag", "vertex.vsh");
+    private final RazerShaderProgram program = new RazerShaderProgram("rq.frag", "vertex.vsh");
 
     /**
      * Draws a rounded rectangle at the given coordinates with the given lengths
@@ -31,9 +31,9 @@ public class RQShader {
         GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
         GlStateManager.enableAlpha();
         GlStateManager.alphaFunc(GL11.GL_GREATER, 0.0F);
-        RiseShaderProgram.drawQuad(x, y, width, height);
+        RazerShaderProgram.drawQuad(x, y, width, height);
         GlStateManager.disableBlend();
-        RiseShaderProgram.stop();
+        RazerShaderProgram.stop();
     }
 
     /**

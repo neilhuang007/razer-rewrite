@@ -82,4 +82,6 @@ public class ResourceLocation
     {
         return 31 * this.resourceDomain.hashCode() + this.resourcePath.hashCode();
     }
+
+
 }

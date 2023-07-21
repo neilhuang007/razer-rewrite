@@ -1,9 +1,13 @@
 package dev.razer;
 
-
+import dev.razer.util.localization.Locale;
+import dev.razer.util.math.MathConst;
 import jdk.nashorn.internal.objects.annotations.Getter;
+import lombok.Setter;
 import net.minecraft.client.Minecraft;
 
+
+@lombok.Getter
 public enum Razer {
     INSTANCE;
 
@@ -15,6 +19,14 @@ public enum Razer {
     public static String VERSION_DATE = "June 5, 2023";
 
 
+    //private RiseClickGUI standardClickGUI;
+
+    @Setter
+    private Locale locale = Locale.EN_US; // The language of the client
+
+    //private EventBus eventBus;
+
+
 
     /**
      * The main method when the Minecraft#startGame method is about
@@ -23,26 +35,26 @@ public enum Razer {
      */
 
     @Getter
-    public void initRazer() {
+    public void initRazer(){
 
         // Init
         Minecraft mc = Minecraft.getMinecraft();
+        MathConst.calculate();
 
-        System.out.println("init Razer");
+        // Compatibility
+        mc.gameSettings.guiScale = 1;
+        mc.gameSettings.ofFastRender = false;
+        //mc.gameSettings.ofShowGlErrors = DEVELOPMENT_SWITCH;
 
-        changetitle();
-
-
+        // Performance
+        mc.gameSettings.ofSmartAnimations = true;
+        mc.gameSettings.ofSmoothFps = false;
+        mc.gameSettings.ofFastMath = false;
 
 
 
 
     }
 
-    @Getter
-    public String changetitle() {
-        RazerTitle = "Razer v0.1";
-        return RazerTitle;
-    };
 
 }

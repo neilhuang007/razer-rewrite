@@ -1,7 +1,7 @@
 package dev.razer.util.shader.impl;
 
-import dev.razer.util.shader.base.RiseShader;
-import dev.razer.util.shader.base.RiseShaderProgram;
+import dev.razer.util.shader.base.RazerShader;
+import dev.razer.util.shader.base.RazerShaderProgram;
 import dev.razer.util.shader.base.ShaderRenderType;
 import dev.razer.util.shader.base.ShaderUniforms;
 import net.minecraft.client.gui.ScaledResolution;
@@ -12,9 +12,9 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.List;
 
-public class MainMenuBackgroundShader extends RiseShader {
+public class MainMenuBackgroundShader extends RazerShader {
 
-    private final RiseShaderProgram program = new RiseShaderProgram("main_menu/background.frag", "vertex.vsh");
+    private final RazerShaderProgram program = new RazerShaderProgram("main_menu/background.frag", "vertex.vsh");
 
     private Framebuffer tempFBO = new Framebuffer(mc.displayWidth, mc.displayHeight, true);
 
@@ -40,8 +40,8 @@ public class MainMenuBackgroundShader extends RiseShader {
             this.program.start();
             ShaderUniforms.uniform2f(programID, "resolution", mc.displayWidth, mc.displayHeight);
             ShaderUniforms.uniform1f(programID, "time", (System.currentTimeMillis() - mc.getStartMillisTime()) / 1000F);
-            RiseShaderProgram.drawQuad();
-            RiseShaderProgram.stop();
+            RazerShaderProgram.drawQuad();
+            RazerShaderProgram.stop();
         }
     }
 
