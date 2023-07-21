@@ -1,7 +1,7 @@
 package dev.razer.util.shader.impl;
 
-import dev.razer.util.shader.base.RiseShader;
-import dev.razer.util.shader.base.RiseShaderProgram;
+import dev.razer.util.shader.base.RazerShader;
+import dev.razer.util.shader.base.RazerShaderProgram;
 import dev.razer.util.shader.base.ShaderRenderType;
 import dev.razer.util.shader.base.ShaderUniforms;
 import net.minecraft.client.renderer.GlStateManager;
@@ -13,9 +13,9 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.List;
 
-public class OutlineShader extends RiseShader {
+public class OutlineShader extends RazerShader {
 
-    private final RiseShaderProgram shaderProgram = new RiseShaderProgram("outline.frag", "vertex.vsh");
+    private final RazerShaderProgram shaderProgram = new RazerShaderProgram("outline.frag", "vertex.vsh");
     private Framebuffer inputFramebuffer = new Framebuffer(mc.displayWidth, mc.displayHeight, true);
 
     @Override
@@ -69,10 +69,10 @@ public class OutlineShader extends RiseShader {
                     GlStateManager.tryBlendFuncSeparate(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA, GL11.GL_ONE, GL11.GL_ZERO);
                     GlStateManager.alphaFunc(GL11.GL_GREATER, 0.0F);
                     this.inputFramebuffer.bindFramebufferTexture();
-                    RiseShaderProgram.drawQuad();
+                    RazerShaderProgram.drawQuad();
                     GlStateManager.disableBlend();
 
-                    RiseShaderProgram.stop();
+                    RazerShaderProgram.stop();
                 }
 
                 break;

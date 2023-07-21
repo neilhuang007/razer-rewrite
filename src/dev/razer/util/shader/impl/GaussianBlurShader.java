@@ -1,7 +1,7 @@
 package dev.razer.util.shader.impl;
 
-import dev.razer.util.shader.base.RiseShader;
-import dev.razer.util.shader.base.RiseShaderProgram;
+import dev.razer.util.shader.base.RazerShader;
+import dev.razer.util.shader.base.RazerShaderProgram;
 import dev.razer.util.shader.base.ShaderRenderType;
 import dev.razer.util.shader.base.ShaderUniforms;
 import dev.razer.util.shader.kernel.GaussianKernel;
@@ -15,9 +15,9 @@ import org.lwjgl.opengl.GL13;
 import java.nio.FloatBuffer;
 import java.util.List;
 
-public class GaussianBlurShader extends RiseShader {
+public class GaussianBlurShader extends RazerShader {
 
-    private final RiseShaderProgram blurProgram = new RiseShaderProgram("blur.frag", "vertex.vsh");
+    private final RazerShaderProgram blurProgram = new RazerShaderProgram("blur.frag", "vertex.vsh");
     private Framebuffer inputFramebuffer = new Framebuffer(mc.displayWidth, mc.displayHeight, true);
     private Framebuffer outputFramebuffer = new Framebuffer(mc.displayWidth, mc.displayHeight, true);
     private GaussianKernel gaussianKernel = new GaussianKernel(0);
@@ -78,7 +78,7 @@ public class GaussianBlurShader extends RiseShader {
                     GlStateManager.tryBlendFuncSeparate(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA, GL11.GL_ONE, GL11.GL_ZERO);
                     GlStateManager.alphaFunc(GL11.GL_GREATER, 0.0F);
                     mc.getFramebuffer().bindFramebufferTexture();
-                    RiseShaderProgram.drawQuad();
+                    RazerShaderProgram.drawQuad();
 
                     mc.getFramebuffer().bindFramebuffer(true);
                     ShaderUniforms.uniform2f(programId, "u_direction", 0.0F, compression);
@@ -86,10 +86,10 @@ public class GaussianBlurShader extends RiseShader {
                     GL13.glActiveTexture(GL13.GL_TEXTURE20);
                     inputFramebuffer.bindFramebufferTexture();
                     GL13.glActiveTexture(GL13.GL_TEXTURE0);
-                    RiseShaderProgram.drawQuad();
+                    RazerShaderProgram.drawQuad();
                     GlStateManager.disableBlend();
 
-                    RiseShaderProgram.stop();
+                    RazerShaderProgram.stop();
                 }
 
                 break;

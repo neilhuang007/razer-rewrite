@@ -10,6 +10,15 @@ public class FontManager {
 
     // FOR ANYONE WHO VISITS THIS CLASS: CREATE A HASHMAP FOR EACH FONT AND BASICALLY COPY THE GIVEN METHOD
 
+    private static final HashMap<Integer, FontRenderer> LATO = new HashMap<>();
+
+    private static final HashMap<Integer, FontRenderer> LATO_BOLD = new HashMap<>();
+
+    private static final HashMap<Integer, FontRenderer> LATO_ITALIC = new HashMap<>();
+
+    private static final HashMap<Integer, FontRenderer> LATO_LIGHT = new HashMap<>();
+
+
     private static final HashMap<Integer, FontRenderer> INTERNATIONAL = new HashMap<>();
     private static final HashMap<Integer, FontRenderer> MONTSERRAT_MAP = new HashMap<>();
     private static final HashMap<Integer, FontRenderer> ROBOTO_MAP = new HashMap<>();
@@ -27,6 +36,12 @@ public class FontManager {
     private static final HashMap<Integer, FontRenderer> POPPINS_MEDIUM = new HashMap<>();
     private static final HashMap<Integer, FontRenderer> POPPINS_REGULAR = new HashMap<>();
     private static final HashMap<Integer, FontRenderer> POPPINS_LIGHT = new HashMap<>();
+
+    private static final HashMap<Integer, FontRenderer> MONTSERRAT_ITALIC = new HashMap<>();
+
+    private static final HashMap<Integer, FontRenderer> MONTSERRAT = new HashMap<>();
+
+    private static final HashMap<Integer, FontRenderer> MONTSERRAT_BOLD = new HashMap<>();
 
     private static final HashMap<Integer, FontRenderer> QUICKSAND_MAP_MEDIUM = new HashMap<>();
     private static final HashMap<Integer, FontRenderer> QUICKSAND_MAP_LIGHT = new HashMap<>();
@@ -52,17 +67,46 @@ public class FontManager {
     private static final HashMap<Integer, FontRenderer> PRODUCT_SANS_MEDIUM = new HashMap<>();
     private static final HashMap<Integer, FontRenderer> PRODUCT_SANS_LIGHT = new HashMap<>();
 
+    private static final HashMap<Integer, FontRenderer> POPPINS_THIN = new HashMap<>();
+
     private static final HashMap<Integer, FontRenderer> SF_UI_PRO = new HashMap<>();
 
     private static final HashMap<Integer, FontRenderer> HACK = new HashMap<>();
+
+    private static final HashMap<Integer, FontRenderer> HANDMADE_MAP = new HashMap<>();
 
     // COPY THIS METHOD FOR EACH METHOD AND REPLACE FONTNAME WITH THE USED FONT FILE NAME
     public static Font getMontserratMedium(final int size) {
         return get(MONTSERRAT_MAP, size, "Montserrat-Medium", true, true);
     }
 
+    public static Font getMontserratBold(final int size) {
+        return get(MONTSERRAT_BOLD, size, "Montserrat-Bold", true, true);
+    }
+
+    public static Font getMontserrat(final int size) {
+        return get(MONTSERRAT, size, "Montserrat", true, true);
+    }
+
+    public static Font getMontserratItalic(final int size) {
+        return get(MONTSERRAT_ITALIC, size, "Montserrat-Italic", true, true);
+    }
+
     public static Font getMontserratHairline(final int size) {
         return get(MONTSERRAT_HAIRLINE, size, "Montserrat-Hairline", true, true);
+    }
+
+    public static Font getLato(final int size) {
+        return get(LATO, size, "Lato-Black", true, true);
+    }
+    public static Font getLatoBold(final int size) {
+        return get(LATO_BOLD, size, "Lato-Bold", true, true);
+    }
+    public static Font getLatoItalic(final int size) {
+        return get(LATO_ITALIC, size, "Lato-Italic", true, true);
+    }
+    public static Font getLatoLight(final int size) {
+        return get(LATO_LIGHT, size, "Lato-Light", true, true);
     }
 
     public static Font getInternational(int size) {
@@ -77,12 +121,20 @@ public class FontManager {
         return get(LIGHT_MAP, size, "Light", true, true);
     }
 
+    public static Font getHandmade(final int size) {
+        return get(HANDMADE_MAP, size, "Handmade", true, true);
+    }
+
     public static Font getSFUIPro(final int size) {
         return get(SF_UI_PRO, size, "SF-UI-Pro", true, true);
     }
 
     public static Font getPoppinsBold(final int size) {
         return get(POPPINS_BOLD, size, "Poppins-Bold", true, true);
+    }
+
+    public static Font getPoppinsThin(final int size) {
+        return get(POPPINS_THIN, size, "Poppins-Thin", true, true);
     }
 
     public static Font getPoppinsSemiBold(final int size) {
@@ -168,6 +220,8 @@ public class FontManager {
     public static Font getProductSansRegular(final int size) {
         return get(PRODUCT_SANS_REGULAR, size, "product_sans_regular", true, true);
     }
+
+
 
     public static Font getProductSansMedium(final int size) {
         return get(PRODUCT_SANS_MEDIUM, size, "product_sans_medium", true, true);
