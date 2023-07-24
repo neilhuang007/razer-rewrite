@@ -46,8 +46,61 @@ public final class IntroSequence extends GuiScreen{
 
     // main def to draw the intro sequence
     public static void drawIntroSequence(final TextureManager tm) {
+
+        // Initialize the texture manager if null
+        if (ctm == null) ctm = tm;
+
+        // Get the users screen width and height to apply
+        final ScaledResolution scaledresolution = new ScaledResolution(Minecraft.getMinecraft());
+
+        //System.out.println("width: " + scaledresolution.getScaledWidth() + "height: " + scaledresolution.getScaledHeight());
+
+        // Create the scale factor
+        final int scaleFactor = scaledresolution.getScaleFactor();
+
+        // Bind the width and height to the framebuffer
+        final Framebuffer framebuffer = new Framebuffer(scaledresolution.getScaledWidth() * scaleFactor,
+                scaledresolution.getScaledHeight() * scaleFactor, true);
+        framebuffer.bindFramebuffer(false);
+
+        // Create the projected image to be rendered
+        GlStateManager.matrixMode(GL11.GL_PROJECTION);
+        GlStateManager.loadIdentity();
+        GlStateManager.ortho(0.0D, scaledresolution.getScaledWidth(), scaledresolution.getScaledHeight(), 0.0D, 1000.0D, 3000.0D);
+        GlStateManager.matrixMode(GL11.GL_MODELVIEW);
+        GlStateManager.loadIdentity();
+        GlStateManager.translate(0.0F, 0.0F, -2000.0F);
+        GlStateManager.disableLighting();
+        GlStateManager.disableFog();
+        GlStateManager.disableDepth();
+        GlStateManager.enableTexture2D();
+
+        // Initialize the splash texture
+        if (splash == null) {
+            splash = new ResourceLocation("razer/backgrounds/splash_background.png");
+        }
+
+        // Bind the texture
+        tm.bindTexture(splash);
+
+        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+
+        // Draw the image
+        Gui.drawScaledCustomSizeModalRect(0, 0, 0, 0, 1920, 1080,
+                scaledresolution.getScaledWidth(), scaledresolution.getScaledHeight(), 1920, 1080);
+
         // Draw the progress bar
         drawProgress();
+
+        // Unbind the width and height as it's no longer needed
+        framebuffer.unbindFramebuffer();
+
+        // Render the previously used frame buffer
+        framebuffer.framebufferRender(scaledresolution.getScaledWidth() * scaleFactor, scaledresolution.getScaledHeight() * scaleFactor);
+
+        // Update the texture to enable alpha drawing
+        GlStateManager.enableAlpha();
+        GlStateManager.alphaFunc(GL11.GL_GREATER, 0.1F);
 
         // Update the users screen
         Minecraft.getMinecraft().updateDisplay();

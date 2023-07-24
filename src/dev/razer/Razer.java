@@ -42,7 +42,7 @@ public enum Razer {
         MathConst.calculate();
 
         // Compatibility
-        mc.gameSettings.guiScale = 1;
+        mc.gameSettings.guiScale = 2;
         mc.gameSettings.ofFastRender = false;
         //mc.gameSettings.ofShowGlErrors = DEVELOPMENT_SWITCH;
 
