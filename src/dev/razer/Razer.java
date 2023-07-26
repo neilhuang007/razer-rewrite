@@ -1,5 +1,7 @@
 package dev.razer;
 
+
+import dev.razer.event.bus.bus.impl.EventBus;
 import dev.razer.util.localization.Locale;
 import dev.razer.util.math.MathConst;
 import jdk.nashorn.internal.objects.annotations.Getter;
@@ -18,28 +20,24 @@ public enum Razer {
     public static String VERSION_FULL = "1.0"; // Used to give more detailed build info on beta builds
     public static String VERSION_DATE = "June 5, 2023";
 
-
-    //private RiseClickGUI standardClickGUI;
-
     @Setter
     private Locale locale = Locale.EN_US; // The language of the client
 
-    //private EventBus eventBus;
+    public static final EventBus eventBus = new EventBus();
 
 
 
-    /**
-     * The main method when the Minecraft#startGame method is about
-     * finish executing our client gets called and that's where we
-     * can start loading our own classes and modules.
-     */
+
 
     @Getter
     public void initRazer(){
+        // this method is toggled during the init phase of minecraft
 
         // Init
         Minecraft mc = Minecraft.getMinecraft();
         MathConst.calculate();
+
+        // managers
 
         // Compatibility
         mc.gameSettings.guiScale = 2;
@@ -55,6 +53,4 @@ public enum Razer {
 
 
     }
-
-
 }

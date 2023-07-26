@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9ad04c4-c420-49a0-acba-06004f353030" name="Changes" comment="emergency patch" />
+    <list default="true" id="c9ad04c4-c420-49a0-acba-06004f353030" name="Changes" comment="emergency patch">
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/bus/Listener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/bus/Priorities.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/bus/annotations/EventLink.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/bus/bus/Bus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/bus/bus/impl/EventBus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/world/TickEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/types/CancellableEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/types/Event.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/managers/EventManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/Razer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/Razer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/minecraft/client/Minecraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/minecraft/client/Minecraft.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,7 +51,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/neilhuang007/Documents/testsuite/razer-rewrite",
+    "last_opened_file_path": "C:/Users/neilhuang007/Documents/idea_projects/razer-rewrite/src/dev/razer",
     "project.structure.last.edited": "工件",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -47,11 +60,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\neilhuang007\Documents\idea_projects\razer-rewrite\src\dev\razer" />
       <recent name="C:\Users\neilhuang007\Documents\idea_projects\razer-rewrite\src\assets\minecraft" />
       <recent name="C:\Users\neilhuang007\Documents\idea_projects\razer-rewrite\src\assets\minecraft\razer" />
       <recent name="C:\Users\neilhuang007\Documents\idea_projects\razer-rewrite\src\assets\minecraft\razer\logo" />
       <recent name="C:\Users\neilhuang007\Documents\idea_projects\razer-rewrite\src\assets\minecraft\razer\loading" />
-      <recent name="C:\Users\neilhuang007\Documents\idea_projects\razer-rewrite\src" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="dev.razer.ui.impl" />
