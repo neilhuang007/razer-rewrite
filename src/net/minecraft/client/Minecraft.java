@@ -37,6 +37,7 @@ import java.util.concurrent.FutureTask;
 import javax.imageio.ImageIO;
 
 import dev.razer.Razer;
+import dev.razer.event.impl.world.TickEvent;
 import dev.razer.ui.impl.intro.IntroSequence;
 import dev.razer.ui.impl.menu.Mainmenu;
 import jdk.nashorn.internal.objects.annotations.Getter;
@@ -1147,6 +1148,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
 
         for (int j = 0; j < this.timer.elapsedTicks; ++j)
         {
+            Razer.eventBus.post(new TickEvent());
             this.runTick();
         }
 
