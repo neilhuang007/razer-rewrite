@@ -3,20 +3,20 @@
     <CLASSES />
     <JAVADOC />
     <NATIVE>
-      <root url="file://$PROJECT_DIR$/src/natives" />
-      <root url="file://$PROJECT_DIR$/src/natives" />
-      <root url="file://$PROJECT_DIR$/src/natives" />
-      <root url="file://$PROJECT_DIR$/src/natives" />
-      <root url="file://$PROJECT_DIR$/src/natives" />
-      <root url="file://$PROJECT_DIR$/src/natives" />
-      <root url="file://$PROJECT_DIR$/src/natives" />
-      <root url="file://$PROJECT_DIR$/src/natives" />
-      <root url="file://$PROJECT_DIR$/src/natives" />
-      <root url="file://$PROJECT_DIR$/src/natives" />
-      <root url="file://$PROJECT_DIR$/src/natives" />
-      <root url="file://$PROJECT_DIR$/src/natives" />
-      <root url="file://$PROJECT_DIR$/src/natives" />
-      <root url="file://$PROJECT_DIR$/src/natives" />
+      <root url="file://$PROJECT_DIR$/src/jars/versions/1.8.8/1.8.8-natives" />
+      <root url="file://$PROJECT_DIR$/src/jars/versions/1.8.8/1.8.8-natives" />
+      <root url="file://$PROJECT_DIR$/src/jars/versions/1.8.8/1.8.8-natives" />
+      <root url="file://$PROJECT_DIR$/src/jars/versions/1.8.8/1.8.8-natives" />
+      <root url="file://$PROJECT_DIR$/src/jars/versions/1.8.8/1.8.8-natives" />
+      <root url="file://$PROJECT_DIR$/src/jars/versions/1.8.8/1.8.8-natives" />
+      <root url="file://$PROJECT_DIR$/src/jars/versions/1.8.8/1.8.8-natives" />
+      <root url="file://$PROJECT_DIR$/src/jars/versions/1.8.8/1.8.8-natives" />
+      <root url="file://$PROJECT_DIR$/src/jars/versions/1.8.8/1.8.8-natives" />
+      <root url="file://$PROJECT_DIR$/src/jars/versions/1.8.8/1.8.8-natives" />
+      <root url="file://$PROJECT_DIR$/src/jars/versions/1.8.8/1.8.8-natives" />
+      <root url="file://$PROJECT_DIR$/src/jars/versions/1.8.8/1.8.8-natives" />
+      <root url="file://$PROJECT_DIR$/src/jars/versions/1.8.8/1.8.8-natives" />
+      <root url="file://$PROJECT_DIR$/src/jars/versions/1.8.8/1.8.8-natives" />
     </NATIVE>
     <SOURCES />
   </library>

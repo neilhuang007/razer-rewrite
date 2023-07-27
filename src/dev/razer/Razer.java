@@ -5,6 +5,7 @@ import dev.razer.event.bus.bus.impl.EventBus;
 import dev.razer.util.localization.Locale;
 import dev.razer.util.math.MathConst;
 import jdk.nashorn.internal.objects.annotations.Getter;
+
 import lombok.Setter;
 import net.minecraft.client.Minecraft;
 

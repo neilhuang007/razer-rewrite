@@ -4,7 +4,6 @@
     <root id="archive" name="razer-rewrite.jar">
       <element id="module-output" name="razer-rewrite" />
       <element id="extracted-dir" path="$PROJECT_DIR$/src/jars/libraries/com/paulscode/codecwav/20101023/codecwav-20101023.jar" path-in-jar="/" />
-      <element id="library" level="project" name="natives" />
       <element id="extracted-dir" path="$PROJECT_DIR$/src/jars/libraries/com/paulscode/libraryjavasound/20101123/libraryjavasound-20101123.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/src/jars/libraries/oshi-project/oshi-core/1.1/oshi-core-1.1.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/src/jars/libraries/org/apache/httpcomponents/httpclient/4.3.3/httpclient-4.3.3.jar" path-in-jar="/" />

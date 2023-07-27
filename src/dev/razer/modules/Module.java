@@ -6,16 +6,12 @@ import dev.razer.modules.utils.Category;
 import dev.razer.modules.utils.ModuleInfo;
 import dev.razer.modules.utils.Settings;
 import dev.razer.util.interfaces.InstanceAccess;
-import lombok.Getter;
-import lombok.Setter;
+import jdk.nashorn.internal.objects.annotations.Getter;
+import jdk.nashorn.internal.objects.annotations.Setter;
 
-@Getter
-@Setter
+
+
 public abstract class Module implements InstanceAccess {
-
-
-
-
     // basic module settings
     private String displayName;
     private ModuleInfo moduleInfo;
