@@ -37,11 +37,9 @@ import java.util.concurrent.FutureTask;
 import javax.imageio.ImageIO;
 
 import dev.razer.Razer;
-import dev.razer.event.impl.client.GameEvent;
 import dev.razer.event.impl.world.TickEvent;
 import dev.razer.ui.impl.intro.IntroSequence;
 import dev.razer.ui.impl.menu.Mainmenu;
-import dev.razer.util.Timers.StopWatch;
 import jdk.nashorn.internal.objects.annotations.Getter;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -274,8 +272,6 @@ public class Minecraft implements IThreadListener, IPlayerUsage
 
     /** The ray trace hit that the mouse is over. */
     public MovingObjectPosition objectMouseOver;
-
-    public StopWatch gameEvent = new StopWatch();
 
     /** The game settings that currently hold effect. */
     public GameSettings gameSettings;
@@ -1152,14 +1148,8 @@ public class Minecraft implements IThreadListener, IPlayerUsage
 
         for (int j = 0; j < this.timer.elapsedTicks; ++j)
         {
-            Razer.eventBus.handle(new TickEvent());
+            Razer.eventBus.post(new TickEvent());
             this.runTick();
-        }
-
-        if (gameEvent.finished(50 * 20)) {
-            gameEvent.reset();
-
-            Razer.eventBus.handle(new GameEvent());
         }
 
         this.mcProfiler.endStartSection("preRenderErrors");

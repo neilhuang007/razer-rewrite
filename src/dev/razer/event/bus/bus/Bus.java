@@ -6,5 +6,4 @@ public interface Bus<Event> {
     void unsubscribe(final Object subscriber);
     void post(final Event event);
 
-    void handle(Event event);
 }

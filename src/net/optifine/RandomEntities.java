@@ -11,9 +11,6 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 import java.util.UUID;
-
-import dev.razer.Razer;
-import dev.razer.event.impl.world.WorldChangeEvent;
 import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.entity.DataWatcher;
@@ -90,7 +87,6 @@ public class RandomEntities
 
     public static void worldChanged(World oldWorld, World newWorld)
     {
-        Razer.eventBus.handle(new WorldChangeEvent());
         if (newWorld != null)
         {
             List list = newWorld.getLoadedEntityList();
