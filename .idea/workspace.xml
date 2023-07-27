@@ -5,18 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c9ad04c4-c420-49a0-acba-06004f353030" name="Changes" comment="emergency patch">
-      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/bus/Listener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/bus/Priorities.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/bus/annotations/EventLink.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/bus/bus/Bus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/bus/bus/impl/EventBus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/world/TickEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/types/CancellableEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/types/Event.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dev/razer/managers/EventManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/Razer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/Razer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/client/GameEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/client/ModuleToggleEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/server/ServerJoinEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/server/ServerKickEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/world/WorldChangeEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/modules/Module.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/modules/utils/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/modules/utils/ModuleInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/ClickGui/ClickGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/event/bus/bus/Bus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/event/bus/bus/Bus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/event/bus/bus/impl/EventBus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/event/bus/bus/impl/EventBus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/managers/ModuleManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/managers/ModuleManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/net/minecraft/client/Minecraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/minecraft/client/Minecraft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/minecraft/client/gui/GuiDisconnected.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/minecraft/client/gui/GuiDisconnected.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/minecraft/client/multiplayer/GuiConnecting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/minecraft/client/multiplayer/GuiConnecting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/optifine/RandomEntities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/optifine/RandomEntities.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +53,7 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "286767d8",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/neilhuang007/Documents/idea_projects/razer-rewrite/src/dev/razer",
     "project.structure.last.edited": "工件",
@@ -109,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689935289764</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="module sytem completed( kinda lame but mabye works)&#10;Config system set in progress&#10;ClickGUI next?">
+      <created>1690431132015</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1690431132015</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -129,6 +140,7 @@
     <MESSAGE value="fixed menu problems&#10;resources sycning with razor finished &#10;special thanks to 一个普普通通平平凡凡的神" />
     <MESSAGE value="more optimizations and modifications&#10;If anyone sees this, PLEASE FIX THE INTRO SCREEN" />
     <MESSAGE value="emergency patch" />
-    <option name="LAST_COMMIT_MESSAGE" value="emergency patch" />
+    <MESSAGE value="module sytem completed( kinda lame but mabye works)&#10;Config system set in progress&#10;ClickGUI next?" />
+    <option name="LAST_COMMIT_MESSAGE" value="module sytem completed( kinda lame but mabye works)&#10;Config system set in progress&#10;ClickGUI next?" />
   </component>
 </project>
