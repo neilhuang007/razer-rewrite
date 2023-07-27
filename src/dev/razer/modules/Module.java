@@ -4,6 +4,7 @@ import dev.razer.Razer;
 import dev.razer.event.impl.client.ModuleToggleEvent;
 import dev.razer.modules.utils.Category;
 import dev.razer.modules.utils.ModuleInfo;
+import dev.razer.modules.utils.Settings;
 import dev.razer.util.interfaces.InstanceAccess;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,10 +13,14 @@ import lombok.Setter;
 @Setter
 public abstract class Module implements InstanceAccess {
 
+
+
+
     // basic module settings
     private String displayName;
     private ModuleInfo moduleInfo;
     private final Category category;
+    private boolean autoEnabled;
     private boolean hidden;
     private boolean enabled;
     private int keyCode;
@@ -116,4 +121,9 @@ public abstract class Module implements InstanceAccess {
 
     public final void setDisplayName(String newdisplayName) { displayName = newdisplayName; }
 
+    // i don't know where to put this, so .....
+    public Settings register(Settings setting) {
+        Settings.settings.add(setting);
+        return setting;
+    }
 }
