@@ -4,19 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9ad04c4-c420-49a0-acba-06004f353030" name="Changes" comment="emergency patch">
-      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/bus/Listener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/bus/Priorities.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/bus/annotations/EventLink.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/bus/bus/Bus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/bus/bus/impl/EventBus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/world/TickEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/types/CancellableEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/types/Event.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dev/razer/managers/EventManager.java" afterDir="false" />
+    <list default="true" id="c9ad04c4-c420-49a0-acba-06004f353030" name="Changes" comment="event system completed using the google eventbus(this is actually an deobf version that allows us to modify the code a little bit)&#10;&#10;module system set in progress">
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/client/GameEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/client/ModuleToggleEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/server/ServerJoinEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/server/ServerKickEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/world/WorldChangeEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/modules/Module.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/modules/utils/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/modules/utils/ModuleInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/Razer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/Razer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/event/bus/bus/Bus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/event/bus/bus/Bus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/event/bus/bus/impl/EventBus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/event/bus/bus/impl/EventBus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/managers/ModuleManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/managers/ModuleManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/net/minecraft/client/Minecraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/minecraft/client/Minecraft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/minecraft/client/gui/GuiDisconnected.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/minecraft/client/gui/GuiDisconnected.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/minecraft/client/multiplayer/GuiConnecting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/minecraft/client/multiplayer/GuiConnecting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/optifine/RandomEntities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/optifine/RandomEntities.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,38 +30,49 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="AnnotationType" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2R6JfJb3DqPItaCxsHT6sErcQwC" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/neilhuang007/Documents/idea_projects/razer-rewrite/src/dev/razer",
-    "project.structure.last.edited": "工件",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;ba198459&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/neilhuang007/Documents/idea_projects/razer-rewrite/src/dev/razer&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;工件&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\neilhuang007\Documents\idea_projects\razer-rewrite\src\dev\razer" />

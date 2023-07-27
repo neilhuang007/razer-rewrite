@@ -2,6 +2,9 @@ package net.minecraft.client.gui;
 
 import java.io.IOException;
 import java.util.List;
+
+import dev.razer.Razer;
+import dev.razer.event.impl.server.ServerKickEvent;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.IChatComponent;
 
@@ -34,6 +37,7 @@ public class GuiDisconnected extends GuiScreen
      */
     public void initGui()
     {
+        Razer.eventBus.handle(new ServerKickEvent(multilineMessage));
         this.buttonList.clear();
         this.multilineMessage = this.fontRendererObj.listFormattedStringToWidth(this.message.getFormattedText(), this.width - 50);
         this.field_175353_i = this.multilineMessage.size() * this.fontRendererObj.FONT_HEIGHT;
