@@ -63,6 +63,8 @@ public abstract class Module implements InstanceAccess {
 
     public void untoggle(){this.setEnabled(!enabled);}
 
+    // its not only enabled, like if u already enabled a module and toggle it again it will disable it
+
     public void setEnabled(final boolean enabled) {
         if (this.enabled == enabled || (!this.moduleInfo.allowDisable() && !enabled)) {
             return;

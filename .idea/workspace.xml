@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9ad04c4-c420-49a0-acba-06004f353030" name="Changes" comment="Settings System kinda set up?????&#10;DO NOT TRY TO UNDERSTAND THE CODE IS WILL CAUSE U SERVERE BRAIN DAMAGE&#10;anyway, hope tommorrow i could fix all of these and we can start to write bypasses( not likely)&#10;WE NEED SOMEONE FOR DEV&#10;IIII CANNNN NOTTTTT DO EVERY THING AT THE SAME TIME">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/razer_rewrite_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/razer_rewrite_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/natives.xml" beforeDir="false" />
+    <list default="true" id="c9ad04c4-c420-49a0-acba-06004f353030" name="Changes" comment="this is a fix for libraries and stuff">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/razer-rewrite.iml" beforeDir="false" afterPath="$PROJECT_DIR$/razer-rewrite.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/Razer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/Razer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dev/razer/modules/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/modules/Module.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/modules/impl/chat/TickEventTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/modules/impl/chat/TickEventTester.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,23 +35,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/neilhuang007/Documents/idea_projects/razer-rewrite/src/jars/versions/1.8.8/1.8.8-natives/twitchsdk.dll",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/neilhuang007/Documents/idea_projects/razer-rewrite/src/jars/versions/1.8.8/1.8.8-natives/twitchsdk.dll&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\neilhuang007\Documents\idea_projects\razer-rewrite\src\dev\razer" />
@@ -120,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690465435225</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="this is a fix for libraries and stuff">
+      <created>1690467047359</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1690467047359</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -142,6 +146,7 @@
     <MESSAGE value="emergency patch" />
     <MESSAGE value="module sytem completed( kinda lame but mabye works)&#10;Config system set in progress&#10;ClickGUI next?" />
     <MESSAGE value="Settings System kinda set up?????&#10;DO NOT TRY TO UNDERSTAND THE CODE IS WILL CAUSE U SERVERE BRAIN DAMAGE&#10;anyway, hope tommorrow i could fix all of these and we can start to write bypasses( not likely)&#10;WE NEED SOMEONE FOR DEV&#10;IIII CANNNN NOTTTTT DO EVERY THING AT THE SAME TIME" />
-    <option name="LAST_COMMIT_MESSAGE" value="Settings System kinda set up?????&#10;DO NOT TRY TO UNDERSTAND THE CODE IS WILL CAUSE U SERVERE BRAIN DAMAGE&#10;anyway, hope tommorrow i could fix all of these and we can start to write bypasses( not likely)&#10;WE NEED SOMEONE FOR DEV&#10;IIII CANNNN NOTTTTT DO EVERY THING AT THE SAME TIME" />
+    <MESSAGE value="this is a fix for libraries and stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="this is a fix for libraries and stuff" />
   </component>
 </project>
