@@ -4,10 +4,79 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9ad04c4-c420-49a0-acba-06004f353030" name="Changes" comment="this is a fix for libraries and stuff">
+    <list default="true" id="c9ad04c4-c420-49a0-acba-06004f353030" name="Changes" comment="emergency patch">
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/client/GameEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/client/ModuleToggleEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/server/ServerJoinEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/server/ServerKickEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/world/WorldChangeEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/module/Module.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/module/api/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/module/api/DevelopmentFeature.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/module/api/ModuleInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/module/api/manager/ModuleManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/module/impl/render/ClickGUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/module/impl/render/Interface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/RiseClickGUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/ModuleComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/category/CategoryComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/category/SidebarCategory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/language/LanguageComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/popup/PopUp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/popup/impl/ModifierSelectionPopUp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/theme/ThemeComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/theme/ThemeKeyColorComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/value/ValueComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/value/impl/BooleanValueComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/value/impl/BoundsNumberValueComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/value/impl/ColorValueComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/value/impl/ListValueComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/value/impl/ModeValueComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/value/impl/NumberValueComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/value/impl/PositionValueComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/value/impl/StringValueComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/screen/Screen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/screen/impl/CategoryScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/screen/impl/ConfigScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/screen/impl/HomeScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/screen/impl/ImageboardScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/screen/impl/InfoScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/screen/impl/LanguageScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/screen/impl/SearchScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/screen/impl/SpeedBuilderScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/screen/impl/ThemeScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/screen/impl/speedbuilder/Modifier.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/screen/impl/speedbuilder/ModifierSelection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/screen/impl/speedbuilder/SpeedBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/screen/impl/speedbuilder/Tick.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/screen/impl/speedbuilder/impl/ExemptedValue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/util/interfaces/Toggleable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/value/Mode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/value/Value.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/value/impl/BooleanValue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/value/impl/BoundsNumberValue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/value/impl/ColorValue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/value/impl/DragValue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/value/impl/ListValue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/value/impl/ModeValue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/value/impl/NumberValue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/value/impl/StringValue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/value/impl/SubMode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/modules/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/modules/Module.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/modules/impl/chat/TickEventTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/modules/impl/chat/TickEventTester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/Razer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/Razer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/event/bus/bus/Bus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/event/bus/bus/Bus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/event/bus/bus/impl/EventBus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/event/bus/bus/impl/EventBus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/event/impl/world/TickEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/world/TickEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/managers/ModuleManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/ui/component/button/impl/MenuTextButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/ui/component/button/impl/MenuTextButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/ui/impl/intro/IntroSequence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/intro/IntroSequence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/util/font/Font.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/util/font/Font.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/util/font/impl/rise/FontUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/util/font/impl/rise/FontUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/util/interfaces/InstanceAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/util/interfaces/InstanceAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/minecraft/client/Minecraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/minecraft/client/Minecraft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/minecraft/client/gui/GuiDisconnected.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/minecraft/client/gui/GuiDisconnected.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/minecraft/client/multiplayer/GuiConnecting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/minecraft/client/multiplayer/GuiConnecting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/optifine/RandomEntities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/optifine/RandomEntities.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,40 +96,39 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
   <component name="ProjectId" id="2R6JfJb3DqPItaCxsHT6sErcQwC" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/neilhuang007/Documents/idea_projects/razer-rewrite/src/jars/versions/1.8.8/1.8.8-natives/twitchsdk.dll&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/neilhuang007/Documents/idea_projects/razer-rewrite/src/dev/razer/ui/impl",
+    "project.structure.last.edited": "工件",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\neilhuang007\Documents\idea_projects\razer-rewrite\src\dev\razer\ui\impl" />
       <recent name="C:\Users\neilhuang007\Documents\idea_projects\razer-rewrite\src\dev\razer" />
       <recent name="C:\Users\neilhuang007\Documents\idea_projects\razer-rewrite\src\assets\minecraft" />
       <recent name="C:\Users\neilhuang007\Documents\idea_projects\razer-rewrite\src\assets\minecraft\razer" />
       <recent name="C:\Users\neilhuang007\Documents\idea_projects\razer-rewrite\src\assets\minecraft\razer\logo" />
-      <recent name="C:\Users\neilhuang007\Documents\idea_projects\razer-rewrite\src\assets\minecraft\razer\loading" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="dev.razer.module.impl.render" />
+      <recent name="dev.razer.util.interfaces" />
       <recent name="dev.razer.ui.impl" />
     </key>
   </component>
@@ -103,28 +171,7 @@
       <option name="project" value="LOCAL" />
       <updated>1689935289764</updated>
     </task>
-    <task id="LOCAL-00004" summary="module sytem completed( kinda lame but mabye works)&#10;Config system set in progress&#10;ClickGUI next?">
-      <created>1690431132015</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1690431132015</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Settings System kinda set up?????&#10;DO NOT TRY TO UNDERSTAND THE CODE IS WILL CAUSE U SERVERE BRAIN DAMAGE&#10;anyway, hope tommorrow i could fix all of these and we can start to write bypasses( not likely)&#10;WE NEED SOMEONE FOR DEV&#10;IIII CANNNN NOTTTTT DO EVERY THING AT THE SAME TIME">
-      <created>1690465435225</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1690465435225</updated>
-    </task>
-    <task id="LOCAL-00006" summary="this is a fix for libraries and stuff">
-      <created>1690467047359</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1690467047359</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -144,9 +191,6 @@
     <MESSAGE value="fixed menu problems&#10;resources sycning with razor finished &#10;special thanks to 一个普普通通平平凡凡的神" />
     <MESSAGE value="more optimizations and modifications&#10;If anyone sees this, PLEASE FIX THE INTRO SCREEN" />
     <MESSAGE value="emergency patch" />
-    <MESSAGE value="module sytem completed( kinda lame but mabye works)&#10;Config system set in progress&#10;ClickGUI next?" />
-    <MESSAGE value="Settings System kinda set up?????&#10;DO NOT TRY TO UNDERSTAND THE CODE IS WILL CAUSE U SERVERE BRAIN DAMAGE&#10;anyway, hope tommorrow i could fix all of these and we can start to write bypasses( not likely)&#10;WE NEED SOMEONE FOR DEV&#10;IIII CANNNN NOTTTTT DO EVERY THING AT THE SAME TIME" />
-    <MESSAGE value="this is a fix for libraries and stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="this is a fix for libraries and stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="emergency patch" />
   </component>
 </project>

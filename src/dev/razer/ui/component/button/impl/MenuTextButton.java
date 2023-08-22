@@ -7,7 +7,6 @@ import dev.razer.ui.component.button.MenuButton;
 import dev.razer.util.font.Font;
 import dev.razer.util.font.FontManager;
 
-
 import java.awt.*;
 
 import static dev.razer.ui.impl.MenuColors.*;

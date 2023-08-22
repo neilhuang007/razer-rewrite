@@ -2,6 +2,8 @@ package dev.razer;
 
 
 import dev.razer.event.bus.bus.impl.EventBus;
+import dev.razer.module.api.manager.ModuleManager;
+import dev.razer.ui.impl.standard.RiseClickGUI;
 import dev.razer.util.localization.Locale;
 import dev.razer.util.math.MathConst;
 import jdk.nashorn.internal.objects.annotations.Getter;
@@ -25,6 +27,8 @@ public enum Razer {
     private Locale locale = Locale.EN_US; // The language of the client
 
     public static final EventBus eventBus = new EventBus();
+    private RiseClickGUI standardClickGUI;
+    private ModuleManager moduleManager;
 
 
 
@@ -39,6 +43,7 @@ public enum Razer {
         MathConst.calculate();
 
         // managers
+        this.moduleManager = new ModuleManager();
 
         // Compatibility
         mc.gameSettings.guiScale = 2;

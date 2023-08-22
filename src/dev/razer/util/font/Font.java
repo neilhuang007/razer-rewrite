@@ -1,7 +1,5 @@
 package dev.razer.util.font;
 
-import java.awt.*;
-
 public abstract class Font {
     public abstract int drawString(String text, double x, double y, int color, boolean dropShadow);
 

@@ -1,6 +1,5 @@
 package dev.razer.util.font.impl.rise;
 
-import dev.razer.util.interfaces.InstanceAccess;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.util.ResourceLocation;

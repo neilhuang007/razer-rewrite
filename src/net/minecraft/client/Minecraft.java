@@ -175,6 +175,7 @@ import net.minecraft.world.chunk.storage.AnvilSaveConverter;
 import net.minecraft.world.storage.ISaveFormat;
 import net.minecraft.world.storage.ISaveHandler;
 import net.minecraft.world.storage.WorldInfo;
+import net.optifine.Lagometer;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.Validate;
 import org.apache.logging.log4j.LogManager;
@@ -229,6 +230,8 @@ public class Minecraft implements IThreadListener, IPlayerUsage
     /** True if the player is connected to a realms server */
     private boolean connectedToRealms = false;
     private Timer timer = new Timer(20.0F);
+
+    public StopWatch gameEvent = new StopWatch();
 
     /** Instance of PlayerUsageSnooper. */
     private PlayerUsageSnooper usageSnooper = new PlayerUsageSnooper("client", this, MinecraftServer.getCurrentTimeMillis());
@@ -1154,6 +1157,13 @@ public class Minecraft implements IThreadListener, IPlayerUsage
         {
             Razer.eventBus.handle(new TickEvent());
             this.runTick();
+        }
+        Lagometer.timerTick.end();
+
+        if (gameEvent.finished(50 * 20)) {
+            gameEvent.reset();
+
+            Razer.eventBus.handle(new GameEvent());
         }
 
         if (gameEvent.finished(50 * 20)) {

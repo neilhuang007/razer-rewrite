@@ -51,7 +51,6 @@ public class GuiConnecting extends GuiScreen
     private void connect(final String ip, final int port)
     {
         logger.info("Connecting to " + ip + ", " + port);
-        // server join event
         final ServerJoinEvent event = new ServerJoinEvent(ip, port);
         Razer.eventBus.handle(event);
         (new Thread("Server Connector #" + CONNECTION_ID.incrementAndGet())

@@ -1,18 +1,8 @@
 package dev.razer.ui.impl.intro;
 
-import dev.razer.managers.ColorManager;
 import dev.razer.managers.RenderManager;
 import dev.razer.ui.impl.menu.Mainmenu;
-
-import dev.razer.util.Timers.StopWatch;
-import dev.razer.util.animation.Animation;
-import dev.razer.util.animation.Easing;
-import dev.razer.util.font.Font;
-import dev.razer.util.font.FontManager;
-import dev.razer.util.font.impl.rise.FontRenderer;
 import dev.razer.util.interfaces.InstanceAccess;
-import dev.razer.util.shader.RazerShaders;
-import dev.razer.util.shader.base.ShaderRenderType;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiScreen;

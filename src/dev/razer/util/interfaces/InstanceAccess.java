@@ -96,4 +96,9 @@ public interface InstanceAccess {
         LIMITED_POST_RENDER_RUNNABLES.clear();
     }
 
+    void toggle();
+
+    void onEnable();
+
+    void onDisable();
 }

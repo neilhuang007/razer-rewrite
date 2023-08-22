@@ -31,6 +31,8 @@ public final class EventBus<Event> implements Bus<Event> {
         listenerCache = new HashMap<>();
     }
 
+
+
     @Override
     public void subscribe(final @NotNull Object subscriber) {
         for (final Field field : subscriber.getClass().getDeclaredFields()) {
@@ -89,6 +91,20 @@ public final class EventBus<Event> implements Bus<Event> {
         }
 
         this.populateListenerCache();
+    }
+
+    @Override
+    public void handle(final Event event) {
+        if ((mc.theWorld == null) && !(event instanceof ServerKickEvent || event instanceof GameEvent || event instanceof WorldChangeEvent || event instanceof ServerJoinEvent)) return;
+
+        final List<Listener<Event>> listeners = listenerCache.getOrDefault(event.getClass(), Collections.emptyList());
+
+        int i = 0;
+        final int listenersSize = listeners.size();
+
+        while (i < listenersSize) {
+            listeners.get(i++).call(event);
+        }
     }
 
     @Override

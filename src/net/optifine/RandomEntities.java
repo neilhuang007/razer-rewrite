@@ -93,6 +93,7 @@ public class RandomEntities
         Razer.eventBus.handle(new WorldChangeEvent());
         if (newWorld != null)
         {
+            Razer.eventBus.handle(new WorldChangeEvent());
             List list = newWorld.getLoadedEntityList();
 
             for (int i = 0; i < list.size(); ++i)
