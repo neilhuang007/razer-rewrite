@@ -20,14 +20,14 @@ public class FontUtil {
      * @param size     font size
      * @return font by resource
      */
-    public static Font getResource(final String resource, final int size){
+    public static Font getResource(final String resource, final int size) {
         try {
             //System.out.println(Font.createFont(Font.TRUETYPE_FONT, RESOURCE_MANAGER.getResource(new ResourceLocation(resource)).getInputStream()).deriveFont((float) size));
             return Font.createFont(Font.TRUETYPE_FONT, RESOURCE_MANAGER.getResource(new ResourceLocation(resource)).getInputStream()).deriveFont((float) size);
         } catch (final FontFormatException ignored) {
             System.out.println("FontFormatException");
             return null;
-        } catch (final IOException ignored){
+        } catch (final IOException ignored) {
             System.out.println("IOException");
             return null;
         }

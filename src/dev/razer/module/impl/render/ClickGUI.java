@@ -2,9 +2,10 @@ package dev.razer.module.impl.render;
 
 
 import dev.razer.Razer;
-import dev.razer.event.bus.Priorities;
-import dev.razer.event.bus.annotations.EventLink;
+import dev.razer.event.Priorities;
+import dev.razer.event.annotations.EventLink;
 import dev.razer.module.Module;
+import dev.razer.module.api.Category;
 import dev.razer.module.api.ModuleInfo;
 import org.lwjgl.input.Keyboard;
 
@@ -18,20 +19,6 @@ import java.awt.*;
  */
 @ModuleInfo(name = "module.render.clickgui.name", description = "module.render.clickgui.description", category = Category.RENDER, keyBind = Keyboard.KEY_RSHIFT)
 public final class ClickGUI extends Module {
-    @Override
-    public void onEnable() {
-        Razer.eventBus.subscribe(Razer.INSTANCE.getStandardClickGUI());
-        mc.displayGuiScreen(Razer.INSTANCE.getStandardClickGUI());
-//        Razer.INSTANCE.getStandardClickGUI().overlayPresent = null;
-    }
-
-    @Override
-    public void onDisable() {
-        Keyboard.enableRepeatEvents(false);
-        Razer.eventBus.unregister(Razer.INSTANCE.getStandardClickGUI());
-        Razer.eventBus.execute(() -> Razer.INSTANCE.getConfigFile().write());
-    }
-
     @EventLink(value = Priorities.HIGH)
     public final Listener<Render2DEvent> onRender2D = event -> {
         double width = event.getScaledResolution().getScaledWidth();
@@ -41,7 +28,6 @@ public final class ClickGUI extends Module {
         UI_BLOOM_RUNNABLES.add(() -> Razer.INSTANCE.getStandardClickGUI().bloom());
         NORMAL_BLUR_RUNNABLES.add(() -> RenderUtil.rectangle(0, 0, width, height, Color.BLACK));
     };
-
     @EventLink()
     public final Listener<KeyboardInputEvent> onKey = event -> {
 
@@ -53,4 +39,18 @@ public final class ClickGUI extends Module {
             }
         }
     };
+
+    @Override
+    public void onEnable() {
+        Razer.eventBus.handle(Razer.INSTANCE.getStandardClickGUI());
+        mc.displayGuiScreen(Razer.INSTANCE.getStandardClickGUI());
+//        Razer.INSTANCE.getStandardClickGUI().overlayPresent = null;
+    }
+
+    @Override
+    public void onDisable() {
+        Keyboard.enableRepeatEvents(false);
+        Razer.eventBus.unregister(Razer.INSTANCE.getStandardClickGUI());
+        Razer.eventBus.execute(() -> Razer.INSTANCE.getConfigFile().write());
+    }
 }

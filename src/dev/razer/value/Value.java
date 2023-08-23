@@ -13,7 +13,7 @@ import java.util.function.Consumer;
  * @since 10/19/2021
  */
 @Getter
-@Setter 
+@Setter
 public abstract class Value<T> {
 
     private final String name;
@@ -70,5 +70,6 @@ public abstract class Value<T> {
         if (this.valueChangeConsumer != null) this.valueChangeConsumer.accept(value);
         this.value = value;
     }
+
     public abstract List<Value<?>> getSubValues();
 }

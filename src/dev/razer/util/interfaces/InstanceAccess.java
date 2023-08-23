@@ -1,6 +1,7 @@
 package dev.razer.util.interfaces;
 
 import dev.razer.Razer;
+import dev.razer.ui.impl.standard.RiseClickGUI;
 import dev.razer.util.font.Font;
 import dev.razer.util.font.FontManager;
 import dev.razer.util.profiling.Profiler;
@@ -73,7 +74,6 @@ public interface InstanceAccess {
     Profiler dragProfiler = new Profiler();
 
 
-
     static void render3DRunnables(float partialTicks) {
         RazerShaders.OUTLINE_SHADER.run(ShaderRenderType.CAMERA, partialTicks, InstanceAccess.NORMAL_OUTLINE_RUNNABLES);
         RazerShaders.POST_BLOOM_SHADER.run(ShaderRenderType.CAMERA, partialTicks, InstanceAccess.NORMAL_POST_BLOOM_RUNNABLES);
@@ -96,9 +96,7 @@ public interface InstanceAccess {
         LIMITED_POST_RENDER_RUNNABLES.clear();
     }
 
-    void toggle();
-
-    void onEnable();
-
-    void onDisable();
+    default RiseClickGUI getStandardClickGUI() {
+        return instance.getStandardClickGUI();
+    }
 }

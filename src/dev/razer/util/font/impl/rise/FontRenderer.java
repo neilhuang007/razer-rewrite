@@ -107,7 +107,7 @@ public class FontRenderer extends dev.razer.util.font.Font {
 
         for (int i = 0; i < characters.length; ++i) {
             final char character = (char) i;
-            final Rectangle2D charRectangle = fontMetrics.getStringBounds(character + "", fontGraphics);
+            final Rectangle2D charRectangle = fontMetrics.getStringBounds(String.valueOf(character), fontGraphics);
 
             // Draw the character. This is cached into an OpenGL texture so that this process doesn't need to
             // be repeated on every frame that the character is later rendered on.
@@ -124,7 +124,7 @@ public class FontRenderer extends dev.razer.util.font.Font {
             charGraphics.setColor(TRANSPARENT_COLOR);
             charGraphics.fillRect(0, 0, width, height);
             setRenderHints(charGraphics);
-            charGraphics.drawString(character + "", MARGIN_WIDTH, font.getSize());
+            charGraphics.drawString(String.valueOf(character), MARGIN_WIDTH, font.getSize());
 
             // Generate a new OpenGL texture, and pass it along to uploadTexture() with the image of the character so
             // that it can be stored as a complete OpenGL texture for later use

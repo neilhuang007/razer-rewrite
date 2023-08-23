@@ -1,26 +1,25 @@
 package dev.razer.ui.impl.standard.components;
 
 
+import dev.razer.managers.ColorManager;
+import dev.razer.managers.RenderManager;
+import dev.razer.module.Module;
+import dev.razer.ui.impl.standard.RiseClickGUI;
+import dev.razer.ui.impl.standard.components.value.ValueComponent;
+import dev.razer.ui.impl.standard.components.value.impl.*;
+import dev.razer.ui.impl.standard.screen.impl.SearchScreen;
+import dev.razer.util.Timers.StopWatch;
+import dev.razer.util.animation.Animation;
+import dev.razer.util.animation.Easing;
+import dev.razer.util.font.FontManager;
+import dev.razer.util.interfaces.InstanceAccess;
+import dev.razer.util.localization.Localization;
+import dev.razer.value.Value;
+import dev.razer.value.impl.*;
 import lombok.Getter;
-import me.neilhuang007.razer.module.Module;
-import me.neilhuang007.razer.ui.click.standard.RiseClickGUI;
-import me.neilhuang007.razer.ui.click.standard.components.value.ValueComponent;
-import me.neilhuang007.razer.ui.click.standard.components.value.impl.*;
-import me.neilhuang007.razer.ui.click.standard.screen.impl.SearchScreen;
-import me.neilhuang007.razer.util.animation.Animation;
-import me.neilhuang007.razer.util.animation.Easing;
-import me.neilhuang007.razer.util.font.FontManager;
-import me.neilhuang007.razer.util.gui.GUIUtil;
-import me.neilhuang007.razer.util.interfaces.InstanceAccess;
-import me.neilhuang007.razer.util.localization.Localization;
-import me.neilhuang007.razer.util.render.ColorUtil;
-import me.neilhuang007.razer.util.render.RenderUtil;
-import me.neilhuang007.razer.util.vector.Vector2d;
-import me.neilhuang007.razer.util.vector.Vector2f;
-import me.neilhuang007.razer.value.Value;
-import me.neilhuang007.razer.value.impl.*;
-import util.time.StopWatch;
 
+import javax.vecmath.Vector2d;
+import javax.vecmath.Vector2f;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -70,10 +69,10 @@ public class ModuleComponent implements InstanceAccess {
 
         final RiseClickGUI clickGUI = this.getStandardClickGUI();
 
-//        RenderUtil.dropShadow(3, (float) position.x, (float) position.y, scale.x, scale.y, 42, 1);
+//        RenderManager.dropShadow(3, (float) position.x, (float) position.y, scale.x, scale.y, 42, 1);
 
         // Main module background
-        RenderUtil.roundedRectangle(position.x, position.y, scale.x, scale.y, 6, ColorUtil.withAlpha(Color.BLACK, 50));
+        RenderManager.roundedRectangle(position.x, position.y, scale.x, scale.y, 6, ColorManager.withAlpha(Color.BLACK, 50));
         final Color fontColor = new Color(clickGUI.fontColor.getRed(), clickGUI.fontColor.getGreen(), clickGUI.fontColor.getBlue(), module.isEnabled() ? 255 : 200);
 
         // Hover animation
@@ -82,14 +81,14 @@ public class ModuleComponent implements InstanceAccess {
         hoverAnimation.run(overModule ? mouseDown ? 50 : 30 : 0);
 
         // Main module background HOVER OVERLAY
-        RenderUtil.roundedRectangle(position.x, position.y, scale.x, scale.y, 6,
+        RenderManager.roundedRectangle(position.x, position.y, scale.x, scale.y, 6,
                 new Color(0, 0, 0, (int) hoverAnimation.getValue()));
 
         // Draw the module's category if the user is searching
         if (clickGUI.getSelectedScreen() instanceof SearchScreen) {
             FontManager.getNunito(15).drawString("(" + Localization.get(module.getModuleInfo().category().getName()) + ")",
                     (float) (position.getX() + FontManager.getNunito(20).width(Localization.get(this.module.getModuleInfo().name())) + 10F),
-                    (float) position.getY() + 10, ColorUtil.withAlpha(fontColor, 64).hashCode());
+                    (float) position.getY() + 10, ColorManager.withAlpha(fontColor, 64).hashCode());
         }
 
         // Draw module name
@@ -98,13 +97,13 @@ public class ModuleComponent implements InstanceAccess {
 
         // Draw module category
         FontManager.getNunito(15).drawString(Localization.get(module.getModuleInfo().description()), (float) position.x + 6f,
-                (float) position.y + 25, ColorUtil.withAlpha(fontColor, 100).hashCode());
+                (float) position.y + 25, ColorManager.withAlpha(fontColor, 100).hashCode());
 
 //        if (module.getKeyCode() != Keyboard.KEY_NONE) {
 //            double keyBindScale = 10;
 //            String key = Keyboard.getKeyName(module.getKeyCode());
 //
-//            RenderUtil.roundedRectangle(position.x + 222f, position.y + 10 - keyBindScale / 2, keyBindScale, keyBindScale, 1.5f,
+//            RenderManager.roundedRectangle(position.x + 222f, position.y + 10 - keyBindScale / 2, keyBindScale, keyBindScale, 1.5f,
 //                    clickGUI.sidebarColor.darker());
 //
 //            FontRenderer nunitoExtraSmall = FontManager.getNunito(12);
@@ -137,10 +136,10 @@ public class ModuleComponent implements InstanceAccess {
 //        Font font;
 //
 //        if (name.length() == 1) {
-//            RenderUtil.roundedRectangle(position.x + scale.x - range - padding, position.y + padding, range, range, 4, clickGUI.sidebarColor.darker().darker());
+//            RenderManager.roundedRectangle(position.x + scale.x - range - padding, position.y + padding, range, range, 4, clickGUI.sidebarColor.darker().darker());
 //
 //            font = FontManager.getProductSansLight(18);
-//            font.drawCenteredString(name, position.x - range / 2 - padding + scale.x - 0.5, position.y + padding + range / 2 - 2.5, ColorUtil.withAlpha(clickGUI.fontColor, 100).getRGB());
+//            font.drawCenteredString(name, position.x - range / 2 - padding + scale.x - 0.5, position.y + padding + range / 2 - 2.5, ColorManager.withAlpha(clickGUI.fontColor, 100).getRGB());
 //        }
 
         stopwatch.reset();
@@ -189,8 +188,7 @@ public class ModuleComponent implements InstanceAccess {
                 this.expanded = !this.expanded;
 
                 for (final ValueComponent valueComponent : this.getValueList()) {
-                    if (valueComponent instanceof BoundsNumberValueComponent) {
-                        final BoundsNumberValueComponent boundsNumberValueComponent = ((BoundsNumberValueComponent) valueComponent);
+                    if (valueComponent instanceof BoundsNumberValueComponent boundsNumberValueComponent) {
                         boundsNumberValueComponent.grabbed1 = boundsNumberValueComponent.grabbed2 = false;
                     } else if (valueComponent instanceof NumberValueComponent) {
                         ((NumberValueComponent) valueComponent).grabbed = false;
@@ -234,4 +232,6 @@ public class ModuleComponent implements InstanceAccess {
             }
         }
     }
+
+
 }

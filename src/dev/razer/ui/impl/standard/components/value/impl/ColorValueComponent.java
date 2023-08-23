@@ -20,7 +20,8 @@ public class ColorValueComponent extends ValueComponent {
 
     private boolean selected = false;
     private boolean colorPickerDown, huePickerDown;
-    private float offset = 10, edge = 0.5f;
+    private final float offset = 10;
+    private final float edge = 0.5f;
     private float huePointer = 0;
     private double pickerWidth = 90, pickerHeight = 100;
     private Vector2f pointer = new Vector2f(1, 1);
@@ -134,9 +135,9 @@ public class ColorValueComponent extends ValueComponent {
             double textX = x + padding * 2 + 15;
             double textY = y + pickerHeight + padding + padding + getStandardClickGUI().round - 1 + 3;
 
-            FontManager.getNunito(17).drawCenteredString(color.getRed() + "", textX + padding, textY, getStandardClickGUI().fontDarkColor.hashCode());
-            FontManager.getNunito(17).drawCenteredString(color.getGreen() + "", textX + 30, textY, getStandardClickGUI().fontDarkColor.hashCode());
-            FontManager.getNunito(17).drawCenteredString(color.getBlue() + "", textX + padding * 6, textY, getStandardClickGUI().fontDarkColor.hashCode());
+            FontManager.getNunito(17).drawCenteredString(String.valueOf(color.getRed()), textX + padding, textY, getStandardClickGUI().fontDarkColor.hashCode());
+            FontManager.getNunito(17).drawCenteredString(String.valueOf(color.getGreen()), textX + 30, textY, getStandardClickGUI().fontDarkColor.hashCode());
+            FontManager.getNunito(17).drawCenteredString(String.valueOf(color.getBlue()), textX + padding * 6, textY, getStandardClickGUI().fontDarkColor.hashCode());
 
             textY += 13;
 
@@ -188,7 +189,6 @@ public class ColorValueComponent extends ValueComponent {
     @Override
     public void key(final char typedChar, final int keyCode) {
         if (this.position == null) {
-            return;
         }
     }
 }

@@ -5,7 +5,7 @@ import dev.razer.util.interfaces.InstanceAccess;
 import lombok.Getter;
 
 @Getter
-public class MenuComponent implements InstanceAccess{
+public class MenuComponent implements InstanceAccess {
 
     private final double x;
     private final double y;

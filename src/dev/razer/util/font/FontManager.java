@@ -99,12 +99,15 @@ public class FontManager {
     public static Font getLato(final int size) {
         return get(LATO, size, "Lato-Black", true, true);
     }
+
     public static Font getLatoBold(final int size) {
         return get(LATO_BOLD, size, "Lato-Bold", true, true);
     }
+
     public static Font getLatoItalic(final int size) {
         return get(LATO_ITALIC, size, "Lato-Italic", true, true);
     }
+
     public static Font getLatoLight(final int size) {
         return get(LATO_LIGHT, size, "Lato-Light", true, true);
     }
@@ -220,7 +223,6 @@ public class FontManager {
     public static Font getProductSansRegular(final int size) {
         return get(PRODUCT_SANS_REGULAR, size, "product_sans_regular", true, true);
     }
-
 
 
     public static Font getProductSansMedium(final int size) {

@@ -73,8 +73,6 @@ public final class RenderManager implements InstanceAccess {
     }
 
 
-
-
     public static void image(final ResourceLocation imageLocation, final double x, final double y, final double width, final double height, Color color) {
         image(imageLocation, (float) x, (float) y, (float) width, (float) height, color);
     }
@@ -131,5 +129,18 @@ public final class RenderManager implements InstanceAccess {
     }
 
 
+    @Override
+    public void toggle() {
 
+    }
+
+    @Override
+    public void onEnable() {
+
+    }
+
+    @Override
+    public void onDisable() {
+
+    }
 }

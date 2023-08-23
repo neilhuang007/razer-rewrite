@@ -21,16 +21,13 @@ import java.util.ArrayList;
 public final class SpeedBuilderScreen extends Screen {
 
     public ScrollUtil scrollUtil = new ScrollUtil();
-
-    private ResourceLocation image = new ResourceLocation("rise/images/SpeedBuilderBackground.png");
-
     public ArrayList<Modifier> modifiers = new ArrayList<>();
     public ArrayList<Tick> ticks = new ArrayList<>();
     public Tick selectedTick;
-
     float x, y;
     float width = 307;
     float height = 21;
+    private ResourceLocation image = new ResourceLocation("rise/images/SpeedBuilderBackground.png");
 
     public SpeedBuilderScreen() {
         //Adding all OffGroundTick options

@@ -1,8 +1,7 @@
-package dev.razer.event.bus.annotations;
+package dev.razer.event.annotations;
 
 
-
-import dev.razer.event.bus.Priorities;
+import dev.razer.event.Priorities;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -11,4 +10,6 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface EventLink { byte value() default Priorities.MEDIUM; }
+public @interface EventLink {
+    byte value() default Priorities.MEDIUM;
+}

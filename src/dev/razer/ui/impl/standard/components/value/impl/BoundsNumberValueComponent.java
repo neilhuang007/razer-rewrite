@@ -123,7 +123,7 @@ public class BoundsNumberValueComponent extends ValueComponent {
         final double boundsWidth = endPositionX - startPositionX;
 
         if (percentage1 != percentage2) {
-            RenderUtil.roundedRectangle(startPositionX, this.position.y + 1.5f, boundsWidth, 2, 1, ColorUtil.withAlpha(getTheme().getFirstColor(),70));
+            RenderUtil.roundedRectangle(startPositionX, this.position.y + 1.5f, boundsWidth, 2, 1, ColorUtil.withAlpha(getTheme().getFirstColor(), 70));
         }
 
         RenderUtil.roundedRectangle(startPositionX - grabberWidth / 2f, this.position.y, grabberWidth, grabberWidth, grabberWidth / 2.0f, getTheme().getFirstColor());

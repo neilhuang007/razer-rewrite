@@ -61,18 +61,5 @@ public final class HomeScreen extends Screen implements InstanceAccess {
 
     }
 
-    @Override
-    public void toggle() {
 
-    }
-
-    @Override
-    public void onEnable() {
-
-    }
-
-    @Override
-    public void onDisable() {
-
-    }
 }

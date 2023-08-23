@@ -1,9 +1,11 @@
 package dev.razer.ui.impl.standard.components.value;
 
+import dev.razer.util.interfaces.InstanceAccess;
+import dev.razer.value.Value;
 import lombok.Getter;
-import me.neilhuang007.razer.util.interfaces.InstanceAccess;
-import me.neilhuang007.razer.util.vector.Vector2d;
-import me.neilhuang007.razer.value.Value;
+
+import javax.vecmath.Vector2d;
+
 
 @Getter
 public abstract class ValueComponent implements InstanceAccess {

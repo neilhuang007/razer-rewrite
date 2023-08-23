@@ -1,16 +1,15 @@
 package dev.razer.ui.impl.standard.components.category;
 
-import me.neilhuang007.razer.Client;
-import me.neilhuang007.razer.Type;
-import me.neilhuang007.razer.module.api.Category;
-import me.neilhuang007.razer.ui.click.standard.RiseClickGUI;
-import me.neilhuang007.razer.ui.click.standard.screen.impl.HomeScreen;
-import me.neilhuang007.razer.ui.click.standard.screen.impl.SpeedBuilderScreen;
-import me.neilhuang007.razer.util.font.FontManager;
-import me.neilhuang007.razer.util.gui.GUIUtil;
-import me.neilhuang007.razer.util.interfaces.InstanceAccess;
-import me.neilhuang007.razer.util.render.ColorUtil;
-import me.neilhuang007.razer.util.render.RenderUtil;
+
+import dev.razer.Razer;
+import dev.razer.managers.ColorManager;
+import dev.razer.managers.RenderManager;
+import dev.razer.module.api.Category;
+import dev.razer.ui.impl.standard.RiseClickGUI;
+import dev.razer.ui.impl.standard.screen.impl.HomeScreen;
+import dev.razer.ui.impl.standard.screen.impl.SpeedBuilderScreen;
+import dev.razer.util.font.FontManager;
+import dev.razer.util.interfaces.InstanceAccess;
 
 import java.awt.*;
 import java.util.Arrays;
@@ -19,30 +18,30 @@ import java.util.stream.Collectors;
 
 public final class SidebarCategory implements InstanceAccess {
 
-    private List<CategoryComponent> categories;
     /* Information */
     public double sidebarWidth = 100;
+    private final List<CategoryComponent> categories;
     private double opacity, fadeOpacity;
     private long lastTime = 0;
 
     public SidebarCategory() {
         categories = Arrays.stream(Category.values())
                 .map(CategoryComponent::new)
-                .filter(category -> category.category.clientType == Client.CLIENT_TYPE || category.category.clientType == Type.BOTH)
+                .filter(category -> false)
                 .collect(Collectors.toList());
     }
 
     public void preRenderClickGUI() {
         /* ClickGUI */
-        final RiseClickGUI clickGUI = Client.INSTANCE.getStandardClickGUI();
+        final RiseClickGUI clickGUI = Razer.INSTANCE.getStandardClickGUI();
         final Color color = new Color(clickGUI.sidebarColor.getRed(), clickGUI.sidebarColor.getGreen(), clickGUI.sidebarColor.getBlue(), (int) Math.min(opacity, clickGUI.sidebarColor.getAlpha()));
 
-        RenderUtil.roundedRectangle(clickGUI.position.x, clickGUI.position.y, sidebarWidth + 20, clickGUI.scale.y, getStandardClickGUI().getRound(), ColorUtil.withAlpha(color, 240));
+        RenderManager.roundedRectangle(clickGUI.position.x, clickGUI.position.y, sidebarWidth + 20, clickGUI.scale.y, getStandardClickGUI().getRound(), ColorUtil.withAlpha(color, 240));
     }
 
     public void renderSidebar(final float mouseX, final float mouseY) {
         /* ClickGUI */
-        final RiseClickGUI clickGUI = Client.INSTANCE.getStandardClickGUI();
+        final RiseClickGUI clickGUI = Razer.INSTANCE.getStandardClickGUI();
 
         /* Animations */
         final long time = System.currentTimeMillis();
@@ -66,14 +65,14 @@ public final class SidebarCategory implements InstanceAccess {
         }
 
         /* Drop shadow */
-//        RenderUtil.horizontalGradient(clickGUI.position.x + sidebarWidth - 3 - 10, clickGUI.position.y, 20, clickGUI.scale.y, new Color(0, 0, 0, hoverCategory ? (int) (fadeOpacity * 0.25) : 100),
+//        RenderManager.horizontalGradient(clickGUI.position.x + sidebarWidth - 3 - 10, clickGUI.position.y, 20, clickGUI.scale.y, new Color(0, 0, 0, hoverCategory ? (int) (fadeOpacity * 0.25) : 100),
 //                new Color(0, 0, 0, 0));
 
         /* Sidebar background */
         lastTime = time;
-//        RenderUtil.dropShadow(4, clickGUI.position.x + 20, clickGUI.position.y, (float) sidebarWidth - 20, clickGUI.scale.y, 60, 1);
+//        RenderManager.dropShadow(4, clickGUI.position.x + 20, clickGUI.position.y, (float) sidebarWidth - 20, clickGUI.scale.y, 60, 1);
 
-        //        RenderUtil.rectangle(clickGUI.position.x + 15, clickGUI.position.y, sidebarWidth - 15, clickGUI.scale.y, color);
+        //        RenderManager.rectangle(clickGUI.position.x + 15, clickGUI.position.y, sidebarWidth - 15, clickGUI.scale.y, color);
 
         /* Renders all categories */
         double offsetTop = 10;
@@ -85,8 +84,8 @@ public final class SidebarCategory implements InstanceAccess {
         final float posX = clickGUI.position.getX() + 9;
         final float posY = clickGUI.position.getY() + ((19.5F + 30) / 2.0F - nunitoLarge.height() / 2.0F);
 
-        FontManager.getProductSansRegular(32).drawString(Client.NAME, posX + 5, posY + 2, ColorUtil.withAlpha(Color.WHITE, (int) opacity).hashCode());
-        FontManager.getProductSansRegular(16).drawString(Client.VERSION, posX + 5 + FontManager.getProductSansRegular(32).width(Client.NAME), posY, ColorUtil.withAlpha(getTheme().getFirstColor(), (int) Math.min(opacity, 200)).getRGB());
+        FontManager.getProductSansRegular(32).drawString(Razer.NAME, posX + 5, posY + 2, ColorManager.withAlpha(Color.WHITE, (int) opacity).hashCode());
+        FontManager.getProductSansRegular(16).drawString(Razer.VERSION, posX + 5 + FontManager.getProductSansRegular(32).width(Razer.NAME), posY, ColorUtil.withAlpha(getTheme().getFirstColor(), (int) Math.min(opacity, 200)).getRGB());
 
 //        this.poppinsBold.drawString(Rise.NAME, (float) (clickGUI.position.x + sidebarWidth - 56), clickGUI.position.y + 12, new Color(0, 0, 0, (int) Math.min(opacity, 100)).hashCode());
 //        this.poppinsBold.drawString(Rise.NAME, (float) (clickGUI.position.x + sidebarWidth - 56), clickGUI.position.y + 11, new Color(clickGUI.accentColor.getRed(), clickGUI.accentColor.getGreen(), clickGUI.accentColor.getBlue(), (int) opacity).hashCode());
@@ -113,4 +112,6 @@ public final class SidebarCategory implements InstanceAccess {
             }
         }
     }
+
+
 }

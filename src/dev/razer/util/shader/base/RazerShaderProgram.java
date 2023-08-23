@@ -32,12 +32,12 @@ public class RazerShaderProgram implements InstanceAccess {
         drawQuad(0.0, 0.0, scaledResolution.getScaledWidth_double(), scaledResolution.getScaledHeight_double());
     }
 
-    public void start() {
-        GL20.glUseProgram(programId);
-    }
-
     public static void stop() {
         GL20.glUseProgram(0);
+    }
+
+    public void start() {
+        GL20.glUseProgram(programId);
     }
 
     public int getProgramId() {

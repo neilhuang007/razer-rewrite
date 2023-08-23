@@ -53,6 +53,6 @@ public enum Easing {
 
     @Override
     public String toString() {
-        return StringUtils.capitalize(super.toString().toLowerCase().replace("_"," "));
+        return StringUtils.capitalize(super.toString().toLowerCase().replace("_", " "));
     }
 }

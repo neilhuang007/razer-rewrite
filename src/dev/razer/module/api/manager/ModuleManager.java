@@ -1,7 +1,6 @@
 package dev.razer.module.api.manager;
 
 
-
 import dev.razer.Razer;
 import dev.razer.event.bus.Priorities;
 import dev.razer.event.bus.annotations.EventLink;
@@ -19,6 +18,16 @@ import java.util.stream.Collectors;
  * @since 10/19/2021
  */
 public final class ModuleManager extends ArrayList<Module> {
+
+    @EventLink(value = Priorities.VERY_HIGH)
+    public final Listener<KeyboardInputEvent> onKey = event -> {
+
+        if (event.getGuiScreen() != null) return;
+
+        this.stream()
+                .filter(module -> module.getKeyCode() == event.getKeyCode())
+                .forEach(Module::toggle);
+    };
 
     /**
      * Called on client start and when for some reason when we reinitialize (idk custom modules?)
@@ -66,16 +75,6 @@ public final class ModuleManager extends ArrayList<Module> {
                 .filter(module -> module.getModuleInfo().category() == category)
                 .collect(Collectors.toList());
     }
-
-    @EventLink(value = Priorities.VERY_HIGH)
-    public final Listener<KeyboardInputEvent> onKey = event -> {
-
-        if (event.getGuiScreen() != null) return;
-
-        this.stream()
-                .filter(module -> module.getKeyCode() == event.getKeyCode())
-                .forEach(Module::toggle);
-    };
 
     @Override
     public boolean add(final Module module) {

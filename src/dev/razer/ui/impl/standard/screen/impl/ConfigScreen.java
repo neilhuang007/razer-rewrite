@@ -29,7 +29,7 @@ public final class ConfigScreen extends Screen implements InstanceAccess {
     @Override
     public void onRender(final int mouseX, final int mouseY, final float partialTicks) {
         final RiseClickGUI clickGUI = this.getStandardClickGUI();
-        
+
         /* Setting searchbar color to clickgui fontcolor */
         if (scrollUtil.getTarget() < 0) {
             opacity -= stopwatch.getElapsedTime() * 4;
@@ -40,7 +40,7 @@ public final class ConfigScreen extends Screen implements InstanceAccess {
         searchBar.setColor(ColorUtil.withAlpha(clickGUI.fontColor, (int) opacity));
 
         /* Setting position of searchbar */
-        final Vector2d positionOfSearch = new Vector2d( ((clickGUI.position.x + clickGUI.sidebar.sidebarWidth) +
+        final Vector2d positionOfSearch = new Vector2d(((clickGUI.position.x + clickGUI.sidebar.sidebarWidth) +
                 (clickGUI.scale.x - clickGUI.sidebar.sidebarWidth) / 2), (float) (clickGUI.position.y + 17 + scrollUtil.getScroll()));
 
         searchBar.setPosition(positionOfSearch);

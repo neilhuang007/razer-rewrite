@@ -15,19 +15,13 @@ import org.lwjgl.opengl.GL11;
 
 import java.awt.*;
 
-public final class IntroSequence extends GuiScreen{
-    private static TextureManager ctm;
-
-    static int PROGRESS = 0;
-    private static ResourceLocation splash;
-
+public final class IntroSequence extends GuiScreen {
     static final Color bgcolor = new Color(18, 18, 18);
-
     public static int x;
     public static int y = 0;
-
-
-
+    static int PROGRESS = 0;
+    private static TextureManager ctm;
+    private static ResourceLocation splash;
 
     public static void update() {
         if (Minecraft.getMinecraft() == null || Minecraft.getMinecraft().getLanguageManager() == null) return;
@@ -99,9 +93,9 @@ public final class IntroSequence extends GuiScreen{
     private static void drawProgress() {
         final ScaledResolution sr = new ScaledResolution(Minecraft.getMinecraft());
 
-        RenderManager.roundedRectangle((sr.getScaledWidth() - 160)/2, (sr.getScaledHeight()  + 75)/2, 160,2,0.75,new Color(160,160,160));
+        RenderManager.roundedRectangle((sr.getScaledWidth() - 160) / 2, (sr.getScaledHeight() + 75) / 2, 160, 2, 0.75, new Color(160, 160, 160));
         // Render the progress bar
-        RenderManager.roundedRectangle((sr.getScaledWidth() - 160)/2, (sr.getScaledHeight()  + 75)/2, 160/16 * PROGRESS,2,0.75,new Color(255,255,255));
+        RenderManager.roundedRectangle((sr.getScaledWidth() - 160) / 2, (sr.getScaledHeight() + 75) / 2, 160 / 16 * PROGRESS, 2, 0.75, new Color(255, 255, 255));
     }
 
 
@@ -109,7 +103,7 @@ public final class IntroSequence extends GuiScreen{
         PROGRESS = stage;
         update();
         System.out.println("stage: " + stage + ", phase : " + phase);
-        if(stage == 16){
+        if (stage == 16) {
             InstanceAccess.mc.displayGuiScreen(new Mainmenu());
         }
     }

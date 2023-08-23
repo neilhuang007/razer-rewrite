@@ -29,110 +29,91 @@ import java.util.*;
 
 public class FontRenderer extends Font implements IResourceManagerReloadListener {
     private static final ResourceLocation[] unicodePageLocations = new ResourceLocation[256];
-
-    /**
-     * Array of width of all the characters in default.png
-     */
-    private final int[] charWidth = new int[256];
-
     /**
      * the height in pixels of default text
      */
     public static int FONT_HEIGHT = 9;
-    public Random fontRandom = new Random();
-
+    /**
+     * Array of width of all the characters in default.png
+     */
+    private final int[] charWidth = new int[256];
     /**
      * Array of the start/end column (in upper/lower nibble) for every glyph in the /font directory.
      */
     private final byte[] glyphWidth = new byte[65536];
-
     /**
      * Array of RGB triplets defining the 16 standard chat colors followed by 16 darker version of the same colors for
      * drop shadows.
      */
     private final int[] colorCode = new int[32];
-    private ResourceLocation locationFontTexture;
-
     /**
      * The RenderEngine used to load and setup glyph textures.
      */
     private final TextureManager renderEngine;
-
+    private final float[] charWidthFloat = new float[256];
+    private final GlBlendState oldBlendState = new GlBlendState();
+    public Random fontRandom = new Random();
+    public GameSettings gameSettings;
+    public ResourceLocation locationFontTextureBase;
+    public float offsetBold = 1.0F;
+    private ResourceLocation locationFontTexture;
     /**
      * Current X coordinate at which to draw the next character.
      */
     private float posX;
-
     /**
      * Current Y coordinate at which to draw the next character.
      */
     private float posY;
-
     /**
      * If true, strings should be rendered with Unicode fonts instead of the default.png font
      */
     private boolean unicodeFlag;
-
     /**
      * If true, the Unicode Bidirectional Algorithm should be run before rendering any string.
      */
     private boolean bidiFlag;
-
     /**
      * Used to specify new red value for the current color.
      */
     private float red;
-
     /**
      * Used to specify new blue value for the current color.
      */
     private float blue;
-
     /**
      * Used to specify new green value for the current color.
      */
     private float green;
-
     /**
      * Used to specify new alpha value for the current color.
      */
     private float alpha;
-
     /**
      * Text color of the currently rendering string.
      */
     private int textColor;
-
     /**
      * Set if the "k" style (random) is active in currently rendering string
      */
     private boolean randomStyle;
-
     /**
      * Set if the "l" style (bold) is active in currently rendering string
      */
     private boolean boldStyle;
-
     /**
      * Set if the "o" style (italic) is active in currently rendering string
      */
     private boolean italicStyle;
-
     /**
      * Set if the "n" style (underlined) is active in currently rendering string
      */
     private boolean underlineStyle;
-
     /**
      * Set if the "m" style (strikethrough) is active in currently rendering string
      */
     private boolean strikethroughStyle;
-    public GameSettings gameSettings;
-    public ResourceLocation locationFontTextureBase;
-    public float offsetBold = 1.0F;
-    private final float[] charWidthFloat = new float[256];
     private boolean blend = false;
-    private final GlBlendState oldBlendState = new GlBlendState();
 
     public FontRenderer(final GameSettings gameSettingsIn, final ResourceLocation location, final TextureManager textureManagerIn, final boolean unicode) {
         this.gameSettings = gameSettingsIn;
@@ -172,6 +153,43 @@ public class FontRenderer extends Font implements IResourceManagerReloadListener
         }
 
         this.readGlyphSizes();
+    }
+
+    /**
+     * Checks if the char code is a hexadecimal character, used to set colour.
+     */
+    private static boolean isFormatColor(final char colorChar) {
+        return colorChar >= 48 && colorChar <= 57 || colorChar >= 97 && colorChar <= 102 || colorChar >= 65 && colorChar <= 70;
+    }
+
+    /**
+     * Checks if the char code is O-K...lLrRk-o... used to set special formatting.
+     */
+    private static boolean isFormatSpecial(final char formatChar) {
+        return formatChar >= 107 && formatChar <= 111 || formatChar >= 75 && formatChar <= 79 || formatChar == 114 || formatChar == 82;
+    }
+
+    /**
+     * Digests a string for nonprinting formatting characters then returns a string containing only that formatting.
+     */
+    public static String getFormatFromString(final String text) {
+        String s = "";
+        int i = -1;
+        final int j = text.length();
+
+        while ((i = text.indexOf(167, i + 1)) != -1) {
+            if (i < j - 1) {
+                final char c0 = text.charAt(i + 1);
+
+                if (isFormatColor(c0)) {
+                    s = "\u00a7" + c0;
+                } else if (isFormatSpecial(c0)) {
+                    s = s + "\u00a7" + c0;
+                }
+            }
+        }
+
+        return s;
     }
 
     public void onResourceManagerReload(final IResourceManager resourceManager) {
@@ -228,6 +246,7 @@ public class FontRenderer extends Font implements IResourceManagerReloadListener
 
                     if (i3 > 16) {
                         flag = false;
+                        break;
                     }
                 }
 
@@ -512,10 +531,10 @@ public class FontRenderer extends Font implements IResourceManagerReloadListener
             GlStateManager.disableTexture2D();
             worldrenderer1.begin(7, DefaultVertexFormats.POSITION);
             final int i = this.underlineStyle ? -1 : 0;
-            worldrenderer1.pos(this.posX + (float) i, this.posY + (float) this.FONT_HEIGHT, 0.0D).endVertex();
-            worldrenderer1.pos(this.posX + p_doDraw_1_, this.posY + (float) this.FONT_HEIGHT, 0.0D).endVertex();
-            worldrenderer1.pos(this.posX + p_doDraw_1_, this.posY + (float) this.FONT_HEIGHT - 1.0F, 0.0D).endVertex();
-            worldrenderer1.pos(this.posX + (float) i, this.posY + (float) this.FONT_HEIGHT - 1.0F, 0.0D).endVertex();
+            worldrenderer1.pos(this.posX + (float) i, this.posY + (float) FONT_HEIGHT, 0.0D).endVertex();
+            worldrenderer1.pos(this.posX + p_doDraw_1_, this.posY + (float) FONT_HEIGHT, 0.0D).endVertex();
+            worldrenderer1.pos(this.posX + p_doDraw_1_, this.posY + (float) FONT_HEIGHT - 1.0F, 0.0D).endVertex();
+            worldrenderer1.pos(this.posX + (float) i, this.posY + (float) FONT_HEIGHT - 1.0F, 0.0D).endVertex();
             tessellator1.draw();
             GlStateManager.enableTexture2D();
         }
@@ -749,7 +768,7 @@ public class FontRenderer extends Font implements IResourceManagerReloadListener
     private void renderSplitString(final String str, final int x, int y, final int wrapWidth, final boolean addShadow) {
         for (final String s : this.listFormattedStringToWidth(str, wrapWidth)) {
             this.renderStringAligned(s, x, y, wrapWidth, this.textColor, addShadow);
-            y += this.FONT_HEIGHT;
+            y += FONT_HEIGHT;
         }
     }
 
@@ -757,15 +776,7 @@ public class FontRenderer extends Font implements IResourceManagerReloadListener
      * Returns the width of the wordwrapped String (maximum length is parameter k)
      */
     public int splitStringWidth(final String p_78267_1_, final int p_78267_2_) {
-        return this.FONT_HEIGHT * this.listFormattedStringToWidth(p_78267_1_, p_78267_2_).size();
-    }
-
-    /**
-     * Set unicodeFlag controlling whether strings should be rendered with Unicode fonts instead of the default.png
-     * font.
-     */
-    public void setUnicodeFlag(final boolean unicodeFlagIn) {
-        this.unicodeFlag = unicodeFlagIn;
+        return FONT_HEIGHT * this.listFormattedStringToWidth(p_78267_1_, p_78267_2_).size();
     }
 
     /**
@@ -777,10 +788,11 @@ public class FontRenderer extends Font implements IResourceManagerReloadListener
     }
 
     /**
-     * Set bidiFlag to control if the Unicode Bidirectional Algorithm should be run before rendering any string.
+     * Set unicodeFlag controlling whether strings should be rendered with Unicode fonts instead of the default.png
+     * font.
      */
-    public void setBidiFlag(final boolean bidiFlagIn) {
-        this.bidiFlag = bidiFlagIn;
+    public void setUnicodeFlag(final boolean unicodeFlagIn) {
+        this.unicodeFlag = unicodeFlagIn;
     }
 
     public List<String> listFormattedStringToWidth(final String str, final int wrapWidth) {
@@ -867,47 +879,17 @@ public class FontRenderer extends Font implements IResourceManagerReloadListener
     }
 
     /**
-     * Checks if the char code is a hexadecimal character, used to set colour.
-     */
-    private static boolean isFormatColor(final char colorChar) {
-        return colorChar >= 48 && colorChar <= 57 || colorChar >= 97 && colorChar <= 102 || colorChar >= 65 && colorChar <= 70;
-    }
-
-    /**
-     * Checks if the char code is O-K...lLrRk-o... used to set special formatting.
-     */
-    private static boolean isFormatSpecial(final char formatChar) {
-        return formatChar >= 107 && formatChar <= 111 || formatChar >= 75 && formatChar <= 79 || formatChar == 114 || formatChar == 82;
-    }
-
-    /**
-     * Digests a string for nonprinting formatting characters then returns a string containing only that formatting.
-     */
-    public static String getFormatFromString(final String text) {
-        String s = "";
-        int i = -1;
-        final int j = text.length();
-
-        while ((i = text.indexOf(167, i + 1)) != -1) {
-            if (i < j - 1) {
-                final char c0 = text.charAt(i + 1);
-
-                if (isFormatColor(c0)) {
-                    s = "\u00a7" + c0;
-                } else if (isFormatSpecial(c0)) {
-                    s = s + "\u00a7" + c0;
-                }
-            }
-        }
-
-        return s;
-    }
-
-    /**
      * Get bidiFlag that controls if the Unicode Bidirectional Algorithm should be run before rendering any string
      */
     public boolean getBidiFlag() {
         return this.bidiFlag;
+    }
+
+    /**
+     * Set bidiFlag to control if the Unicode Bidirectional Algorithm should be run before rendering any string.
+     */
+    public void setBidiFlag(final boolean bidiFlagIn) {
+        this.bidiFlag = bidiFlagIn;
     }
 
     public int getColorCode(final char character) {

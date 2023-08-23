@@ -1,17 +1,16 @@
 package dev.razer.ui.impl.standard.screen.impl;
 
+import dev.razer.Razer;
+import dev.razer.module.api.Category;
+import dev.razer.ui.impl.standard.RiseClickGUI;
+import dev.razer.ui.impl.standard.components.ModuleComponent;
+import dev.razer.ui.impl.standard.screen.Screen;
+import dev.razer.util.Timers.StopWatch;
+import dev.razer.util.interfaces.InstanceAccess;
 import lombok.Getter;
 import lombok.Setter;
-import me.neilhuang007.razer.Client;
-import me.neilhuang007.razer.module.api.Category;
-import me.neilhuang007.razer.ui.click.standard.RiseClickGUI;
-import me.neilhuang007.razer.ui.click.standard.components.ModuleComponent;
-import me.neilhuang007.razer.ui.click.standard.screen.Screen;
-import me.neilhuang007.razer.util.gui.ScrollUtil;
-import me.neilhuang007.razer.util.interfaces.InstanceAccess;
-import me.neilhuang007.razer.util.vector.Vector2d;
-import util.time.StopWatch;
 
+import javax.vecmath.Vector2d;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
@@ -98,7 +97,7 @@ public final class CategoryScreen extends Screen implements InstanceAccess {
         this.category = this.getCategory();
         if (this.category == null) return;
 
-        this.relevantModules = Client.INSTANCE.getStandardClickGUI().getModuleList().stream()
+        this.relevantModules = Razer.INSTANCE.getStandardClickGUI().getModuleList().stream()
                 .filter((module) -> module.getModule().getModuleInfo().category() == this.category)
                 .collect(Collectors.toCollection(ArrayList::new));
     }

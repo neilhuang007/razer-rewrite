@@ -2,8 +2,6 @@ package dev.razer.ui.impl.standard.screen;
 
 import dev.razer.util.interfaces.InstanceAccess;
 
-;
-
 public abstract class Screen implements InstanceAccess {
     public Screen() {
 

@@ -16,10 +16,9 @@ import java.awt.*;
 @RequiredArgsConstructor
 public class ThemeKeyColorComponent implements InstanceAccess {
     private final Themes.KeyColors color;
-
-    private Vector3d lastDraw = new Vector3d(0, 0, 0);
     private final Animation dimAnimation = new Animation(Easing.EASE_OUT_QUINT, 500);
     private final Animation bloomAnimation = new Animation(Easing.EASE_OUT_QUINT, 500);
+    private Vector3d lastDraw = new Vector3d(0, 0, 0);
 
     public void draw(double x, double y, double width, boolean selected) {
         double value = dimAnimation.getValue();

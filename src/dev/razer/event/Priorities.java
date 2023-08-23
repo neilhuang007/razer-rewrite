@@ -1,4 +1,4 @@
-package dev.razer.event.bus;
+package dev.razer.event;
 
 public final class Priorities {
 

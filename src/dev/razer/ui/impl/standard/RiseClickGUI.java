@@ -1,6 +1,9 @@
 package dev.razer.ui.impl.standard;
 
 import dev.razer.Razer;
+import dev.razer.event.Priorities;
+import dev.razer.event.annotations.EventLink;
+import dev.razer.managers.RenderManager;
 import dev.razer.module.Module;
 import dev.razer.module.api.Category;
 import dev.razer.ui.impl.standard.components.ModuleComponent;
@@ -13,6 +16,8 @@ import dev.razer.util.Timers.StopWatch;
 import dev.razer.util.animation.Animation;
 import dev.razer.util.animation.Easing;
 import dev.razer.util.interfaces.InstanceAccess;
+import dev.razer.util.shader.RazerShaders;
+import dev.razer.util.shader.base.ShaderRenderType;
 import lombok.Getter;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
@@ -31,9 +36,6 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 @Getter
 public final class RiseClickGUI extends GuiScreen implements InstanceAccess {
 
-    public Vector2f position = new Vector2f(-1, -1);
-    public Vector2f scale = new Vector2f(320 * 1.3f, 260 * 1.3f);
-
     /* Colors */
     public final Color backgroundColor = new Color(23, 26, 33),
             sidebarColor = new Color(18, 20, 25),
@@ -42,7 +44,8 @@ public final class RiseClickGUI extends GuiScreen implements InstanceAccess {
             fontDarkColor = new Color(255, 255, 255, 220),
             fontDarkerColor = new Color(255, 255, 255, 40),
             opaqueAccentColor = new Color(68, 134, 240, 160);
-
+    public Vector2f position = new Vector2f(-1, -1);
+    public Vector2f scale = new Vector2f(320 * 1.3f, 260 * 1.3f);
     /* Sidebar */
     public SidebarCategory sidebar = new SidebarCategory();
 
@@ -61,12 +64,15 @@ public final class RiseClickGUI extends GuiScreen implements InstanceAccess {
     public double animationTime, opacity, animationVelocity;
 
     public int round = 7;
-
-    Vector2d translate;
     public ValueComponent overlayPresent;
     public Vector2f moduleDefaultScale = new Vector2f(285, 38);
     public Animation scaleAnimation = new Animation(Easing.EASE_IN_EXPO, 300);
     public Animation opacityAnimation = new Animation(Easing.EASE_IN_EXPO, 300);
+    Vector2d translate;
+    @EventLink(value = Priorities.VERY_LOW)
+    public final Listener<AlphaEvent> onAlpha = event -> {
+        if (animationTime <= 0.99) renderGUI();
+    };
 
     public void rebuildModuleCache() {
         moduleList.clear();
@@ -126,16 +132,11 @@ public final class RiseClickGUI extends GuiScreen implements InstanceAccess {
 
         if (animationTime > 0.99) renderGUI();
 
-//        RenderUtil.rectangle(0, 0, 2000, 2000, Color.WHITE);
+//        RenderManager.rectangle(0, 0, 2000, 2000, Color.WHITE);
 
-        RiseShaders.ALPHA_SHADER.setAlpha((float) opacity);
-        RiseShaders.ALPHA_SHADER.run(ShaderRenderType.OVERLAY, InstanceAccess.mc.timer.renderPartialTicks, null);
+        RazerShaders.ALPHA_SHADER.setAlpha((float) opacity);
+        RazerShaders.ALPHA_SHADER.run(ShaderRenderType.OVERLAY, InstanceAccess.mc.timer.renderPartialTicks, null);
     }
-
-    @EventLink(value = Priorities.VERY_LOW)
-    public final Listener<AlphaEvent> onAlpha = event -> {
-        if (animationTime <= 0.99) renderGUI();
-    };
 
     public void renderGUI() {
         if (mouse == null) {
@@ -198,20 +199,20 @@ public final class RiseClickGUI extends GuiScreen implements InstanceAccess {
 
 
         /* Drop Shadow */
-//        RenderUtil.dropShadow(14, position.x, position.y, scale.x, scale.y, 255 / 14f, round - 2);
+//        RenderManager.dropShadow(14, position.x, position.y, scale.x, scale.y, 255 / 14f, round - 2);
 
         sidebar.preRenderClickGUI();
 
         /* Background */
-        RenderUtil.roundedRectangle(position.x + sidebar.sidebarWidth, position.y, scale.x - sidebar.sidebarWidth, scale.y, round, backgroundColor);
-        RenderUtil.rectangle(position.x + sidebar.sidebarWidth, position.y, round * 2, scale.y, backgroundColor);
-//        RenderUtil.rectangle(position.x + sidebar.sidebarWidth, position.y, 0.5, scale.y, ColorUtil.withAlpha(Color.WHITE, 20));
+        RenderManager.roundedRectangle(position.x + sidebar.sidebarWidth, position.y, scale.x - sidebar.sidebarWidth, scale.y, round, backgroundColor);
+        RenderManager.rectangle(position.x + sidebar.sidebarWidth, position.y, round * 2, scale.y, backgroundColor);
+//        RenderManager.rectangle(position.x + sidebar.sidebarWidth, position.y, 0.5, scale.y, ColorUtil.withAlpha(Color.WHITE, 20));
 
         /* Stop objects from going outside the ClickGUI */
         Runnable startScissor = () -> {
             GL11.glEnable(GL11.GL_SCISSOR_TEST);
             int padding = 1;
-            RenderUtil.scissor(position.x * animationTime + translate.x + padding, position.y * animationTime + translate.y + padding, scale.x * animationTime - padding * 2, scale.y * animationTime - padding * 2);
+            RenderManager.scissor(position.x * animationTime + translate.x + padding, position.y * animationTime + translate.y + padding, scale.x * animationTime - padding * 2, scale.y * animationTime - padding * 2);
         };
 
         startScissor.run();
@@ -220,7 +221,7 @@ public final class RiseClickGUI extends GuiScreen implements InstanceAccess {
 
 //        double startScale = 50;
 //        for (double gradientScale = startScale; gradientScale <= 650; gradientScale += 20) {
-//            RenderUtil.roundedRectangle(position.x - 20, position.y + 20 - (gradientScale - startScale) / 2, gradientScale, gradientScale,
+//            RenderManager.roundedRectangle(position.x - 20, position.y + 20 - (gradientScale - startScale) / 2, gradientScale, gradientScale,
 //                    gradientScale / 2f, ColorUtil.withAlpha(getTheme().getFirstColor(), 1).brighter());
 //        }
 
@@ -240,7 +241,7 @@ public final class RiseClickGUI extends GuiScreen implements InstanceAccess {
         selectedScreen.onRender(mouseX, mouseY, partialTicks);
 
         final int opacity2 = 255 - (int) Math.min(255, timeInCategory.getElapsedTime() * 2);
-        RenderUtil.roundedRectangle(position.x + sidebar.sidebarWidth, position.y - animationOffset, scale.x - sidebar.sidebarWidth, scale.y, round, new Color(backgroundColor.getRed(), backgroundColor.getGreen(), backgroundColor.getBlue(), opacity2));
+        RenderManager.roundedRectangle(position.x + sidebar.sidebarWidth, position.y - animationOffset, scale.x - sidebar.sidebarWidth, scale.y, round, new Color(backgroundColor.getRed(), backgroundColor.getGreen(), backgroundColor.getBlue(), opacity2));
 
         position.y -= animationOffset;
 
@@ -280,7 +281,7 @@ public final class RiseClickGUI extends GuiScreen implements InstanceAccess {
 
         /* Stop objects from going outside the ClickGUI */
         GL11.glEnable(GL11.GL_SCISSOR_TEST);
-        RenderUtil.scissor(position.x * animationTime + translate.x, position.y * animationTime + translate.y, scale.x * animationTime, (scale.y - 4) * animationTime);
+        RenderManager.scissor(position.x * animationTime + translate.x, position.y * animationTime + translate.y, scale.x * animationTime, (scale.y - 4) * animationTime);
 
         selectedScreen.onBloom();
         sidebar.bloom();
@@ -364,5 +365,6 @@ public final class RiseClickGUI extends GuiScreen implements InstanceAccess {
 
         return false;
     }
+
 }
 

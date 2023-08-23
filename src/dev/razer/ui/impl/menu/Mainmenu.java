@@ -25,13 +25,12 @@ import java.io.IOException;
 
 public final class Mainmenu extends Menu {
 
-    Minecraft mc = Minecraft.getMinecraft();
+    // "Logo" animation
+    private final Font fontRenderer = FontManager.getProductSansRegular(64);
 
 //    private static final ResourceLocation SETTINGS_ICON = new ResourceLocation("rise/icons/main_menu/SettingsIcon.png");
 //    private static final ResourceLocation LANGUAGES_ICON = new ResourceLocation("rise/icons/main_menu/LanguagesIcon.png");
-
-    // "Logo" animation
-    private final Font fontRenderer = FontManager.getProductSansRegular(64);
+    Minecraft mc = Minecraft.getMinecraft();
     private Animation animation = new Animation(Easing.EASE_OUT_QUINT, 600);
 
     private MenuTextButton singlePlayerButton;
@@ -45,6 +44,7 @@ public final class Mainmenu extends Menu {
     private MenuButton[] menuButtons;
 
     private boolean vape;
+
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
         if (this.singlePlayerButton == null || this.multiPlayerButton == null) {
@@ -96,7 +96,7 @@ public final class Mainmenu extends Menu {
         Font watermarkLarge = FontManager.getProductSansRegular(24);
         String watermarkMainText = name + " " + Razer.VERSION_FULL + " (" + Razer.VERSION_DATE + ")";
 
-        watermarkLarge.drawRightString(watermarkMainText, scaledResolution.getScaledWidth()- 5,
+        watermarkLarge.drawRightString(watermarkMainText, scaledResolution.getScaledWidth() - 5,
                 scaledResolution.getScaledHeight() - watermarkLarge.height() - 2,
                 ColorManager.withAlpha(TEXT_SUBTEXT, 128).getRGB());
 
@@ -144,7 +144,7 @@ public final class Mainmenu extends Menu {
         this.singlePlayerButton = new MenuTextButton(buttonX, buttonY, buttonWidth, buttonHeight, () -> mc.displayGuiScreen(new GuiSelectWorld(this)), "Singleplayer");
         this.multiPlayerButton = new MenuTextButton(buttonX, buttonY + buttonHeight + buttonSpacing, buttonWidth, buttonHeight, () -> mc.displayGuiScreen(new GuiMultiplayer(this)), "Multiplayer");
         this.optionsButton = new MenuTextButton(buttonX, buttonY + buttonHeight * 2 + buttonSpacing * 2, buttonWidth / 2 - 3, buttonHeight, () -> this.mc.displayGuiScreen(new GuiOptions(this, this.mc.gameSettings)), "options");
-        this.quitButton = new MenuTextButton(buttonX + buttonSpacing / 2 + buttonWidth/2, buttonY + buttonHeight * 2 + buttonSpacing * 2, buttonWidth / 2 - 3, buttonHeight, () -> this.mc.shutdown(), "quit");
+        this.quitButton = new MenuTextButton(buttonX + buttonSpacing / 2 + buttonWidth / 2, buttonY + buttonHeight * 2 + buttonSpacing * 2, buttonWidth / 2 - 3, buttonHeight, () -> this.mc.shutdown(), "quit");
 
         //this.altManagerButton = new MenuTextButton(buttonX, buttonY + buttonHeight * 2 + buttonSpacing * 2, buttonWidth, buttonHeight, () -> mc.displayGuiScreen(Client.INSTANCE.getAltManagerMenu()), "AltManager(needs developement)");
 
@@ -152,6 +152,6 @@ public final class Mainmenu extends Menu {
         this.animation = new Animation(Easing.EASE_OUT_QUINT, 600);
 
         // Putting all buttons in an array for handling mouse clicks
-        this.menuButtons = new MenuButton[]{this.singlePlayerButton, this.multiPlayerButton,this.optionsButton,this.quitButton};
+        this.menuButtons = new MenuButton[]{this.singlePlayerButton, this.multiPlayerButton, this.optionsButton, this.quitButton};
     }
 }

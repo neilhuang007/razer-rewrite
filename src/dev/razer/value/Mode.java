@@ -11,6 +11,7 @@ import java.util.List;
 
 /**
  * Rewritten from Patricks old version to be less retarded
+ *
  * @author Hazsi
  * @since 10/10/2022
  */
@@ -31,15 +32,5 @@ public abstract class Mode<T> implements InstanceAccess, Toggleable {
         this.onDisable();
     }
 
-    @Override
-    public void toggle() {
-    }
 
-    @Override
-    public void onEnable() {
-    }
-
-    @Override
-    public void onDisable() {
-    }
 }

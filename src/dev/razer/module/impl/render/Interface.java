@@ -26,59 +26,29 @@ import java.util.stream.Collectors;
 @ModuleInfo(name = "module.render.interface.name", description = "module.render.interface.description", category = Ca.RENDER, autoEnabled = true)
 public final class Interface extends Module {
 
+    public final BooleanValue limitChatWidth = new BooleanValue("Limit Chat Width", this, false);
+    public final BooleanValue smoothHotBar = new BooleanValue("Smooth Hot Bar", this, true);
     private final ModeValue mode = new ModeValue("Mode", this, () -> false) {{
         add(new ModernInterface("Modern", (Interface) this.getParent()));
         setDefault("Modern");
     }};
-
     private final ModeValue modulesToShow = new ModeValue("Modules to Show", this, () -> false) {{
         add(new SubMode("All"));
         add(new SubMode("Exclude render"));
         add(new SubMode("Only bound"));
         setDefault("Exclude render");
     }};
-
-    public final BooleanValue limitChatWidth = new BooleanValue("Limit Chat Width", this, false);
-    public final BooleanValue smoothHotBar = new BooleanValue("Smooth Hot Bar", this, true);
-
+    private final StopWatch stopwatch = new StopWatch();
+    private final StopWatch updateTags = new StopWatch();
     public BooleanValue suffix = new BooleanValue("Suffix", this, true, () -> false);
     public BooleanValue lowercase = new BooleanValue("Lowercase", this, false, () -> false);
     public BooleanValue removeSpaces = new BooleanValue("Remove Spaces", this, false, () -> false);
-
     public BooleanValue shaders = new BooleanValue("Shaders", this, true);
-    private ArrayList<ModuleComponent> allModuleComponents = new ArrayList<>(),
-            activeModuleComponents = new ArrayList<>();
-    private SubMode lastFrameModulesToShow = (SubMode) modulesToShow.getValue();
-
-    private final StopWatch stopwatch = new StopWatch();
-    private final StopWatch updateTags = new StopWatch();
-
     public Font widthComparator = nunitoNormal;
     public float moduleSpacing = 12, edgeOffset;
-
-    public Interface() {
-        createArrayList();
-    }
-
-    public void createArrayList() {
-        allModuleComponents.clear();
-        Razer.INSTANCE.getModuleManager().getAll().stream()
-                .sorted(Comparator.comparingDouble(module -> -widthComparator.width(Localization.get(module.getDisplayName()))))
-                .forEach(module -> allModuleComponents.add(new ModuleComponent(module)));
-    }
-
-    public void sortArrayList() {
-//        ArrayList<ModuleComponent> components = new ArrayList<>();
-//        Client.INSTANCE.getModuleManager().getAll().forEach(module -> components.add(new ModuleComponent(module)));
-//
-        activeModuleComponents = allModuleComponents.stream()
-                .filter(moduleComponent -> moduleComponent.getModule().shouldDisplay(this))
-                .sorted(Comparator.comparingDouble(module -> -module.getNameWidth() - module.getTagWidth()))
-                .collect(Collectors.toCollection(ArrayList::new));
-    }
-
     StopWatch lastUpdate = new StopWatch();
-
+    private ArrayList<ModuleComponent> allModuleComponents = new ArrayList<>(),
+            activeModuleComponents = new ArrayList<>();
     @EventLink()
     public final Listener<PreUpdateEvent> onPreUpdate = event -> {
         if (lastUpdate.finished(1000)) {
@@ -89,7 +59,6 @@ public final class Interface extends Module {
             });
         }
     };
-
     @EventLink()
     public final Listener<Render2DEvent> onRender2D = event -> {
 
@@ -111,8 +80,7 @@ public final class Interface extends Module {
                     }
 
                     for (final Value<?> value : moduleComponent.getModule().getValues()) {
-                        if (value instanceof ModeValue) {
-                            final ModeValue modeValue = (ModeValue) value;
+                        if (value instanceof ModeValue modeValue) {
 
                             moduleComponent.setTag(modeValue.getValue().getName());
                             break;
@@ -159,4 +127,26 @@ public final class Interface extends Module {
             stopwatch.reset();
         });
     };
+    private SubMode lastFrameModulesToShow = (SubMode) modulesToShow.getValue();
+
+    public Interface() {
+        createArrayList();
+    }
+
+    public void createArrayList() {
+        allModuleComponents.clear();
+        Razer.INSTANCE.getModuleManager().getAll().stream()
+                .sorted(Comparator.comparingDouble(module -> -widthComparator.width(Localization.get(module.getDisplayName()))))
+                .forEach(module -> allModuleComponents.add(new ModuleComponent(module)));
+    }
+
+    public void sortArrayList() {
+//        ArrayList<ModuleComponent> components = new ArrayList<>();
+//        Client.INSTANCE.getModuleManager().getAll().forEach(module -> components.add(new ModuleComponent(module)));
+//
+        activeModuleComponents = allModuleComponents.stream()
+                .filter(moduleComponent -> moduleComponent.getModule().shouldDisplay(this))
+                .sorted(Comparator.comparingDouble(module -> -module.getNameWidth() - module.getTagWidth()))
+                .collect(Collectors.toCollection(ArrayList::new));
+    }
 }

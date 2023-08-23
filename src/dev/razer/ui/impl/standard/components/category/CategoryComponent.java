@@ -1,28 +1,29 @@
 package dev.razer.ui.impl.standard.components.category;
 
-import me.neilhuang007.razer.Client;
-import me.neilhuang007.razer.module.api.Category;
-import me.neilhuang007.razer.ui.click.standard.RiseClickGUI;
-import me.neilhuang007.razer.ui.click.standard.screen.Screen;
-import me.neilhuang007.razer.util.animation.Animation;
-import me.neilhuang007.razer.util.font.FontManager;
-import me.neilhuang007.razer.util.gui.GUIUtil;
-import me.neilhuang007.razer.util.interfaces.InstanceAccess;
-import me.neilhuang007.razer.util.localization.Localization;
-import me.neilhuang007.razer.util.render.ColorUtil;
-import me.neilhuang007.razer.util.render.RenderUtil;
-import me.neilhuang007.razer.util.vector.Vector2d;
+
+import dev.razer.Razer;
+import dev.razer.managers.ColorManager;
+import dev.razer.managers.RenderManager;
+import dev.razer.module.api.Category;
+import dev.razer.ui.impl.standard.RiseClickGUI;
+import dev.razer.ui.impl.standard.screen.Screen;
+import dev.razer.util.animation.Animation;
+import dev.razer.util.font.FontManager;
+import dev.razer.util.interfaces.InstanceAccess;
+import dev.razer.util.localization.Localization;
 import net.minecraft.client.renderer.GlStateManager;
 
+import javax.vecmath.Vector2d;
 import java.awt.*;
 
-import static me.neilhuang007.razer.util.animation.Easing.LINEAR;
+import static dev.razer.util.animation.Easing.LINEAR;
+
 
 public final class CategoryComponent implements InstanceAccess {
 
 
-    private Animation animation = new Animation(LINEAR, 500);
     public final Category category;
+    private final Animation animation = new Animation(LINEAR, 500);
     private long lastTime = 0;
     private double selectorOpacity;
 
@@ -34,7 +35,7 @@ public final class CategoryComponent implements InstanceAccess {
     }
 
     public void render(final double offset, final double sidebarWidth, final double opacity, final Screen selectedScreen) {
-        final RiseClickGUI clickGUI = Client.INSTANCE.getStandardClickGUI();
+        final RiseClickGUI clickGUI = Razer.INSTANCE.getStandardClickGUI();
 
         if (System.currentTimeMillis() - lastTime > 300) lastTime = System.currentTimeMillis();
         final long time = System.currentTimeMillis();
@@ -56,8 +57,8 @@ public final class CategoryComponent implements InstanceAccess {
 //        GlStateManager.scale(scale, scale, 1);
 
         /* Draws selection */
-        RenderUtil.roundedRectangle(x + 1.5, y - 5.5, width + 9, 15, 4,
-                ColorUtil.withAlpha(getTheme().getAccentColor(new Vector2d(0, y / 5D)), (int) (Math.min(animation.getValue(), opacity))).darker());
+        RenderManager.roundedRectangle(x + 1.5, y - 5.5, width + 9, 15, 4,
+                ColorManager.withAlpha(getTheme().getAccentColor(new Vector2d(0, y / 5D)), (int) (Math.min(animation.getValue(), opacity))).darker());
 
         /* Draws category icon */
 //        this.icon.drawString(category.getIcon(), (float) (x + selectorOpacity / 80f - 8), y - 2, color);
@@ -73,7 +74,7 @@ public final class CategoryComponent implements InstanceAccess {
 
         clickGUI.nunitoSmall.drawString(Localization.get(category.getName()), (float) (x + animation.getValue() / 80f + 3 + spacer) +
                 FontManager.getIconsOne(17).width(category.getIcon()), y, color);
-        
+
         GlStateManager.popMatrix();
 
         lastTime = time;
@@ -89,11 +90,13 @@ public final class CategoryComponent implements InstanceAccess {
 
     public void bloom(final double opacity) {
         final double width = nunitoSmall.width(Localization.get(category.getName())) + 12;
-        RenderUtil.roundedRectangle(x + 1.5, y - 5.5, width + 9, 15, 4,
-                ColorUtil.withAlpha(getTheme().getAccentColor(new Vector2d(0, y / 5D)), (int) (Math.min(animation.getValue(), opacity))).darker());
+        RenderManager.roundedRectangle(x + 1.5, y - 5.5, width + 9, 15, 4,
+                ColorManager.withAlpha(getTheme().getAccentColor(new Vector2d(0, y / 5D)), (int) (Math.min(animation.getValue(), opacity))).darker());
     }
 
     public void release() {
         down = false;
     }
+
+
 }

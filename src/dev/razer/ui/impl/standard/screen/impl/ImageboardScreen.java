@@ -20,15 +20,34 @@ import java.util.stream.Collectors;
 
 public final class ImageboardScreen extends Screen {
 
+    private static int page = 0;
     public ScrollUtil scrollUtil = new ScrollUtil();
-
     private List<BoardImage> urls;
     private List<BufferedImage> images;
     private List<ResourceLocation> cache = new ArrayList<>();
-
     private boolean attempted, done;
 
-    private static int page = 0;
+    public static Dimension getScaledDimension(final Dimension imgSize, final Dimension boundary) {
+        final int original_width = imgSize.width;
+        final int original_height = imgSize.height;
+        final int bound_width = boundary.width;
+        final int bound_height = boundary.height;
+
+        int new_width = original_width;
+        int new_height = original_height;
+
+        if (original_width > bound_width) {
+            new_width = bound_width;
+            new_height = (new_width * original_height) / original_width;
+        }
+
+        if (new_height > bound_height) {
+            new_height = bound_height;
+            new_width = (new_height * original_width) / original_height;
+        }
+
+        return new Dimension(new_width, new_height);
+    }
 
     @Override
     public void onInit() {
@@ -97,7 +116,7 @@ public final class ImageboardScreen extends Screen {
 
             for (final ResourceLocation location : cache) {
                 if (location != null) {
-                    RenderUtil.image(location, baseX, (float) (baseY + 14 + scrollUtil.getScroll()) + (height * i) + (i != 0 ? 5 * i : 0), width, height);
+                    RenderUtil.image(location, baseX, (baseY + 14 + scrollUtil.getScroll()) + (height * i) + (i != 0 ? 5 * i : 0), width, height);
 
                     ++i;
                 }
@@ -118,27 +137,5 @@ public final class ImageboardScreen extends Screen {
                 || image.getTags().contains("animated")
                 || image.getTags().contains("pokimon")
                 || image.isPending();
-    }
-
-    public static Dimension getScaledDimension(final Dimension imgSize, final Dimension boundary) {
-        final int original_width = imgSize.width;
-        final int original_height = imgSize.height;
-        final int bound_width = boundary.width;
-        final int bound_height = boundary.height;
-
-        int new_width = original_width;
-        int new_height = original_height;
-
-        if (original_width > bound_width) {
-            new_width = bound_width;
-            new_height = (new_width * original_height) / original_width;
-        }
-
-        if (new_height > bound_height) {
-            new_height = bound_height;
-            new_width = (new_height * original_width) / original_height;
-        }
-
-        return new Dimension(new_width, new_height);
     }
 }

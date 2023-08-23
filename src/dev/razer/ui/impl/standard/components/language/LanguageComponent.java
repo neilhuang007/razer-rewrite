@@ -1,17 +1,16 @@
 package dev.razer.ui.impl.standard.components.language;
 
+import dev.razer.Razer;
+import dev.razer.managers.RenderManager;
+import dev.razer.util.font.FontManager;
+import dev.razer.util.interfaces.InstanceAccess;
+import dev.razer.util.localization.Locale;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import me.neilhuang007.razer.Client;
-import me.neilhuang007.razer.util.font.FontManager;
-import me.neilhuang007.razer.util.gui.GUIUtil;
-import me.neilhuang007.razer.util.interfaces.InstanceAccess;
-import me.neilhuang007.razer.util.localization.Locale;
-import me.neilhuang007.razer.util.render.ColorUtil;
-import me.neilhuang007.razer.util.render.RenderUtil;
-import me.neilhuang007.razer.util.vector.Vector2d;
-import me.neilhuang007.razer.util.vector.Vector2f;
 import net.minecraft.util.ResourceLocation;
+
+import javax.vecmath.Vector2d;
+import javax.vecmath.Vector2f;
 
 /**
  * @author Hazsi
@@ -22,7 +21,7 @@ import net.minecraft.util.ResourceLocation;
 public class LanguageComponent implements InstanceAccess {
     private final Locale locale;
     private final String localName, englishName;
-    
+
     private double lastY;
 
     public void draw(double y) {
@@ -30,12 +29,12 @@ public class LanguageComponent implements InstanceAccess {
         final Vector2f scale = getStandardClickGUI().getScale();
         final double sidebar = getStandardClickGUI().getSidebar().sidebarWidth;
 
-        RenderUtil.roundedRectangle(position.getX() + sidebar + 8, position.getY() + y, 285,
+        RenderManager.roundedRectangle(position.getX() + sidebar + 8, position.getY() + y, 285,
                 38, 6, getStandardClickGUI().getSidebarColor());
 
         // Draw locale english name
         FontManager.getNunito(20).drawString(this.englishName, position.getX() + sidebar + 18, position.getY() + y + 9,
-                Client.INSTANCE.getLocale().equals(this.locale) ? getTheme().getAccentColor(new Vector2d(0, position.y / 5)).getRGB() :
+                Razer.INSTANCE.getLocale().equals(this.locale) ? getTheme().getAccentColor(new Vector2d(0, position.y / 5)).getRGB() :
                         getStandardClickGUI().getFontColor().getRGB());
 
         // Draw locale native name
@@ -43,21 +42,21 @@ public class LanguageComponent implements InstanceAccess {
                 position.getY() + y + 24, ColorUtil.withAlpha(getStandardClickGUI().getFontColor(), 100).hashCode());
 
         // Draw flag
-        RenderUtil.image(new ResourceLocation("rise/icons/language/" + locale.getFile() + ".png"),
+        RenderManager.image(new ResourceLocation("rise/icons/language/" + locale.getFile() + ".png"),
                 position.getX() + sidebar + FontManager.getNunito(20).width(this.englishName) + 25, position.getY() + y + 5, 15, 15);
 
         this.lastY = y;
     }
-    
+
     public void click(double mouseX, double mouseY) {
         final Vector2f position = getStandardClickGUI().getPosition();
         final Vector2f scale = getStandardClickGUI().getScale();
         final double sidebar = getStandardClickGUI().getSidebar().sidebarWidth;
-        
+
         if (GUIUtil.mouseOver(position.getX() + sidebar + 8, position.getY() + lastY,
                 285, 38, mouseX, mouseY)) {
 
-            Client.INSTANCE.setLocale(this.locale);
+            Razer.INSTANCE.setLocale(this.locale);
         }
     }
 }

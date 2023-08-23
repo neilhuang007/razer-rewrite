@@ -1,7 +1,9 @@
 package dev.razer.ui.impl.standard.components.popup.impl;
 
-import me.neilhuang007.razer.ui.click.standard.components.popup.PopUp;
-import me.neilhuang007.razer.util.vector.Vector2f;
+
+import dev.razer.ui.impl.standard.components.popup.PopUp;
+
+import javax.vecmath.Vector2f;
 
 /**
  * Author: Alan

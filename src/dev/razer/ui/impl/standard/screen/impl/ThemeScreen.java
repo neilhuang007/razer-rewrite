@@ -21,11 +21,9 @@ import java.util.Objects;
  */
 public class ThemeScreen extends Screen {
     private final ArrayList<ThemeComponent> allThemes = new ArrayList<>();
-    private ArrayList<ThemeComponent> visibleThemes = new ArrayList<>();
-
     private final ArrayList<ThemeKeyColorComponent> colors = new ArrayList<>();
     private final ScrollUtil scrollUtil = new ScrollUtil();
-
+    private ArrayList<ThemeComponent> visibleThemes = new ArrayList<>();
     private ThemeKeyColorComponent selectedColor = null;
 
     public ThemeScreen() {

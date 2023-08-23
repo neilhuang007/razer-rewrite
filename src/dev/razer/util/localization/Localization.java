@@ -15,14 +15,15 @@ import java.nio.charset.StandardCharsets;
  * @since 10/31/2022
  */
 public class Localization {
+    private static boolean populated = false;
+
     static {
         populate();
     }
 
-    private static boolean populated = false;
-
     /**
      * Gets a translated string using the Client's current locale
+     *
      * @param key The key of the string to translate
      * @return The translated string of the key, using the Client's current locale
      */
@@ -32,7 +33,8 @@ public class Localization {
 
     /**
      * Gets a translated string using a specified locale
-     * @param key The key of the string to translate
+     *
+     * @param key    The key of the string to translate
      * @param locale The locale to use when translating the given key
      * @return The translated string of the key, using the specified locale. If the key is not found in the specified
      * locale's strings, en_US is used a fallback. If the string is missing in en_US, the key itself is used as a
