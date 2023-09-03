@@ -1,13 +1,16 @@
 package dev.razer.module.impl.render;
 
 import dev.razer.Razer;
-import dev.razer.event.bus.annotations.EventLink;
+
+import dev.razer.event.annotations.EventLink;
 import dev.razer.module.Module;
+import dev.razer.module.api.Category;
 import dev.razer.module.api.ModuleInfo;
 import dev.razer.ui.impl.standard.components.ModuleComponent;
 import dev.razer.util.Timers.StopWatch;
 import dev.razer.util.font.Font;
 import dev.razer.util.localization.Localization;
+import dev.razer.util.math.MathUtil;
 import dev.razer.value.Value;
 import dev.razer.value.impl.BooleanValue;
 import dev.razer.value.impl.ModeValue;
@@ -23,7 +26,7 @@ import java.util.stream.Collectors;
 
 @Getter
 @Setter
-@ModuleInfo(name = "module.render.interface.name", description = "module.render.interface.description", category = Ca.RENDER, autoEnabled = true)
+@ModuleInfo(name = "module.render.interface.name", description = "module.render.interface.description", category = Category.RENDER, autoEnabled = true)
 public final class Interface extends Module {
 
     public final BooleanValue limitChatWidth = new BooleanValue("Limit Chat Width", this, false);

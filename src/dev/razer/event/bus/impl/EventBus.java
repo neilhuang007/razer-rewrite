@@ -58,8 +58,6 @@ public final class EventBus<Event> implements Bus<Event>, InstanceAccess {
                             this.callSiteMap.put(eventType, callSites);
                         }
                     } catch (Throwable exception) {
-                        if (!Razer.DEVELOPMENT_SWITCH) return;
-                        ChatUtil.display("Exception in console");
                         exception.printStackTrace();
                     }
                 }

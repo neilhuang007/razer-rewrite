@@ -4,41 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9ad04c4-c420-49a0-acba-06004f353030" name="Changes" comment="emergency patch">
-      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/CancellableEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/Event.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/EventBusPriorities.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/Listener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/bus/Bus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/bus/impl/EventBus.java" afterDir="false" />
+    <list default="true" id="c9ad04c4-c420-49a0-acba-06004f353030" name="Changes" comment="fix some bugs, still more to go">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/Razer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/Razer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/event/bus/Listener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/event/bus/Priorities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/event/Priorities.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/event/bus/annotations/EventLink.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/event/annotations/EventLink.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/event/bus/bus/Bus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/event/bus/bus/impl/EventBus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/event/types/CancellableEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/event/types/Event.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/managers/RenderManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/managers/RenderManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/modules/Module.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/modules/impl/chat/TickEventTester.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/modules/utils/Binds.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/modules/utils/Category.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/modules/utils/ModuleInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/modules/utils/Settings.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/RiseClickGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/RiseClickGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/ModuleComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/ModuleComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/category/CategoryComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/category/CategoryComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/category/SidebarCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/category/SidebarCategory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/language/LanguageComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/language/LanguageComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/popup/PopUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/popup/PopUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/popup/impl/ModifierSelectionPopUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/popup/impl/ModifierSelectionPopUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/theme/ThemeComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/theme/ThemeComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/value/ValueComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/value/ValueComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/screen/impl/CategoryScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/screen/impl/CategoryScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/value/impl/ListValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/value/impl/ListValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/value/impl/ModeValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/value/impl/ModeValue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/event/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/event/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/event/bus/impl/EventBus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/event/bus/impl/EventBus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/module/impl/render/Interface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/module/impl/render/Interface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/value/impl/StringValueComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/value/impl/StringValueComponent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +30,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2R6JfJb3DqPItaCxsHT6sErcQwC" />
   <component name="ProjectViewState">
@@ -80,7 +51,7 @@
     &quot;project.structure.last.edited&quot;: &quot;工件&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;http.proxy&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -136,7 +107,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689935289764</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix some bugs, still more to go">
+      <created>1692764150403</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1692764150403</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -156,6 +134,11 @@
     <MESSAGE value="fixed menu problems&#10;resources sycning with razor finished &#10;special thanks to 一个普普通通平平凡凡的神" />
     <MESSAGE value="more optimizations and modifications&#10;If anyone sees this, PLEASE FIX THE INTRO SCREEN" />
     <MESSAGE value="emergency patch" />
-    <option name="LAST_COMMIT_MESSAGE" value="emergency patch" />
+    <MESSAGE value="fix some bugs, still more to go" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix some bugs, still more to go" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

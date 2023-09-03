@@ -1,12 +1,11 @@
 package dev.razer.ui.impl.standard.components.value.impl;
 
-import me.neilhuang007.razer.ui.click.standard.components.value.ValueComponent;
-import me.neilhuang007.razer.util.gui.textbox.TextAlign;
-import me.neilhuang007.razer.util.gui.textbox.TextBox;
-import me.neilhuang007.razer.util.vector.Vector2d;
-import me.neilhuang007.razer.value.Value;
-import me.neilhuang007.razer.value.impl.StringValue;
+import dev.razer.ui.impl.standard.components.value.ValueComponent;
+import dev.razer.value.Value;
+import dev.razer.value.impl.StringValue;
 
+
+import javax.vecmath.Vector2d;
 import java.awt.*;
 
 public class StringValueComponent extends ValueComponent {
@@ -20,6 +19,8 @@ public class StringValueComponent extends ValueComponent {
         textBox.setText(stringValue.getValue());
         textBox.setCursor(stringValue.getValue().length());
     }
+
+
 
     @Override
     public void draw(Vector2d position, int mouseX, int mouseY, float partialTicks) {
