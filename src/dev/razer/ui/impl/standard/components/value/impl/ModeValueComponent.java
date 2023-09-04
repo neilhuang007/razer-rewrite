@@ -1,12 +1,13 @@
 package dev.razer.ui.impl.standard.components.value.impl;
 
+import dev.razer.ui.impl.standard.components.value.ValueComponent;
+import dev.razer.util.gui.GUIUtil;
+import dev.razer.value.Mode;
+import dev.razer.value.Value;
+import dev.razer.value.impl.ModeValue;
 import lombok.Getter;
-import me.neilhuang007.razer.ui.click.standard.components.value.ValueComponent;
-import me.neilhuang007.razer.util.gui.GUIUtil;
-import me.neilhuang007.razer.util.vector.Vector2d;
-import me.neilhuang007.razer.value.Mode;
-import me.neilhuang007.razer.value.Value;
-import me.neilhuang007.razer.value.impl.ModeValue;
+
+import javax.vecmath.Vector2d;
 
 @Getter
 public class ModeValueComponent extends ValueComponent {

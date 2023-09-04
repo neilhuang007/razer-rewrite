@@ -1,10 +1,10 @@
 package dev.razer.value.impl;
 
+import dev.razer.module.Module;
+import dev.razer.value.Mode;
+import dev.razer.value.Value;
 import lombok.Getter;
 import lombok.Setter;
-import me.neilhuang007.razer.module.Module;
-import me.neilhuang007.razer.value.Mode;
-import me.neilhuang007.razer.value.Value;
 
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;

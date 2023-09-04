@@ -15,4 +15,10 @@ public class Vector3d
     {
         this.x = this.y = this.z = 0.0D;
     }
+
+    public Vector3d(final double x, final double y, final double z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
 }

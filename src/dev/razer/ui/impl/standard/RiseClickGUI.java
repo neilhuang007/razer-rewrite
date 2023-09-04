@@ -1,8 +1,10 @@
 package dev.razer.ui.impl.standard;
 
 import dev.razer.Razer;
+import dev.razer.event.Listener;
 import dev.razer.event.Priorities;
 import dev.razer.event.annotations.EventLink;
+import dev.razer.event.impl.render.AlphaEvent;
 import dev.razer.managers.RenderManager;
 import dev.razer.module.Module;
 import dev.razer.module.api.Category;

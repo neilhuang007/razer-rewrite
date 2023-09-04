@@ -1,9 +1,10 @@
 package dev.razer.ui.impl.standard.components.value.impl;
 
 import dev.razer.ui.impl.standard.components.value.ValueComponent;
+import dev.razer.util.gui.textbox.TextAlign;
+import dev.razer.util.gui.textbox.TextBox;
 import dev.razer.value.Value;
 import dev.razer.value.impl.StringValue;
-
 
 import javax.vecmath.Vector2d;
 import java.awt.*;
@@ -19,7 +20,6 @@ public class StringValueComponent extends ValueComponent {
         textBox.setText(stringValue.getValue());
         textBox.setCursor(stringValue.getValue().length());
     }
-
 
 
     @Override

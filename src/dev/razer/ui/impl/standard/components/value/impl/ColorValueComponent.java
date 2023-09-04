@@ -1,17 +1,17 @@
 package dev.razer.ui.impl.standard.components.value.impl;
 
-import me.neilhuang007.razer.ui.click.standard.components.value.ValueComponent;
-import me.neilhuang007.razer.util.font.FontManager;
-import me.neilhuang007.razer.util.gui.GUIUtil;
-import me.neilhuang007.razer.util.render.ColorUtil;
-import me.neilhuang007.razer.util.render.RenderUtil;
-import me.neilhuang007.razer.util.vector.Vector2d;
-import me.neilhuang007.razer.util.vector.Vector2f;
-import me.neilhuang007.razer.value.Value;
-import me.neilhuang007.razer.value.impl.ColorValue;
+import dev.razer.ui.impl.standard.components.value.ValueComponent;
+import dev.razer.util.font.FontManager;
+import dev.razer.util.gui.GUIUtil;
+import dev.razer.util.render.ColorUtil;
+import dev.razer.util.render.RenderUtil;
+import dev.razer.value.Value;
+import dev.razer.value.impl.ColorValue;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.util.MathHelper;
 
+import javax.vecmath.Vector2d;
+import javax.vecmath.Vector2f;
 import java.awt.*;
 
 public class ColorValueComponent extends ValueComponent {

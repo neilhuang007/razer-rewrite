@@ -237,7 +237,7 @@ public class FontManager {
         return get(HACK, size, "Hack-Regular", true, true);
     }
 
-    public static net.minecraft.client.gui.FontRenderer getMinecraft() {
+    public static Font getMinecraft() {
         return Minecraft.getMinecraft().fontRendererObj;
     }
 

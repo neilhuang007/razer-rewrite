@@ -1,9 +1,10 @@
 package dev.razer.ui.impl.standard.components.value.impl;
 
-import me.neilhuang007.razer.ui.click.standard.components.value.ValueComponent;
-import me.neilhuang007.razer.util.vector.Vector2d;
-import me.neilhuang007.razer.value.Value;
+import dev.razer.ui.impl.standard.components.value.ValueComponent;
+import dev.razer.value.Value;
 import net.minecraft.util.ResourceLocation;
+
+import javax.vecmath.Vector2d;
 
 public class PositionValueComponent extends ValueComponent {
 

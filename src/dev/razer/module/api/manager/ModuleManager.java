@@ -2,8 +2,10 @@ package dev.razer.module.api.manager;
 
 
 import dev.razer.Razer;
-import dev.razer.event.bus.Priorities;
-import dev.razer.event.bus.annotations.EventLink;
+import dev.razer.event.Listener;
+import dev.razer.event.Priorities;
+import dev.razer.event.annotations.EventLink;
+import dev.razer.event.impl.input.KeyboardInputEvent;
 import dev.razer.module.Module;
 import dev.razer.module.api.Category;
 import dev.razer.module.impl.render.Interface;
@@ -49,7 +51,7 @@ public final class ModuleManager extends ArrayList<Module> {
         this.stream().filter(module -> module.getModuleInfo().autoEnabled()).forEach(module -> module.setEnabled(true));
 
         // Has to be a listener to handle the key presses
-        Razer.eventBus.subscribe(this);
+        Razer.eventBus.register(this);
     }
 
     public List<Module> getAll() {

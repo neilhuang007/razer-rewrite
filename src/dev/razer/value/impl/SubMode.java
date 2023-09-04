@@ -1,6 +1,7 @@
 package dev.razer.value.impl;
 
-import me.neilhuang007.razer.value.Mode;
+
+import dev.razer.value.Mode;
 
 /**
  * A mode inside of a mode (inside of a module)

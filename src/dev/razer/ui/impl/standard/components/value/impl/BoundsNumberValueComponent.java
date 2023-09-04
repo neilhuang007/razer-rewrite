@@ -1,15 +1,15 @@
 package dev.razer.ui.impl.standard.components.value.impl;
 
-import me.neilhuang007.razer.ui.click.standard.components.value.ValueComponent;
-import me.neilhuang007.razer.util.gui.GUIUtil;
-import me.neilhuang007.razer.util.math.MathUtil;
-import me.neilhuang007.razer.util.render.ColorUtil;
-import me.neilhuang007.razer.util.render.RenderUtil;
-import me.neilhuang007.razer.util.vector.Vector2d;
-import me.neilhuang007.razer.value.Value;
-import me.neilhuang007.razer.value.impl.BoundsNumberValue;
-import util.time.StopWatch;
+import dev.razer.ui.impl.standard.components.value.ValueComponent;
+import dev.razer.util.Timers.StopWatch;
+import dev.razer.util.gui.GUIUtil;
+import dev.razer.util.math.MathUtil;
+import dev.razer.util.render.ColorUtil;
+import dev.razer.util.render.RenderUtil;
+import dev.razer.value.Value;
+import dev.razer.value.impl.BoundsNumberValue;
 
+import javax.vecmath.Vector2d;
 import java.awt.*;
 
 public class BoundsNumberValueComponent extends ValueComponent {
