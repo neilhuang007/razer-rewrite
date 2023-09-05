@@ -184,7 +184,7 @@ public class ModernInterface extends Mode<Interface> {
 //                this.productSansMedium18.drawStringWithShadow(username, x - nameWidth - 5, y, 0xFFCCCCCC);
 
                 // coordinates of user in the bottom left corner of the screen
-                final float coordX = 5;
+                final float coordX = 5 ;
                 this.productSansRegular.drawStringWithShadow("XYZ:", coordX, y - (mc.currentScreen instanceof GuiChat ? 13 : 0), 0xFFCCCCCC);
                 this.productSansMedium18.drawStringWithShadow(coordinates, coordX + xyzWidth, y - (mc.currentScreen instanceof GuiChat ? 13 : 0), 0xFFCCCCCC);
             }
