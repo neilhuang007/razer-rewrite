@@ -1,19 +1,21 @@
 package dev.razer.value.impl;
 
+import dev.razer.module.Module;
+import dev.razer.util.animation.Animation;
+import dev.razer.value.Mode;
+import dev.razer.value.Value;
 import lombok.Setter;
-import me.neilhuang007.razer.module.Module;
-import me.neilhuang007.razer.util.animation.Animation;
-import me.neilhuang007.razer.util.vector.Vector2d;
-import me.neilhuang007.razer.value.Mode;
-import me.neilhuang007.razer.value.Value;
+
 import net.minecraft.client.gui.ScaledResolution;
 
+import javax.vecmath.Vector2d;
 import java.util.List;
 import java.util.function.BooleanSupplier;
 
-import static me.neilhuang007.razer.util.animation.Easing.EASE_OUT_EXPO;
-import static me.neilhuang007.razer.util.animation.Easing.LINEAR;
-import static me.neilhuang007.razer.util.interfaces.InstanceAccess.mc;
+import static dev.razer.util.animation.Easing.EASE_OUT_EXPO;
+import static dev.razer.util.animation.Easing.LINEAR;
+import static dev.razer.util.interfaces.InstanceAccess.mc;
+
 
 /**
  * @author Alan

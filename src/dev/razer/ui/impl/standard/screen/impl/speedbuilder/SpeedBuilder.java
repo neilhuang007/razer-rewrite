@@ -1,11 +1,11 @@
 package dev.razer.ui.impl.standard.screen.impl.speedbuilder;
 
-import me.neilhuang007.razer.api.Rise;
-import me.neilhuang007.razer.module.Module;
-import me.neilhuang007.razer.module.api.Category;
-import me.neilhuang007.razer.module.api.ModuleInfo;
 
-@Rise
+import dev.razer.module.Module;
+import dev.razer.module.api.Category;
+import dev.razer.module.api.ModuleInfo;
+
+@Razer
 @ModuleInfo(name = "SpeedBuilder", hidden = true, description = "Allows you to have in depth customisation of the speed module", category = Category.MOVEMENT)
 public class SpeedBuilder extends Module {
 

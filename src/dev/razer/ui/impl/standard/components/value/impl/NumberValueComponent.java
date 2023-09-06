@@ -1,14 +1,15 @@
 package dev.razer.ui.impl.standard.components.value.impl;
 
-import me.neilhuang007.razer.ui.click.standard.components.value.ValueComponent;
-import me.neilhuang007.razer.util.gui.GUIUtil;
-import me.neilhuang007.razer.util.interfaces.InstanceAccess;
-import me.neilhuang007.razer.util.math.MathUtil;
-import me.neilhuang007.razer.util.render.RenderUtil;
-import me.neilhuang007.razer.util.vector.Vector2d;
-import me.neilhuang007.razer.value.Value;
-import me.neilhuang007.razer.value.impl.NumberValue;
-import util.time.StopWatch;
+import dev.razer.managers.RenderManager;
+import dev.razer.ui.impl.standard.components.value.ValueComponent;
+import dev.razer.util.Timers.StopWatch;
+import dev.razer.util.gui.GUIUtil;
+import dev.razer.util.interfaces.InstanceAccess;
+import dev.razer.util.math.MathUtil;
+import dev.razer.value.Value;
+import dev.razer.value.impl.NumberValue;
+
+import javax.vecmath.Vector2d;
 
 public class NumberValueComponent extends ValueComponent implements InstanceAccess {
 
@@ -60,7 +61,7 @@ public class NumberValueComponent extends ValueComponent implements InstanceAcce
         this.nunitoSmall.drawString(value, this.position.x + valueWidth + 105, this.position.y, this.getStandardClickGUI().fontDarkColor.hashCode());
 
         // Draws background
-        RenderUtil.roundedRectangle(this.position.x + valueWidth, this.position.y + 1.5F, SLIDER_WIDTH, 2, 1, getStandardClickGUI().backgroundColor);
+        RenderManager.roundedRectangle(this.position.x + valueWidth, this.position.y + 1.5F, SLIDER_WIDTH, 2, 1, getStandardClickGUI().backgroundColor);
 
         selector = this.position.x + valueWidth;
 
@@ -82,7 +83,7 @@ public class NumberValueComponent extends ValueComponent implements InstanceAcce
         }
 
         final double positionX = selector + renderPercentage * 100;
-        RenderUtil.roundedRectangle(positionX - grabberWidth / 2.0F, this.position.y, grabberWidth, grabberWidth, grabberWidth / 2.0F, getTheme().getFirstColor());
+        RenderManager.roundedRectangle(positionX - grabberWidth / 2.0F, this.position.y, grabberWidth, grabberWidth, grabberWidth / 2.0F, getTheme().getFirstColor());
         stopWatch.reset();
     }
 
@@ -113,7 +114,7 @@ public class NumberValueComponent extends ValueComponent implements InstanceAcce
         }
 
         final double positionX = selector + renderPercentage * 100;
-        RenderUtil.roundedRectangle(positionX - grabberWidth / 2.0F, this.position.y, grabberWidth, grabberWidth, grabberWidth / 2f, getTheme().getFirstColor());
+        RenderManager.roundedRectangle(positionX - grabberWidth / 2.0F, this.position.y, grabberWidth, grabberWidth, grabberWidth / 2f, getTheme().getFirstColor());
     }
 
     @Override

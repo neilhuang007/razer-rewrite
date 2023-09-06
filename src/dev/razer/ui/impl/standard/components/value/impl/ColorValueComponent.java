@@ -1,17 +1,19 @@
 package dev.razer.ui.impl.standard.components.value.impl;
 
-import me.neilhuang007.razer.ui.click.standard.components.value.ValueComponent;
-import me.neilhuang007.razer.util.font.FontManager;
-import me.neilhuang007.razer.util.gui.GUIUtil;
-import me.neilhuang007.razer.util.render.ColorUtil;
-import me.neilhuang007.razer.util.render.RenderUtil;
-import me.neilhuang007.razer.util.vector.Vector2d;
-import me.neilhuang007.razer.util.vector.Vector2f;
-import me.neilhuang007.razer.value.Value;
-import me.neilhuang007.razer.value.impl.ColorValue;
+
+import dev.razer.managers.RenderManager;
+import dev.razer.ui.impl.standard.components.value.ValueComponent;
+import dev.razer.util.font.FontManager;
+import dev.razer.util.gui.GUIUtil;
+import dev.razer.util.render.ColorUtil;
+import dev.razer.util.render.RenderUtil;
+import dev.razer.value.Value;
+import dev.razer.value.impl.ColorValue;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.util.MathHelper;
 
+import javax.vecmath.Vector2d;
+import javax.vecmath.Vector2f;
 import java.awt.*;
 
 public class ColorValueComponent extends ValueComponent {
@@ -46,7 +48,7 @@ public class ColorValueComponent extends ValueComponent {
 
         this.nunitoSmall.drawString(this.value.getName(), this.position.x, this.position.y, this.getStandardClickGUI().fontDarkColor.hashCode());
 
-        RenderUtil.roundedRectangle(this.position.x + valueWidth, this.position.y, COLOR_WIDTH * 2, COLOR_WIDTH, COLOR_WIDTH / 2.0F, colorValue.getValue());
+        RenderManager.roundedRectangle(this.position.x + valueWidth, this.position.y, COLOR_WIDTH * 2, COLOR_WIDTH, COLOR_WIDTH / 2.0F, colorValue.getValue());
         this.height = 14;
 
         if (selected) {
