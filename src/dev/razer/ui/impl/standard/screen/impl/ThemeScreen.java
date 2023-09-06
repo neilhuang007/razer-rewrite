@@ -1,16 +1,18 @@
 package dev.razer.ui.impl.standard.screen.impl;
 
-import me.neilhuang007.razer.ui.click.standard.components.theme.ThemeComponent;
-import me.neilhuang007.razer.ui.click.standard.components.theme.ThemeKeyColorComponent;
-import me.neilhuang007.razer.ui.click.standard.screen.Screen;
-import me.neilhuang007.razer.ui.theme.Themes;
-import me.neilhuang007.razer.util.font.FontManager;
-import me.neilhuang007.razer.util.gui.GUIUtil;
-import me.neilhuang007.razer.util.gui.ScrollUtil;
-import me.neilhuang007.razer.util.localization.Localization;
-import me.neilhuang007.razer.util.vector.Vector2d;
-import me.neilhuang007.razer.util.vector.Vector2f;
 
+
+import dev.razer.ui.impl.standard.components.theme.ThemeComponent;
+import dev.razer.ui.impl.standard.components.theme.ThemeKeyColorComponent;
+import dev.razer.ui.impl.standard.screen.Screen;
+import dev.razer.ui.impl.theme.Themes;
+import dev.razer.util.font.FontManager;
+import dev.razer.util.gui.GUIUtil;
+import dev.razer.util.gui.ScrollUtil;
+import dev.razer.util.localization.Localization;
+
+import javax.vecmath.Vector2d;
+import javax.vecmath.Vector2f;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Objects;

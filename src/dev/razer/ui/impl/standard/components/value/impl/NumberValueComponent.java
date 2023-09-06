@@ -1,15 +1,14 @@
 package dev.razer.ui.impl.standard.components.value.impl;
 
-import dev.razer.ui.impl.standard.components.value.ValueComponent;
-import dev.razer.util.Timers.StopWatch;
-import dev.razer.util.gui.GUIUtil;
-import dev.razer.util.interfaces.InstanceAccess;
-import dev.razer.util.math.MathUtil;
-import dev.razer.util.render.RenderUtil;
-import dev.razer.value.Value;
-import dev.razer.value.impl.NumberValue;
-
-import javax.vecmath.Vector2d;
+import me.neilhuang007.razer.ui.click.standard.components.value.ValueComponent;
+import me.neilhuang007.razer.util.gui.GUIUtil;
+import me.neilhuang007.razer.util.interfaces.InstanceAccess;
+import me.neilhuang007.razer.util.math.MathUtil;
+import me.neilhuang007.razer.util.render.RenderUtil;
+import me.neilhuang007.razer.util.vector.Vector2d;
+import me.neilhuang007.razer.value.Value;
+import me.neilhuang007.razer.value.impl.NumberValue;
+import util.time.StopWatch;
 
 public class NumberValueComponent extends ValueComponent implements InstanceAccess {
 

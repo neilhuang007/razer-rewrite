@@ -1,6 +1,7 @@
 package dev.razer.event.impl.server;
 
-import dev.razer.event.types.Event;
+
+import dev.razer.event.Event;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

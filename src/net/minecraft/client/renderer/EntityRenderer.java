@@ -10,6 +10,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.Callable;
+
+import dev.razer.Razer;
+import dev.razer.event.impl.client.Render2DEvent;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBed;
 import net.minecraft.block.material.Material;
@@ -1354,8 +1357,11 @@ public class EntityRenderer implements IResourceManagerReloadListener
 
                 if (!this.mc.gameSettings.thirdPersonView || this.mc.currentScreen != null)
                 {
+                    final ScaledResolution sr = new ScaledResolution(Minecraft.getMinecraft());
                     GlStateManager.alphaFunc(516, 0.1F);
                     this.mc.ingameGUI.renderGameOverlay(partialTicks);
+
+                    Razer.eventBus.handle(new Render2DEvent(sr, partialTicks));
 
                     if (this.mc.gameSettings.ofShowFps && !this.mc.gameSettings.showDebugProfilerChart)
                     {
@@ -1395,6 +1401,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
                     }
                     else
                     {
+
                         this.mc.currentScreen.drawScreen(k1, l1, partialTicks);
                     }
                 }

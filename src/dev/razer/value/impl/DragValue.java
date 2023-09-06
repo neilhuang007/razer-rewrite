@@ -1,20 +1,19 @@
 package dev.razer.value.impl;
 
-import dev.razer.module.Module;
-import dev.razer.util.animation.Animation;
-import dev.razer.util.interfaces.InstanceAccess;
-import dev.razer.value.Mode;
-import dev.razer.value.Value;
 import lombok.Setter;
+import me.neilhuang007.razer.module.Module;
+import me.neilhuang007.razer.util.animation.Animation;
+import me.neilhuang007.razer.util.vector.Vector2d;
+import me.neilhuang007.razer.value.Mode;
+import me.neilhuang007.razer.value.Value;
 import net.minecraft.client.gui.ScaledResolution;
 
-import javax.vecmath.Vector2d;
 import java.util.List;
 import java.util.function.BooleanSupplier;
 
-import static dev.razer.util.animation.Easing.EASE_OUT_EXPO;
-import static dev.razer.util.animation.Easing.LINEAR;
-
+import static me.neilhuang007.razer.util.animation.Easing.EASE_OUT_EXPO;
+import static me.neilhuang007.razer.util.animation.Easing.LINEAR;
+import static me.neilhuang007.razer.util.interfaces.InstanceAccess.mc;
 
 /**
  * @author Alan
@@ -25,7 +24,7 @@ public class DragValue extends Value<Vector2d> {
 
     public Vector2d position = new Vector2d(100, 100), targetPosition = new Vector2d(100, 100), scale = new Vector2d(100, 100), lastScale = new Vector2d(-1, -1);
     public Animation animationPosition = new Animation(LINEAR, 600), smoothAnimation = new Animation(EASE_OUT_EXPO, 300);
-    public ScaledResolution lastScaledResolution = new ScaledResolution(InstanceAccess.mc);
+    public ScaledResolution lastScaledResolution = new ScaledResolution(mc);
     public boolean render = true, structure;
 
     public DragValue(final String name, final Module parent, final Vector2d defaultValue) {
@@ -66,7 +65,7 @@ public class DragValue extends Value<Vector2d> {
             this.lastScale = this.scale;
         }
 
-        ScaledResolution scaledResolution = InstanceAccess.mc.scaledResolution;
+        ScaledResolution scaledResolution = mc.scaledResolution;
 
         if (this.position.x > scaledResolution.getScaledWidth() / 2f) {
             this.targetPosition.x += this.lastScale.x - this.scale.x;

@@ -1,18 +1,18 @@
 package dev.razer.ui.impl.standard.screen.impl;
 
+import dev.razer.managers.RenderManager;
+import dev.razer.ui.impl.standard.RiseClickGUI;
+import dev.razer.ui.impl.standard.screen.Screen;
+import dev.razer.ui.impl.standard.screen.impl.speedbuilder.Modifier;
+import dev.razer.ui.impl.standard.screen.impl.speedbuilder.Tick;
+import dev.razer.ui.impl.standard.screen.impl.speedbuilder.impl.ExemptedValue;
+import dev.razer.util.gui.GUIUtil;
+import dev.razer.util.gui.ScrollUtil;
 import lombok.Getter;
 import lombok.Setter;
-import me.neilhuang007.razer.ui.click.standard.RiseClickGUI;
-import me.neilhuang007.razer.ui.click.standard.screen.Screen;
-import me.neilhuang007.razer.ui.click.standard.screen.impl.speedbuilder.Modifier;
-import me.neilhuang007.razer.ui.click.standard.screen.impl.speedbuilder.Tick;
-import me.neilhuang007.razer.ui.click.standard.screen.impl.speedbuilder.impl.ExemptedValue;
-import me.neilhuang007.razer.util.gui.GUIUtil;
-import me.neilhuang007.razer.util.gui.ScrollUtil;
-import me.neilhuang007.razer.util.render.RenderUtil;
-import me.neilhuang007.razer.util.vector.Vector2f;
 import net.minecraft.util.ResourceLocation;
 
+import javax.vecmath.Vector2f;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -68,8 +68,8 @@ public final class SpeedBuilderScreen extends Screen {
         width = 307;
         height = 21;
 
-        RenderUtil.dropShadow(36, (int) x + 5, (int) y + 21, width - 12.5f, height * 7, 50, 24);
-        RenderUtil.image(image, x - 15, y, 674 / 1.997f, 381 / 1.997f);
+        RenderManager.dropShadow(36, (int) x + 5, (int) y + 21, width - 12.5f, height * 7, 50, 24);
+        RenderManager.image(image, x - 15, y, 674 / 1.997f, 381 / 1.997f);
 
         y += 178;
         y += 2;
@@ -85,14 +85,14 @@ public final class SpeedBuilderScreen extends Screen {
 
         final Color background = new Color(0, 0, 0, 70);
 
-        RenderUtil.dropShadow(36, x, y, width, height, 40, 24);
-        RenderUtil.roundedRectangle(x, y, width, height, 11, background);
+        RenderManager.dropShadow(36, x, y, width, height, 40, 24);
+        RenderManager.roundedRectangle(x, y, width, height, 11, background);
 
         final Color plusColor = new Color(255, 255, 255, 255);
-        RenderUtil.rectangle(x + width / 2, y + height / 2 - 5, 1, 11, plusColor);
-        RenderUtil.rectangle(x + width / 2 - 5, y + height / 2, 11, 1, plusColor);
+        RenderManager.rectangle(x + width / 2, y + height / 2 - 5, 1, 11, plusColor);
+        RenderManager.rectangle(x + width / 2 - 5, y + height / 2, 11, 1, plusColor);
 
-        RenderUtil.roundedRectangle(x, y, width, height, 11, new Color(0, 0, 0, 30));
+        RenderManager.roundedRectangle(x, y, width, height, 11, new Color(0, 0, 0, 30));
 
         //Setting max scroll
         scrollUtil.setMax(-scrollHeight + 36);
@@ -118,18 +118,5 @@ public final class SpeedBuilderScreen extends Screen {
         }
     }
 
-    @Override
-    public void onMouseRelease() {
-
-    }
-
-    @Override
-    public void onBloom() {
-
-    }
-
-    @Override
-    public void onInit() {
-
-    }
+    
 }

@@ -2,7 +2,6 @@ package dev.razer.util.interfaces;
 
 import dev.razer.Razer;
 import dev.razer.ui.impl.standard.RiseClickGUI;
-import dev.razer.ui.theme.Themes;
 import dev.razer.util.font.Font;
 import dev.razer.util.font.FontManager;
 import dev.razer.util.profiling.Profiler;
@@ -100,10 +99,4 @@ public interface InstanceAccess {
     default RiseClickGUI getStandardClickGUI() {
         return instance.getStandardClickGUI();
     }
-
-
-    default Themes getTheme() {
-        return instance.getThemeManager().getTheme();
-    }
-
 }

@@ -1,7 +1,8 @@
 package dev.razer.event.impl.world;
 
 
-import dev.razer.event.types.Event;
+
+import dev.razer.event.Event;
 import lombok.Getter;
 
 @Getter

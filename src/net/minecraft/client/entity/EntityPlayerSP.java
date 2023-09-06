@@ -1,5 +1,8 @@
 package net.minecraft.client.entity;
 
+import dev.razer.Razer;
+import dev.razer.event.impl.world.PostMotionEvent;
+import dev.razer.event.impl.world.PreUpdateEvent;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.MovingSoundMinecartRiding;
 import net.minecraft.client.audio.PositionedSoundRecord;
@@ -170,6 +173,7 @@ public class EntityPlayerSP extends AbstractClientPlayer
         if (this.worldObj.isBlockLoaded(new BlockPos(this.posX, 0.0D, this.posZ)))
         {
             super.onUpdate();
+            Razer.eventBus.handle(new PreUpdateEvent());
 
             if (this.isRiding())
             {
@@ -180,6 +184,7 @@ public class EntityPlayerSP extends AbstractClientPlayer
             {
                 this.onUpdateWalkingPlayer();
             }
+            Razer.eventBus.handle(new PostMotionEvent());
         }
     }
 

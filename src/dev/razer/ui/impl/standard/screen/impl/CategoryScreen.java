@@ -6,6 +6,7 @@ import dev.razer.ui.impl.standard.RiseClickGUI;
 import dev.razer.ui.impl.standard.components.ModuleComponent;
 import dev.razer.ui.impl.standard.screen.Screen;
 import dev.razer.util.Timers.StopWatch;
+import dev.razer.util.gui.ScrollUtil;
 import dev.razer.util.interfaces.InstanceAccess;
 import lombok.Getter;
 import lombok.Setter;

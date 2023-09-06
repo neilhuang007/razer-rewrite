@@ -1,5 +1,6 @@
 package dev.razer.util.gui.textbox;
 
+
 import dev.razer.util.font.Font;
 import dev.razer.util.gui.GUIUtil;
 import lombok.Getter;

@@ -8,22 +8,24 @@ import dev.razer.event.impl.render.AlphaEvent;
 import dev.razer.managers.RenderManager;
 import dev.razer.module.Module;
 import dev.razer.module.api.Category;
+import dev.razer.module.impl.render.ClickGUI;
 import dev.razer.ui.impl.standard.components.ModuleComponent;
 import dev.razer.ui.impl.standard.components.category.SidebarCategory;
 import dev.razer.ui.impl.standard.components.value.ValueComponent;
 import dev.razer.ui.impl.standard.components.value.impl.StringValueComponent;
 import dev.razer.ui.impl.standard.screen.Screen;
 import dev.razer.ui.impl.standard.screen.impl.SearchScreen;
+import dev.razer.ui.impl.standard.screen.impl.ThemeScreen;
 import dev.razer.util.Timers.StopWatch;
 import dev.razer.util.animation.Animation;
 import dev.razer.util.animation.Easing;
+import dev.razer.util.gui.GUIUtil;
 import dev.razer.util.interfaces.InstanceAccess;
 import dev.razer.util.shader.RazerShaders;
 import dev.razer.util.shader.base.ShaderRenderType;
 import lombok.Getter;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.GlStateManager;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
@@ -110,7 +112,7 @@ public final class RiseClickGUI extends GuiScreen implements InstanceAccess {
             this.position.y = scaledResolution.getScaledHeight() / 2f - this.scale.y / 2;
         }
 
-//        Client.INSTANCE.getNetworkManager().getCommunication().write(new ClientCommunityPopulateRequest());
+//        Razer.INSTANCE.getNetworkManager().getCommunication().write(new RazerCommunityPopulateRequest());
     }
 
     @Override
@@ -136,7 +138,7 @@ public final class RiseClickGUI extends GuiScreen implements InstanceAccess {
 
 //        RenderManager.rectangle(0, 0, 2000, 2000, Color.WHITE);
 
-        RazerShaders.ALPHA_SHADER.setAlpha((float) opacity);
+        RazerShaders.ALPHA_SHADERS.setAlpha((float) opacity);
         RazerShaders.ALPHA_SHADER.run(ShaderRenderType.OVERLAY, InstanceAccess.mc.timer.renderPartialTicks, null);
     }
 
@@ -164,21 +166,21 @@ public final class RiseClickGUI extends GuiScreen implements InstanceAccess {
             position.y = mouseY + draggingOffsetY;
         }
 
-        opacityAnimation.setEasing(mc.currentScreen == Client.INSTANCE.getStandardClickGUI() ? Easing.EASE_OUT_EXPO : Easing.LINEAR);
-        opacityAnimation.setDuration(mc.currentScreen == Client.INSTANCE.getStandardClickGUI() ? 300 : 100);
-        opacityAnimation.run(mc.currentScreen == Client.INSTANCE.getStandardClickGUI() ? 1 : 0);
+        opacityAnimation.setEasing(mc.currentScreen == Razer.INSTANCE.getStandardClickGUI() ? Easing.EASE_OUT_EXPO : Easing.LINEAR);
+        opacityAnimation.setDuration(mc.currentScreen == Razer.INSTANCE.getStandardClickGUI() ? 300 : 100);
+        opacityAnimation.run(mc.currentScreen == Razer.INSTANCE.getStandardClickGUI() ? 1 : 0);
         opacity = opacityAnimation.getValue();
 
-        scaleAnimation.setEasing(mc.currentScreen == Client.INSTANCE.getStandardClickGUI() ? Easing.EASE_OUT_EXPO : Easing.LINEAR);
-        scaleAnimation.run(mc.currentScreen == Client.INSTANCE.getStandardClickGUI() ? 1 : 0);
+        scaleAnimation.setEasing(mc.currentScreen == Razer.INSTANCE.getStandardClickGUI() ? Easing.EASE_OUT_EXPO : Easing.LINEAR);
+        scaleAnimation.run(mc.currentScreen == Razer.INSTANCE.getStandardClickGUI() ? 1 : 0);
         animationTime = scaleAnimation.getValue();
 
-        if (mc.currentScreen == Client.INSTANCE.getStandardClickGUI() && animationTime == 0) animationTime = 0.01;
+        if (mc.currentScreen == Razer.INSTANCE.getStandardClickGUI() && animationTime == 0) animationTime = 0.01;
 
         //Makes it not render the ClickGUI if it's animation is 0
         if (animationTime == 0) {
             // TODO: Remove this and only do once
-            Client.INSTANCE.getModuleManager().get(ClickGUI.class).toggle();
+            Razer.INSTANCE.getModuleManager().get(ClickGUI.class).toggle();
             return;
         }
 
@@ -320,7 +322,7 @@ public final class RiseClickGUI extends GuiScreen implements InstanceAccess {
     }
 
     @Override
-    protected void keyTyped(final char typedChar, final int keyCode) throws IOException {
+    public void keyTyped(final char typedChar, final int keyCode) throws IOException {
         if ("abcdefghijklmnopqrstuvwxyz1234567890 ".contains(String.valueOf(typedChar).toLowerCase()) && selectedScreen.automaticSearchSwitching() && !getStandardClickGUI().activeText()) {
             this.switchScreen(Category.SEARCH);
         }

@@ -12,7 +12,6 @@ import dev.razer.util.Timers.StopWatch;
 import dev.razer.util.animation.Animation;
 import dev.razer.util.animation.Easing;
 import dev.razer.util.font.FontManager;
-import dev.razer.util.gui.GUIUtil;
 import dev.razer.util.interfaces.InstanceAccess;
 import dev.razer.util.localization.Localization;
 import dev.razer.value.Value;
@@ -189,8 +188,7 @@ public class ModuleComponent implements InstanceAccess {
                 this.expanded = !this.expanded;
 
                 for (final ValueComponent valueComponent : this.getValueList()) {
-                    if (valueComponent instanceof BoundsNumberValueComponent) {
-                        final BoundsNumberValueComponent boundsNumberValueComponent = ((BoundsNumberValueComponent) valueComponent);
+                    if (valueComponent instanceof BoundsNumberValueComponent boundsNumberValueComponent) {
                         boundsNumberValueComponent.grabbed1 = boundsNumberValueComponent.grabbed2 = false;
                     } else if (valueComponent instanceof NumberValueComponent) {
                         ((NumberValueComponent) valueComponent).grabbed = false;

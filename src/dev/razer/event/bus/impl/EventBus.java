@@ -1,7 +1,6 @@
 package dev.razer.event.bus.impl;
 
 
-import dev.razer.Razer;
 import dev.razer.event.Listener;
 import dev.razer.event.annotations.EventLink;
 import dev.razer.event.bus.Bus;

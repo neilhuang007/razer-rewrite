@@ -79,7 +79,7 @@ public abstract class Module implements InstanceAccess {
      * keep the super.onEnable()
      */
     public final void superEnable() {
-        Razer.eventBus.register(this);
+        Razer.eventBus.subscribe(this);
 
 
         this.values.stream()
@@ -104,7 +104,7 @@ public abstract class Module implements InstanceAccess {
      * keep the super.onDisable()
      */
     public final void superDisable() {
-        Razer.eventBus.unregister(this);
+        Razer.eventBus.unsubscribe(this);
 
         this.values.stream()
                 .filter(value -> value instanceof ModeValue)
@@ -120,12 +120,6 @@ public abstract class Module implements InstanceAccess {
                 });
 
         if (mc.thePlayer != null) this.onDisable();
-    }
-
-    protected void onEnable() {
-    }
-
-    protected void onDisable() {
     }
 
 

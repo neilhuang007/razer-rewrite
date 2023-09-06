@@ -1,11 +1,13 @@
 package dev.razer.ui.impl.standard.components.value.impl;
 
+
+
+import dev.razer.managers.RenderManager;
 import dev.razer.ui.impl.standard.components.value.ValueComponent;
 import dev.razer.util.Timers.StopWatch;
 import dev.razer.util.gui.GUIUtil;
 import dev.razer.util.math.MathUtil;
 import dev.razer.util.render.ColorUtil;
-import dev.razer.util.render.RenderUtil;
 import dev.razer.value.Value;
 import dev.razer.value.impl.BoundsNumberValue;
 
@@ -72,7 +74,7 @@ public class BoundsNumberValueComponent extends ValueComponent {
         this.nunitoSmall.drawString(value.replace(".0", ""), this.position.x + valueWidth + 105, this.position.y, this.getStandardClickGUI().fontDarkColor.hashCode());
 
         // Draws background
-        RenderUtil.roundedRectangle(this.position.x + valueWidth, this.position.y + 1.5f, SLIDER_WIDTH, 2, 1, getStandardClickGUI().backgroundColor);
+        RenderManager.roundedRectangle(this.position.x + valueWidth, this.position.y + 1.5f, SLIDER_WIDTH, 2, 1, getStandardClickGUI().backgroundColor);
 
         selector1 = this.position.x + valueWidth;
         selector2 = this.position.x + valueWidth;
@@ -115,21 +117,21 @@ public class BoundsNumberValueComponent extends ValueComponent {
         }
 
         //Selectors
-        //RenderUtil.triangleCentered(selector1 + renderPercentage1 * 100 - 5, this.position.y + 15, 11, this.getClickGUI().accentColor);
-        //RenderUtil.triangleCentered(selector2 + renderPercentage2 * 100 + 5, this.position.y + 15, -12, this.getClickGUI().accentColor);
+        //RenderManager.triangleCentered(selector1 + renderPercentage1 * 100 - 5, this.position.y + 15, 11, this.getClickGUI().accentColor);
+        //RenderManager.triangleCentered(selector2 + renderPercentage2 * 100 + 5, this.position.y + 15, -12, this.getClickGUI().accentColor);
 
         final double startPositionX = selector1 + renderPercentage1 * 100;
         final double endPositionX = selector2 + renderPercentage2 * 100;
         final double boundsWidth = endPositionX - startPositionX;
 
         if (percentage1 != percentage2) {
-            RenderUtil.roundedRectangle(startPositionX, this.position.y + 1.5f, boundsWidth, 2, 1, ColorUtil.withAlpha(getTheme().getFirstColor(), 70));
+            RenderManager.roundedRectangle(startPositionX, this.position.y + 1.5f, boundsWidth, 2, 1, ColorUtil.withAlpha(getTheme().getFirstColor(), 70));
         }
 
-        RenderUtil.roundedRectangle(startPositionX - grabberWidth / 2f, this.position.y, grabberWidth, grabberWidth, grabberWidth / 2.0f, getTheme().getFirstColor());
+        RenderManager.roundedRectangle(startPositionX - grabberWidth / 2f, this.position.y, grabberWidth, grabberWidth, grabberWidth / 2.0f, getTheme().getFirstColor());
 
         if (percentage1 != percentage2) {
-            RenderUtil.roundedRectangle(endPositionX - grabberWidth / 2f, this.position.y, grabberWidth, grabberWidth, grabberWidth / 2.0f, getTheme().getFirstColor());
+            RenderManager.roundedRectangle(endPositionX - grabberWidth / 2f, this.position.y, grabberWidth, grabberWidth, grabberWidth / 2.0f, getTheme().getFirstColor());
         }
 
         stopWatch.reset();
@@ -171,8 +173,8 @@ public class BoundsNumberValueComponent extends ValueComponent {
         final double startPositionX = selector1 + renderPercentage1 * 100;
         final double endPositionX = selector2 + renderPercentage2 * 100;
         final Color color = getTheme().getFirstColor();
-        RenderUtil.roundedRectangle(startPositionX - grabberWidth / 2.0F, this.position.y, grabberWidth, grabberWidth, grabberWidth / 2f, color);
-        RenderUtil.roundedRectangle(endPositionX - grabberWidth / 2.0F, this.position.y, grabberWidth, grabberWidth, grabberWidth / 2f, color);
+        RenderManager.roundedRectangle(startPositionX - grabberWidth / 2.0F, this.position.y, grabberWidth, grabberWidth, grabberWidth / 2f, color);
+        RenderManager.roundedRectangle(endPositionX - grabberWidth / 2.0F, this.position.y, grabberWidth, grabberWidth, grabberWidth / 2f, color);
     }
 
     @Override

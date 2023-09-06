@@ -1,13 +1,12 @@
 package dev.razer.ui.impl.standard.components.value.impl;
 
-import dev.razer.ui.impl.standard.components.value.ValueComponent;
-import dev.razer.util.Timers.StopWatch;
-import dev.razer.util.gui.GUIUtil;
-import dev.razer.util.render.RenderUtil;
-import dev.razer.value.Value;
-import dev.razer.value.impl.BooleanValue;
-
-import javax.vecmath.Vector2d;
+import me.neilhuang007.razer.ui.click.standard.components.value.ValueComponent;
+import me.neilhuang007.razer.util.gui.GUIUtil;
+import me.neilhuang007.razer.util.render.RenderUtil;
+import me.neilhuang007.razer.util.vector.Vector2d;
+import me.neilhuang007.razer.value.Value;
+import me.neilhuang007.razer.value.impl.BooleanValue;
+import util.time.StopWatch;
 
 public class BooleanValueComponent extends ValueComponent {
 

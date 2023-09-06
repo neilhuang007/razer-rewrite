@@ -1,9 +1,16 @@
 package dev.razer.ui.impl.standard.screen.impl;
 
+import dev.razer.Razer;
+import dev.razer.managers.ColorManager;
 import dev.razer.ui.impl.standard.RiseClickGUI;
 import dev.razer.ui.impl.standard.components.ModuleComponent;
+import dev.razer.ui.impl.standard.components.value.ValueComponent;
+import dev.razer.ui.impl.standard.components.value.impl.StringValueComponent;
 import dev.razer.ui.impl.standard.screen.Screen;
 import dev.razer.util.Timers.StopWatch;
+import dev.razer.util.gui.ScrollUtil;
+import dev.razer.util.gui.textbox.TextAlign;
+import dev.razer.util.gui.textbox.TextBox;
 import dev.razer.util.interfaces.InstanceAccess;
 import lombok.Getter;
 import lombok.Setter;
@@ -37,7 +44,7 @@ public final class ConfigScreen extends Screen implements InstanceAccess {
             opacity += stopwatch.getElapsedTime() * 4;
         }
         opacity = Math.min(Math.max(0, opacity), 255);
-        searchBar.setColor(ColorUtil.withAlpha(clickGUI.fontColor, (int) opacity));
+        searchBar.setColor(ColorManager.withAlpha(clickGUI.fontColor, (int) opacity));
 
         /* Setting position of searchbar */
         final Vector2d positionOfSearch = new Vector2d(((clickGUI.position.x + clickGUI.sidebar.sidebarWidth) +
@@ -128,7 +135,7 @@ public final class ConfigScreen extends Screen implements InstanceAccess {
     public ArrayList<ModuleComponent> getRelevantModules(final String search) {
         final ArrayList<ModuleComponent> relevantModules = new ArrayList<>();
 
-        for (final ModuleComponent module : Client.INSTANCE.getStandardClickGUI().getModuleList()) {
+        for (final ModuleComponent module : Razer.INSTANCE.getStandardClickGUI().getModuleList()) {
             if (module.getModule().getModuleInfo().name().toLowerCase().replaceAll(" ", "")
                     .contains(search.toLowerCase().replaceAll(" ", ""))) {
                 relevantModules.add(module);
