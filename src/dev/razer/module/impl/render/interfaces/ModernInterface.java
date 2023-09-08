@@ -1,28 +1,28 @@
 package dev.razer.module.impl.render.interfaces;
 
-import RazerOfficial.Razer.gg.component.impl.render.ParticleComponent;
-import RazerOfficial.Razer.gg.event.impl.other.KillEvent;
-import RazerOfficial.Razer.gg.event.impl.other.TickEvent;
-import RazerOfficial.Razer.gg.util.render.particle.Particle;
-import RazerOfficial.Razer.gg.util.vector.Vector2d;
-import RazerOfficial.Razer.gg.util.vector.Vector2f;
 import dev.razer.Razer;
 import dev.razer.Type;
 import dev.razer.event.Listener;
 import dev.razer.event.annotations.EventLink;
 import dev.razer.event.impl.render.Render2DEvent;
+import dev.razer.event.impl.world.TickEvent;
+import dev.razer.gg.component.render.ParticleComponent;
+import dev.razer.gg.event.impl.other.KillEvent;
 import dev.razer.module.impl.render.Interface;
 import dev.razer.util.Timers.StopWatch;
 import dev.razer.util.font.Font;
 import dev.razer.util.font.FontManager;
 import dev.razer.util.render.ColorUtil;
 import dev.razer.util.render.RenderUtil;
+import dev.razer.util.render.particle.Particle;
+import dev.razer.util.vector.Vector2f;
 import dev.razer.value.Mode;
 import dev.razer.value.impl.BooleanValue;
 import dev.razer.value.impl.ModeValue;
 import dev.razer.value.impl.SubMode;
 import net.minecraft.client.gui.GuiChat;
 
+import javax.vecmath.Vector2d;
 import java.awt.*;
 
 public class ModernInterface extends Mode<Interface> {
@@ -184,7 +184,7 @@ public class ModernInterface extends Mode<Interface> {
 //                this.productSansMedium18.drawStringWithShadow(username, x - nameWidth - 5, y, 0xFFCCCCCC);
 
                 // coordinates of user in the bottom left corner of the screen
-                final float coordX = 5 ;
+                final float coordX = 5;
                 this.productSansRegular.drawStringWithShadow("XYZ:", coordX, y - (mc.currentScreen instanceof GuiChat ? 13 : 0), 0xFFCCCCCC);
                 this.productSansMedium18.drawStringWithShadow(coordinates, coordX + xyzWidth, y - (mc.currentScreen instanceof GuiChat ? 13 : 0), 0xFFCCCCCC);
             }

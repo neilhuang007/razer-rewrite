@@ -1,14 +1,14 @@
 package dev.razer.ui.impl.standard.components.theme;
 
+import dev.razer.ui.theme.Themes;
+import dev.razer.util.animation.Animation;
+import dev.razer.util.animation.Easing;
+import dev.razer.util.interfaces.InstanceAccess;
+import dev.razer.util.render.ColorUtil;
+import dev.razer.util.render.RenderUtil;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import me.neilhuang007.razer.ui.theme.Themes;
-import me.neilhuang007.razer.util.animation.Animation;
-import me.neilhuang007.razer.util.animation.Easing;
-import me.neilhuang007.razer.util.interfaces.InstanceAccess;
-import me.neilhuang007.razer.util.render.ColorUtil;
-import me.neilhuang007.razer.util.render.RenderUtil;
-import me.neilhuang007.razer.util.vector.Vector3d;
+import net.minecraft.util.Vector3d;
 
 import java.awt.*;
 

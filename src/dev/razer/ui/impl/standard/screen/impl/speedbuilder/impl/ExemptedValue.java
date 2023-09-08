@@ -1,7 +1,7 @@
 package dev.razer.ui.impl.standard.screen.impl.speedbuilder.impl;
 
-import me.neilhuang007.razer.ui.click.standard.screen.impl.speedbuilder.Modifier;
-import me.neilhuang007.razer.ui.click.standard.screen.impl.speedbuilder.Tick;
+import dev.razer.ui.impl.standard.screen.impl.speedbuilder.Modifier;
+import dev.razer.ui.impl.standard.screen.impl.speedbuilder.Tick;
 
 /**
  * Author: Alan

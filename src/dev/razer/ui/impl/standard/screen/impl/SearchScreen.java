@@ -1,22 +1,22 @@
 package dev.razer.ui.impl.standard.screen.impl;
 
+import dev.razer.Razer;
+import dev.razer.ui.impl.standard.RiseClickGUI;
+import dev.razer.ui.impl.standard.components.ModuleComponent;
+import dev.razer.ui.impl.standard.components.value.ValueComponent;
+import dev.razer.ui.impl.standard.components.value.impl.StringValueComponent;
+import dev.razer.ui.impl.standard.screen.Screen;
+import dev.razer.util.Timers.StopWatch;
+import dev.razer.util.gui.ScrollUtil;
+import dev.razer.util.gui.textbox.TextAlign;
+import dev.razer.util.gui.textbox.TextBox;
+import dev.razer.util.interfaces.InstanceAccess;
+import dev.razer.util.localization.Localization;
+import dev.razer.util.render.ColorUtil;
 import lombok.Getter;
 import lombok.Setter;
-import me.neilhuang007.razer.Client;
-import me.neilhuang007.razer.ui.click.standard.RiseClickGUI;
-import me.neilhuang007.razer.ui.click.standard.components.ModuleComponent;
-import me.neilhuang007.razer.ui.click.standard.components.value.ValueComponent;
-import me.neilhuang007.razer.ui.click.standard.components.value.impl.StringValueComponent;
-import me.neilhuang007.razer.ui.click.standard.screen.Screen;
-import me.neilhuang007.razer.util.gui.ScrollUtil;
-import me.neilhuang007.razer.util.gui.textbox.TextAlign;
-import me.neilhuang007.razer.util.gui.textbox.TextBox;
-import me.neilhuang007.razer.util.interfaces.InstanceAccess;
-import me.neilhuang007.razer.util.localization.Localization;
-import me.neilhuang007.razer.util.render.ColorUtil;
-import me.neilhuang007.razer.util.vector.Vector2d;
-import util.time.StopWatch;
 
+import javax.vecmath.Vector2d;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -146,7 +146,7 @@ public final class SearchScreen extends Screen implements InstanceAccess {
     public ArrayList<ModuleComponent> getRelevantModules(final String search) {
         final ArrayList<ModuleComponent> relevantModules = new ArrayList<>();
 
-        for (final ModuleComponent module : Client.INSTANCE.getStandardClickGUI().getModuleList()) {
+        for (final ModuleComponent module : Razer.INSTANCE.getStandardClickGUI().getModuleList()) {
             if (Localization.get(module.getModule().getModuleInfo().name()).toLowerCase().replaceAll(" ", "")
                     .contains(search.toLowerCase().replaceAll(" ", ""))) {
                 relevantModules.add(module);

@@ -189,7 +189,8 @@ public class ModuleComponent implements InstanceAccess {
                 this.expanded = !this.expanded;
 
                 for (final ValueComponent valueComponent : this.getValueList()) {
-                    if (valueComponent instanceof BoundsNumberValueComponent boundsNumberValueComponent) {
+                    if (valueComponent instanceof BoundsNumberValueComponent) {
+                        final BoundsNumberValueComponent boundsNumberValueComponent = ((BoundsNumberValueComponent) valueComponent);
                         boundsNumberValueComponent.grabbed1 = boundsNumberValueComponent.grabbed2 = false;
                     } else if (valueComponent instanceof NumberValueComponent) {
                         ((NumberValueComponent) valueComponent).grabbed = false;

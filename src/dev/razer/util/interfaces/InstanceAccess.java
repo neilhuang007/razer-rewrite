@@ -2,6 +2,7 @@ package dev.razer.util.interfaces;
 
 import dev.razer.Razer;
 import dev.razer.ui.impl.standard.RiseClickGUI;
+import dev.razer.ui.theme.Themes;
 import dev.razer.util.font.Font;
 import dev.razer.util.font.FontManager;
 import dev.razer.util.profiling.Profiler;
@@ -73,6 +74,10 @@ public interface InstanceAccess {
     Profiler blurProfiler = new Profiler();
     Profiler dragProfiler = new Profiler();
 
+
+    default Themes getTheme() {
+        return instance.getThemeManager().getTheme();
+    }
 
     static void render3DRunnables(float partialTicks) {
         RazerShaders.OUTLINE_SHADER.run(ShaderRenderType.CAMERA, partialTicks, InstanceAccess.NORMAL_OUTLINE_RUNNABLES);

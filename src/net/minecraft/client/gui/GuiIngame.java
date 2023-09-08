@@ -104,6 +104,7 @@ public class GuiIngame extends Gui
 
     /** Used with updateCounter to make the heart bar flash */
     private long healthUpdateCounter = 0L;
+    public int frame;
 
     public GuiIngame(Minecraft mcIn)
     {

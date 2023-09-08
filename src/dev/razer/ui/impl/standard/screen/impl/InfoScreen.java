@@ -1,14 +1,14 @@
 package dev.razer.ui.impl.standard.screen.impl;
 
-import me.neilhuang007.razer.Client;
-import me.neilhuang007.razer.ui.click.standard.screen.Screen;
-import me.neilhuang007.razer.util.font.FontManager;
-import me.neilhuang007.razer.util.render.ColorUtil;
-import me.neilhuang007.razer.util.render.RenderUtil;
-import me.neilhuang007.razer.util.render.ScissorUtil;
-import me.neilhuang007.razer.util.vector.Vector2f;
+import dev.razer.Razer;
+import dev.razer.ui.impl.standard.screen.Screen;
+import dev.razer.util.font.FontManager;
+import dev.razer.util.render.ColorUtil;
+import dev.razer.util.render.RenderUtil;
+import dev.razer.util.render.ScissorUtil;
 import net.minecraft.client.gui.ScaledResolution;
 
+import javax.vecmath.Vector2f;
 import java.awt.*;
 
 /**
@@ -20,7 +20,7 @@ public class InfoScreen extends Screen {
     // Returns the first column of the credits.
     // Method so I can hotswap the string
     private static String getCredits1() {
-        return "Rise " + Client.VERSION + " (riseclient.com)\n" +
+        return "Rise " + Razer.VERSION + " (riseclient.com)\n" +
                 "\n" +
                 "Designed and built by Alan and Hazsi.\n" +
                 "\n" +
@@ -82,14 +82,14 @@ public class InfoScreen extends Screen {
         final double sidebar = getStandardClickGUI().getSidebar().sidebarWidth;
 
         // Draw left column (client name and version)
-        FontManager.getProductSansRegular(32).drawString(Client.NAME, position.getX() + sidebar + 20,
+        FontManager.getProductSansRegular(32).drawString(Razer.NAME, position.getX() + sidebar + 20,
                 position.getY() + 20, Color.WHITE.getRGB());
-        FontManager.getProductSansRegular(16).drawString(Client.VERSION,
-                position.getX() + sidebar + 20 + FontManager.getProductSansRegular(32).width(Client.NAME),
+        FontManager.getProductSansRegular(16).drawString(Razer.VERSION,
+                position.getX() + sidebar + 20 + FontManager.getProductSansRegular(32).width(Razer.NAME),
                 position.getY() + 18, new Color(255, 255, 255, 100).getRGB());
-        FontManager.getNunito(17).drawString(Client.VERSION_FULL, position.getX() + sidebar + 20,
+        FontManager.getNunito(17).drawString(Razer.VERSION_FULL, position.getX() + sidebar + 20,
                 position.getY() + 50, new Color(255, 255, 255, 164).getRGB());
-        FontManager.getNunito(17).drawString(Client.VERSION_DATE, position.getX() + sidebar + 20,
+        FontManager.getNunito(17).drawString(Razer.VERSION_DATE, position.getX() + sidebar + 20,
                 position.getY() + 65, new Color(255, 255, 255, 164).getRGB());
 
         // Draw right column (user info)

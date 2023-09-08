@@ -2,10 +2,12 @@ package dev.razer.ui.impl.standard.components.theme;
 
 import dev.razer.managers.ColorManager;
 import dev.razer.managers.RenderManager;
+import dev.razer.ui.theme.Themes;
 import dev.razer.util.animation.Animation;
 import dev.razer.util.animation.Easing;
 import dev.razer.util.font.FontManager;
 import dev.razer.util.interfaces.InstanceAccess;
+import dev.razer.util.render.RenderUtil;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
@@ -46,14 +48,14 @@ public class ThemeComponent implements InstanceAccess {
                     ColorManager.withAlpha(activeTheme.getSecondColor(), alpha));
             RenderManager.rectangle(x + (width / 2D) - 8, y, 16, 0.5,
                     ColorManager.withAlpha(activeTheme.getSecondColor(), (int) (alpha * 0.8)));
-            RenderManager.drawRoundedGradientRect(x, y, width / 2D, 40, 9,
+            RenderUtil.drawRoundedGradientRect(x, y, width / 2D, 40, 9,
                     ColorManager.withAlpha(activeTheme.getFirstColor(), alpha),
                     ColorManager.withAlpha(activeTheme.getSecondColor(), alpha), false);
-            RenderManager.drawRoundedGradientRect(x + (width / 2D) - 1, y, width / 2D + 1, 40, 9,
+            RenderUtil.drawRoundedGradientRect(x + (width / 2D) - 1, y, width / 2D + 1, 40, 9,
                     ColorManager.withAlpha(activeTheme.getSecondColor(), alpha),
                     ColorManager.withAlpha(activeTheme.getThirdColor(), alpha), false);
         } else {
-            RenderManager.drawRoundedGradientRect(x, y, width, 40, 9,
+            RenderUtil.drawRoundedGradientRect(x, y, width, 40, 9,
                     ColorManager.withAlpha(activeTheme.getFirstColor(), alpha),
                     ColorManager.withAlpha(activeTheme.getSecondColor(), alpha), false);
         }
@@ -73,14 +75,14 @@ public class ThemeComponent implements InstanceAccess {
                 if (this.activeTheme.isTriColor()) {
                     RenderManager.rectangle(x + (width / 2D) - 10, y, 20, 50,
                             ColorManager.withAlpha(activeTheme.getSecondColor(), selectorAlpha));
-                    RenderManager.drawRoundedGradientRect(x, y, width / 2D, 50, 12,
+                    RenderUtil.drawRoundedGradientRect(x, y, width / 2D, 50, 12,
                             ColorManager.withAlpha(activeTheme.getFirstColor(), selectorAlpha),
                             ColorManager.withAlpha(activeTheme.getSecondColor(), selectorAlpha), false);
-                    RenderManager.drawRoundedGradientRect(x + (width / 2D) - 1, y, width / 2D, 50, 12,
+                    RenderUtil.drawRoundedGradientRect(x + (width / 2D) - 1, y, width / 2D, 50, 12,
                             ColorManager.withAlpha(activeTheme.getSecondColor(), selectorAlpha),
                             ColorManager.withAlpha(activeTheme.getThirdColor(), selectorAlpha), false);
                 } else {
-                    RenderManager.drawRoundedGradientRect(x, y, width, 50, 12,
+                    RenderUtil.drawRoundedGradientRect(x, y, width, 50, 12,
                             ColorManager.withAlpha(activeTheme.getFirstColor(), selectorAlpha),
                             ColorManager.withAlpha(activeTheme.getSecondColor(), selectorAlpha), false);
                 }

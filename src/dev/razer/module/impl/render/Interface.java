@@ -1,12 +1,15 @@
 package dev.razer.module.impl.render;
 
 import dev.razer.Razer;
-
+import dev.razer.event.Listener;
 import dev.razer.event.annotations.EventLink;
+import dev.razer.event.impl.render.Render2DEvent;
+import dev.razer.event.impl.world.PreUpdateEvent;
 import dev.razer.module.Module;
 import dev.razer.module.api.Category;
 import dev.razer.module.api.ModuleInfo;
-import dev.razer.ui.impl.standard.components.ModuleComponent;
+import dev.razer.module.impl.render.interfaces.ModernInterface;
+import dev.razer.module.impl.render.interfaces.ModuleComponent;
 import dev.razer.util.Timers.StopWatch;
 import dev.razer.util.font.Font;
 import dev.razer.util.localization.Localization;
@@ -83,8 +86,8 @@ public final class Interface extends Module {
                     }
 
                     for (final Value<?> value : moduleComponent.getModule().getValues()) {
-                        if (value instanceof ModeValue modeValue) {
-
+                        if (value instanceof ModeValue) {
+                            final ModeValue modeValue = (ModeValue) value;
                             moduleComponent.setTag(modeValue.getValue().getName());
                             break;
                         }
