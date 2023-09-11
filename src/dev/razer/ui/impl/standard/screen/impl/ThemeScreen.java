@@ -102,7 +102,7 @@ public class ThemeScreen extends Screen {
         }
 
         for (ThemeKeyColorComponent color : this.colors) {
-            if (GUIUtil.mouseOver(color.getLastDraw().getX(), color.getLastDraw().getY(), color.getLastDraw().getZ(), 17, mouseX, mouseY)) {
+            if (GUIUtil.mouseOver(color.getLastDraw().x, color.getLastDraw().y, color.getLastDraw().z, 17, mouseX, mouseY)) {
                 if (this.selectedColor == color) {
                     this.selectedColor = null;
                 } else {

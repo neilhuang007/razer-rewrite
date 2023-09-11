@@ -9,7 +9,9 @@ import dev.razer.ui.impl.standard.RiseClickGUI;
 import dev.razer.ui.impl.standard.screen.impl.HomeScreen;
 import dev.razer.ui.impl.standard.screen.impl.SpeedBuilderScreen;
 import dev.razer.util.font.FontManager;
+import dev.razer.util.gui.GUIUtil;
 import dev.razer.util.interfaces.InstanceAccess;
+import dev.razer.util.render.ColorUtil;
 
 import java.awt.*;
 import java.util.Arrays;

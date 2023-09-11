@@ -999,7 +999,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage {
         this.mcProfiler.startSection("tick");
 
         for (int j = 0; j < this.timer.elapsedTicks; ++j) {
-            Razer.INSTANCE.getEventBus().handle(new TickEvent());
+            Razer.eventBus.handle(new TickEvent());
             this.runTick();
         }
         Lagometer.timerTick.end();
@@ -1007,13 +1007,13 @@ public class Minecraft implements IThreadListener, IPlayerUsage {
         if (gameEvent.finished(50 * 20)) {
             gameEvent.reset();
 
-            Razer.INSTANCE.getEventBus().handle(new GameEvent());
+            Razer.eventBus.handle(new GameEvent());
         }
 
         if (gameEvent.finished(50 * 20)) {
             gameEvent.reset();
 
-            Razer.INSTANCE.getEventBus().handle(new GameEvent());
+            Razer.eventBus.handle(new GameEvent());
         }
 
         this.mcProfiler.endStartSection("preRenderErrors");

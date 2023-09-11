@@ -9,6 +9,7 @@ import dev.razer.ui.impl.standard.RiseClickGUI;
 import dev.razer.ui.impl.standard.screen.Screen;
 import dev.razer.util.animation.Animation;
 import dev.razer.util.font.FontManager;
+import dev.razer.util.gui.GUIUtil;
 import dev.razer.util.interfaces.InstanceAccess;
 import dev.razer.util.localization.Localization;
 import net.minecraft.client.renderer.GlStateManager;

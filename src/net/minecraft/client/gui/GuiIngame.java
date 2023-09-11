@@ -520,7 +520,7 @@ public class GuiIngame extends Gui
         this.mc.mcProfiler.endSection();
     }
 
-    protected boolean showCrosshair()
+    public boolean showCrosshair()
     {
         if (this.mc.gameSettings.showDebugProfilerChart && !this.mc.thePlayer.hasReducedDebug() && !this.mc.gameSettings.reducedDebugInfo)
         {

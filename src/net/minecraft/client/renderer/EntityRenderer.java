@@ -1193,7 +1193,7 @@ public class EntityRenderer implements IResourceManagerReloadListener {
                     GlStateManager.alphaFunc(516, 0.1F);
                     this.mc.ingameGUI.renderGameOverlay(partialTicks);
 
-                    Razer.INSTANCE.getEventBus().handle(new Render2DEvent(sr, partialTicks));
+                    Razer.eventBus.handle(new Render2DEvent(sr, partialTicks));
 
                     if (this.mc.gameSettings.ofShowFps && !this.mc.gameSettings.showDebugProfilerChart) {
                         Config.drawFps();

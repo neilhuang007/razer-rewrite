@@ -33,7 +33,7 @@ public class AlphaShader extends RazerShader {
 
             if (this.isActive()) {
                 this.inputFramebuffer.bindFramebuffer(true);
-                Razer.INSTANCE.getEventBus().handle(new AlphaEvent());
+                Razer.eventBus.handle(new AlphaEvent());
 
                 mc.getFramebuffer().bindFramebuffer(true);
                 final int programId = this.alphaProgram.getProgramId();

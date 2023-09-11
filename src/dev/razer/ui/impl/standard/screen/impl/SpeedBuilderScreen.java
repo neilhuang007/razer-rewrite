@@ -8,11 +8,11 @@ import dev.razer.ui.impl.standard.screen.impl.speedbuilder.Tick;
 import dev.razer.ui.impl.standard.screen.impl.speedbuilder.impl.ExemptedValue;
 import dev.razer.util.gui.GUIUtil;
 import dev.razer.util.gui.ScrollUtil;
+import dev.razer.util.vector.Vector2f;
 import lombok.Getter;
 import lombok.Setter;
 import net.minecraft.util.ResourceLocation;
 
-import javax.vecmath.Vector2f;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -118,5 +118,5 @@ public final class SpeedBuilderScreen extends Screen {
         }
     }
 
-    
+
 }

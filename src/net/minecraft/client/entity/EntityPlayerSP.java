@@ -173,7 +173,7 @@ public class EntityPlayerSP extends AbstractClientPlayer
         if (this.worldObj.isBlockLoaded(new BlockPos(this.posX, 0.0D, this.posZ)))
         {
             super.onUpdate();
-            Razer.INSTANCE.getEventBus().handle(new PreUpdateEvent());
+            Razer.eventBus.handle(new PreUpdateEvent());
 
             if (this.isRiding())
             {
@@ -184,7 +184,7 @@ public class EntityPlayerSP extends AbstractClientPlayer
             {
                 this.onUpdateWalkingPlayer();
             }
-            Razer.INSTANCE.getEventBus().handle(new PostMotionEvent());
+            Razer.eventBus.handle(new PostMotionEvent());
         }
     }
 
