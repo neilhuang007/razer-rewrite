@@ -6,9 +6,11 @@ import dev.razer.event.Listener;
 import dev.razer.event.Priorities;
 import dev.razer.event.annotations.EventLink;
 import dev.razer.event.impl.client.Render2DEvent;
+import dev.razer.event.impl.input.KeyboardInputEvent;
 import dev.razer.module.Module;
 import dev.razer.module.api.Category;
 import dev.razer.module.api.ModuleInfo;
+import dev.razer.util.render.RenderUtil;
 import org.lwjgl.input.Keyboard;
 
 import java.awt.*;

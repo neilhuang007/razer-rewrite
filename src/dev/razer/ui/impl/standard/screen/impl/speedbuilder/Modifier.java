@@ -1,9 +1,9 @@
 package dev.razer.ui.impl.standard.screen.impl.speedbuilder;
 
-import me.neilhuang007.razer.util.gui.GUIUtil;
-import me.neilhuang007.razer.util.interfaces.InstanceAccess;
-import me.neilhuang007.razer.util.render.RenderUtil;
-import me.neilhuang007.razer.util.vector.Vector2f;
+import dev.razer.util.gui.GUIUtil;
+import dev.razer.util.interfaces.InstanceAccess;
+import dev.razer.util.render.RenderUtil;
+import dev.razer.util.vector.Vector2f;
 import net.minecraft.client.Minecraft;
 
 import java.awt.*;

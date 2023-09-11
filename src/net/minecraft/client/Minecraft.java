@@ -229,7 +229,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage {
      * The ray trace hit that the mouse is over.
      */
     public MovingObjectPosition objectMouseOver;
-    
+
     /**
      * The game settings that currently hold effect.
      */
