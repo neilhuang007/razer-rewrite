@@ -54,7 +54,7 @@ public enum Category {
         this.name = name;
         this.icon = icon;
         this.color = color;
-        this.clickGUIScreen = clickGUIScreen;
+        this.clickGUIScreen = categoryScreen;
         this.fontRenderer = fontRenderer;
     }
 
