@@ -4,10 +4,10 @@ import dev.razer.util.shader.base.RazerShader;
 import dev.razer.util.shader.impl.*;
 
 public interface RazerShaders {
-    //AlphaShader ALPHA_SHADER = new AlphaShader();
+    AlphaShader ALPHA_SHADER = new AlphaShader();
     RazerShader POST_BLOOM_SHADER = new BloomShader();
     RazerShader UI_BLOOM_SHADER = new BloomShader();
-    //RazerShader UI_POST_BLOOM_SHADER = new BloomShader();
+    RazerShader UI_POST_BLOOM_SHADER = new BloomShader();
     RazerShader GAUSSIAN_BLUR_SHADER = new GaussianBlurShader();
     //RazerShader UI_GAUSSIAN_BLUR_SHADER = new GaussianBlurShader();
 

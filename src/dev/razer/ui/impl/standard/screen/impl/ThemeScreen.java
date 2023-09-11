@@ -1,11 +1,10 @@
 package dev.razer.ui.impl.standard.screen.impl;
 
 
-
 import dev.razer.ui.impl.standard.components.theme.ThemeComponent;
 import dev.razer.ui.impl.standard.components.theme.ThemeKeyColorComponent;
 import dev.razer.ui.impl.standard.screen.Screen;
-import dev.razer.ui.impl.theme.Themes;
+import dev.razer.ui.theme.Themes;
 import dev.razer.util.font.FontManager;
 import dev.razer.util.gui.GUIUtil;
 import dev.razer.util.gui.ScrollUtil;

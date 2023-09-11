@@ -1,4 +1,4 @@
-package dev.razer.gg.component.render;
+package dev.razer.gg.component.impl.render;
 
 import dev.razer.event.Listener;
 import dev.razer.event.Priorities;

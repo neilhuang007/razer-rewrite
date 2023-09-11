@@ -6,7 +6,7 @@ import dev.razer.event.Listener;
 import dev.razer.event.annotations.EventLink;
 import dev.razer.event.impl.render.Render2DEvent;
 import dev.razer.event.impl.world.TickEvent;
-import dev.razer.gg.component.render.ParticleComponent;
+import dev.razer.gg.component.impl.render.ParticleComponent;
 import dev.razer.gg.event.impl.other.KillEvent;
 import dev.razer.module.impl.render.Interface;
 import dev.razer.util.Timers.StopWatch;

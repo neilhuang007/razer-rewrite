@@ -16,7 +16,7 @@ import net.minecraft.client.Minecraft;
 public enum Razer {
     INSTANCE;
 
-    public static final EventBus eventBus = new EventBus();
+    public EventBus eventBus = new EventBus();
     public static String NAME = "Razer";
     public static String VERSION = "1.0";
     public static String VERSION_FULL = "1.0"; // Used to give more detailed build info on beta builds
@@ -27,6 +27,7 @@ public enum Razer {
 
     @Setter
     private Locale locale = Locale.EN_US; // The language of the client
+
     private RiseClickGUI standardClickGUI;
     private ModuleManager moduleManager;
     private ThemeManager themeManager;

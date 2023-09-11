@@ -161,7 +161,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage {
      * True if the player is connected to a realms server
      */
     private boolean connectedToRealms = false;
-    private Timer timer = new Timer(20.0F);
+    public Timer timer = new Timer(20.0F);
 
     public StopWatch gameEvent = new StopWatch();
 
@@ -193,6 +193,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage {
     public GuiScreen currentScreen;
     public LoadingScreenRenderer loadingScreen;
     public EntityRenderer entityRenderer;
+    public StopWatch timeScreen = new StopWatch();
 
     /**
      * Mouse left click counter
@@ -998,7 +999,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage {
         this.mcProfiler.startSection("tick");
 
         for (int j = 0; j < this.timer.elapsedTicks; ++j) {
-            Razer.eventBus.handle(new TickEvent());
+            Razer.INSTANCE.getEventBus().handle(new TickEvent());
             this.runTick();
         }
         Lagometer.timerTick.end();
@@ -1006,13 +1007,13 @@ public class Minecraft implements IThreadListener, IPlayerUsage {
         if (gameEvent.finished(50 * 20)) {
             gameEvent.reset();
 
-            Razer.eventBus.handle(new GameEvent());
+            Razer.INSTANCE.getEventBus().handle(new GameEvent());
         }
 
         if (gameEvent.finished(50 * 20)) {
             gameEvent.reset();
 
-            Razer.eventBus.handle(new GameEvent());
+            Razer.INSTANCE.getEventBus().handle(new GameEvent());
         }
 
         this.mcProfiler.endStartSection("preRenderErrors");
@@ -2581,6 +2582,10 @@ public class Minecraft implements IThreadListener, IPlayerUsage {
 
     public Session getSession() {
         return this.session;
+    }
+
+    public Timer getTimer() {
+        return timer;
     }
 
     public PropertyMap getTwitchDetails() {

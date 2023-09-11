@@ -26,6 +26,7 @@ import dev.razer.util.shader.base.ShaderRenderType;
 import lombok.Getter;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.GlStateManager;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
@@ -138,7 +139,7 @@ public final class RiseClickGUI extends GuiScreen implements InstanceAccess {
 
 //        RenderManager.rectangle(0, 0, 2000, 2000, Color.WHITE);
 
-        RazerShaders.ALPHA_SHADERS.setAlpha((float) opacity);
+        RazerShaders.ALPHA_SHADER.setAlpha((float) opacity);
         RazerShaders.ALPHA_SHADER.run(ShaderRenderType.OVERLAY, InstanceAccess.mc.timer.renderPartialTicks, null);
     }
 

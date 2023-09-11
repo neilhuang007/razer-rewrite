@@ -8,7 +8,6 @@ import dev.razer.ui.impl.standard.RiseClickGUI;
 import dev.razer.ui.impl.standard.components.value.ValueComponent;
 import dev.razer.ui.impl.standard.components.value.impl.*;
 import dev.razer.ui.impl.standard.screen.impl.SearchScreen;
-import dev.razer.ui.impl.theme.Themes;
 import dev.razer.util.Timers.StopWatch;
 import dev.razer.util.animation.Animation;
 import dev.razer.util.animation.Easing;
@@ -147,8 +146,6 @@ public class ModuleComponent implements InstanceAccess {
 
         stopwatch.reset();
     }
-
-
 
 
     public void key(final char typedChar, final int keyCode) {

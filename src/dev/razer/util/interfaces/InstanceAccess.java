@@ -1,9 +1,11 @@
 package dev.razer.util.interfaces;
 
 import dev.razer.Razer;
+import dev.razer.gg.component.impl.hud.DragComponent;
+import dev.razer.gg.ui.ingame.GuiIngameCache;
 import dev.razer.module.Module;
 import dev.razer.ui.impl.standard.RiseClickGUI;
-import dev.razer.ui.impl.theme.Themes;
+import dev.razer.ui.theme.Themes;
 import dev.razer.util.font.Font;
 import dev.razer.util.font.FontManager;
 import dev.razer.util.profiling.Profiler;
