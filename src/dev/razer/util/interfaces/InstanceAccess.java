@@ -1,8 +1,9 @@
 package dev.razer.util.interfaces;
 
 import dev.razer.Razer;
+import dev.razer.module.Module;
 import dev.razer.ui.impl.standard.RiseClickGUI;
-import dev.razer.ui.theme.Themes;
+import dev.razer.ui.impl.theme.Themes;
 import dev.razer.util.font.Font;
 import dev.razer.util.font.FontManager;
 import dev.razer.util.profiling.Profiler;
@@ -44,8 +45,6 @@ public interface InstanceAccess {
 
     Font montserratMediumNormal = FontManager.getMontserratMedium(18);
 
-    Font getMontserratItalic = FontManager.getMontserratItalic(56);
-
     Font nunitoBoldMedium = FontManager.getNunitoBold(18);
 
     Font nunitoLarge = FontManager.getNunito(42);
@@ -74,9 +73,80 @@ public interface InstanceAccess {
     Profiler blurProfiler = new Profiler();
     Profiler dragProfiler = new Profiler();
 
+    default RiseClickGUI getStandardClickGUI() {
+        return instance.getStandardClickGUI();
+    }
 
-    default Themes getTheme() {
-        return instance.getThemeManager().getTheme();
+
+    default <T extends Module> T getModule(final Class<T> clazz) {
+        return instance.getModuleManager().get(clazz);
+    }
+
+    default dev.razer.ui.theme.Themes getTheme() {
+        return Razer.INSTANCE.getThemeManager().getTheme();
+    }
+
+    default void setTheme(Themes theme) {
+        instance.getThemeManager().setTheme(theme);
+    }
+
+    static void render2DRunnables(float partialTicks, boolean shaders) {
+
+        render2dProfiler.start();
+        NORMAL_PRE_RENDER_RUNNABLES.forEach(Runnable::run);
+        render2dProfiler.stop();
+
+        if (shaders) {
+            outlineProfiler.start();
+            RazerShaders.OUTLINE_SHADER.run(ShaderRenderType.OVERLAY, partialTicks, InstanceAccess.NORMAL_OUTLINE_RUNNABLES);
+            outlineProfiler.stop();
+
+            blurProfiler.start();
+            RazerShaders.GAUSSIAN_BLUR_SHADER.run(ShaderRenderType.OVERLAY, partialTicks, InstanceAccess.NORMAL_BLUR_RUNNABLES);
+            blurProfiler.stop();
+        }
+
+        render2dProfiler.start();
+        NORMAL_RENDER_RUNNABLES.forEach(Runnable::run);
+        render2dProfiler.stop();
+
+        renderLimited2dProfiler.start();
+        GuiIngameCache.renderGameOverlay(partialTicks);
+        renderLimited2dProfiler.start();
+
+        render2dProfiler.start();
+        NORMAL_POST_RENDER_RUNNABLES.forEach(Runnable::run);
+        render2dProfiler.stop();
+
+        if (shaders) {
+            bloomProfiler.start();
+            RazerShaders.POST_BLOOM_SHADER.run(ShaderRenderType.OVERLAY, partialTicks, InstanceAccess.NORMAL_POST_BLOOM_RUNNABLES);
+            bloomProfiler.stop();
+        }
+
+        dragProfiler.start();
+        DragComponent.render(partialTicks);
+        dragProfiler.stop();
+
+//        if (mc.currentScreen != null) {
+//            RazerShaders.UI_GAUSSIAN_BLUR_SHADER.run(ShaderRenderType.OVERLAY, partialTicks, InstanceAccess.UI_BLUR_RUNNABLES);
+//        }
+
+        UI_RENDER_RUNNABLES.forEach(Runnable::run);
+
+        if (mc.currentScreen != null) {
+
+            RazerShaders.UI_BLOOM_SHADER.run(ShaderRenderType.OVERLAY, partialTicks, InstanceAccess.UI_BLOOM_RUNNABLES);
+
+            RazerShaders.UI_POST_BLOOM_SHADER.run(ShaderRenderType.OVERLAY, partialTicks, InstanceAccess.UI_POST_BLOOM_RUNNABLES);
+        }
+
+        dragProfiler.reset();
+        bloomProfiler.reset();
+        render2dProfiler.reset();
+        outlineProfiler.reset();
+        blurProfiler.reset();
+        renderLimited2dProfiler.reset();
     }
 
     static void render3DRunnables(float partialTicks) {
@@ -99,9 +169,5 @@ public interface InstanceAccess {
 
         LIMITED_PRE_RENDER_RUNNABLES.clear();
         LIMITED_POST_RENDER_RUNNABLES.clear();
-    }
-
-    default RiseClickGUI getStandardClickGUI() {
-        return instance.getStandardClickGUI();
     }
 }
