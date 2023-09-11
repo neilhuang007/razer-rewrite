@@ -2,6 +2,7 @@ package dev.razer.ui.impl.standard.components.theme;
 
 import dev.razer.managers.ColorManager;
 import dev.razer.managers.RenderManager;
+import dev.razer.ui.impl.theme.Themes;
 import dev.razer.util.animation.Animation;
 import dev.razer.util.animation.Easing;
 import dev.razer.util.font.FontManager;

@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9ad04c4-c420-49a0-acba-06004f353030" name="Changes" comment="fix some bugs, still more to go&#10;fix imports&#10;merge set in progress" />
+    <list default="true" id="c9ad04c4-c420-49a0-acba-06004f353030" name="Changes" comment="fix some bugs, still more to go&#10;fix imports&#10;MERGE BEFORE U CODE&#10;IMPORTANT">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/managers/RenderManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/managers/RenderManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/module/impl/render/Interface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/module/impl/render/Interface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/ModuleComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/ModuleComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/theme/ThemeComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/theme/ThemeComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/util/interfaces/InstanceAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/util/interfaces/InstanceAccess.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -122,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1693996821741</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="fix some bugs, still more to go&#10;fix imports&#10;MERGE BEFORE U CODE&#10;IMPORTANT">
+      <created>1693997179539</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1693997179539</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -144,7 +158,8 @@
     <MESSAGE value="emergency patch" />
     <MESSAGE value="fix some bugs, still more to go" />
     <MESSAGE value="fix some bugs, still more to go&#10;fix imports&#10;merge set in progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix some bugs, still more to go&#10;fix imports&#10;merge set in progress" />
+    <MESSAGE value="fix some bugs, still more to go&#10;fix imports&#10;MERGE BEFORE U CODE&#10;IMPORTANT" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix some bugs, still more to go&#10;fix imports&#10;MERGE BEFORE U CODE&#10;IMPORTANT" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

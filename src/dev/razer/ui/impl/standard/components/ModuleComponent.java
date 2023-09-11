@@ -8,6 +8,7 @@ import dev.razer.ui.impl.standard.RiseClickGUI;
 import dev.razer.ui.impl.standard.components.value.ValueComponent;
 import dev.razer.ui.impl.standard.components.value.impl.*;
 import dev.razer.ui.impl.standard.screen.impl.SearchScreen;
+import dev.razer.ui.impl.theme.Themes;
 import dev.razer.util.Timers.StopWatch;
 import dev.razer.util.animation.Animation;
 import dev.razer.util.animation.Easing;
@@ -32,6 +33,7 @@ public class ModuleComponent implements InstanceAccess {
     public boolean expanded;
     public ArrayList<ValueComponent> valueList = new ArrayList<>();
     public Vector2d position;
+    public float animationTime;
     public double opacity;
     public StopWatch stopwatch = new StopWatch();
     public Animation hoverAnimation = new Animation(Easing.LINEAR, 50);
@@ -145,6 +147,9 @@ public class ModuleComponent implements InstanceAccess {
 
         stopwatch.reset();
     }
+
+
+
 
     public void key(final char typedChar, final int keyCode) {
         if (position == null || position.y + scale.y < getStandardClickGUI().position.y || position.y > getStandardClickGUI().position.y + getStandardClickGUI().scale.y)
