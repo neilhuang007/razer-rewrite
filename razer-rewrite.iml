@@ -64,5 +64,6 @@
     <orderEntry type="library" name="commons-codec-1.9" level="project" />
     <orderEntry type="library" name="twitch-external-platform-4.5-natives-windows-64" level="project" />
     <orderEntry type="library" name="natives" level="project" />
+    <orderEntry type="library" name="imageboard-api-2.5.1" level="project" />
   </component>
 </module>

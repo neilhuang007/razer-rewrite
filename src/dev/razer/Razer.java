@@ -5,11 +5,18 @@ import dev.razer.event.bus.impl.EventBus;
 import dev.razer.module.api.manager.ModuleManager;
 import dev.razer.ui.impl.standard.RiseClickGUI;
 import dev.razer.ui.theme.ThemeManager;
+import dev.razer.util.file.FileManager;
+import dev.razer.util.file.config.ConfigFile;
+import dev.razer.util.file.config.ConfigManager;
+import dev.razer.util.file.data.DataManager;
 import dev.razer.util.localization.Locale;
 import dev.razer.util.math.MathConst;
 import jdk.nashorn.internal.objects.annotations.Getter;
 import lombok.Setter;
 import net.minecraft.client.Minecraft;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 
 @lombok.Getter
@@ -31,6 +38,13 @@ public enum Razer {
     private ModuleManager moduleManager;
     private ThemeManager themeManager;
 
+    private final ExecutorService executor = Executors.newSingleThreadExecutor();
+
+    private ConfigFile configFile;
+    @Setter
+    private DataManager dataManager;
+    private FileManager fileManager;
+    private ConfigManager configManager;
 
     @Getter
     public void initRazer() {
@@ -42,6 +56,9 @@ public enum Razer {
 
         // managers
         this.moduleManager = new ModuleManager();
+        this.dataManager = new DataManager();
+        this.fileManager = new FileManager();
+        this.configManager = new ConfigManager();
 
         // Compatibility
         mc.gameSettings.guiScale = 2;

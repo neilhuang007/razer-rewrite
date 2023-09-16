@@ -90,6 +90,7 @@ public final class RiseClickGUI extends GuiScreen implements InstanceAccess {
 
     @Override
     public void initGui() {
+        Minecraft mc = Minecraft.getMinecraft();
         round = 12;
         scaleAnimation.reset();
         scaleAnimation.setValue(0);
