@@ -23,7 +23,7 @@ import java.util.concurrent.Executors;
 public enum Razer {
     INSTANCE;
 
-    public static final EventBus eventBus = new EventBus();
+    public EventBus eventBus;
     public static String NAME = "Razer";
     public static String VERSION = "1.0";
     public static String VERSION_FULL = "1.0"; // Used to give more detailed build info on beta builds
@@ -70,6 +70,7 @@ public enum Razer {
         mc.gameSettings.ofSmoothFps = false;
         mc.gameSettings.ofFastMath = false;
         this.themeManager = new ThemeManager();
+        this.eventBus = new EventBus();
 
 
     }

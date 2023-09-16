@@ -25,7 +25,7 @@ import java.awt.*;
 public final class ClickGUI extends Module {
     @Override
     public void onEnable() {
-        Razer.eventBus.register(Razer.INSTANCE.getStandardClickGUI());
+        Razer.INSTANCE.getEventBus().register(Razer.INSTANCE.getStandardClickGUI());
         mc.displayGuiScreen(Razer.INSTANCE.getStandardClickGUI());
 //        Razer.INSTANCE.getStandardClickGUI().overlayPresent = null;
     }
@@ -33,7 +33,7 @@ public final class ClickGUI extends Module {
     @Override
     public void onDisable() {
         Keyboard.enableRepeatEvents(false);
-        Razer.eventBus.unregister(Razer.INSTANCE.getStandardClickGUI());
+        Razer.INSTANCE.getEventBus().unregister(Razer.INSTANCE.getStandardClickGUI());
         Razer.INSTANCE.getExecutor().execute(() -> Razer.INSTANCE.getConfigFile().write());
     }
 

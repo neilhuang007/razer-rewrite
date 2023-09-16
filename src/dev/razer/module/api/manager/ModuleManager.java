@@ -51,7 +51,7 @@ public final class ModuleManager extends ArrayList<Module> {
         this.stream().filter(module -> module.getModuleInfo().autoEnabled()).forEach(module -> module.setEnabled(true));
 
         // Has to be a listener to handle the key presses
-        Razer.eventBus.register(this);
+        Razer.INSTANCE.getEventBus().register(this);
     }
 
     public List<Module> getAll() {

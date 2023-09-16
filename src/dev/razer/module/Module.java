@@ -62,7 +62,7 @@ public abstract class Module implements InstanceAccess {
 
         this.enabled = enabled;
 
-        Razer.eventBus.handle(new ModuleToggleEvent(this));
+        Razer.INSTANCE.getEventBus().handle(new ModuleToggleEvent(this));
 
 //        SoundUtil.toggleSound(enabled);
 
@@ -79,7 +79,7 @@ public abstract class Module implements InstanceAccess {
      * keep the super.onEnable()
      */
     public final void superEnable() {
-        Razer.eventBus.register(this);
+        Razer.INSTANCE.getEventBus().register(this);
 
 
         this.values.stream()
@@ -104,7 +104,7 @@ public abstract class Module implements InstanceAccess {
      * keep the super.onDisable()
      */
     public final void superDisable() {
-        Razer.eventBus.unregister(this);
+        Razer.INSTANCE.getEventBus().unregister(this);
 
         this.values.stream()
                 .filter(value -> value instanceof ModeValue)

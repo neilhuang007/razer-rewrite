@@ -90,10 +90,10 @@ public class RandomEntities
 
     public static void worldChanged(World oldWorld, World newWorld)
     {
-        Razer.eventBus.handle(new WorldChangeEvent());
+        Razer.INSTANCE.getEventBus().handle(new WorldChangeEvent());
         if (newWorld != null)
         {
-            Razer.eventBus.handle(new WorldChangeEvent());
+            Razer.INSTANCE.getEventBus().handle(new WorldChangeEvent());
             List list = newWorld.getLoadedEntityList();
 
             for (int i = 0; i < list.size(); ++i)

@@ -23,12 +23,12 @@ public abstract class Mode<T> implements InstanceAccess, Toggleable {
     private final List<Value<?>> values = new ArrayList<>();
 
     public final void register() {
-        Razer.eventBus.register(this);
+        Razer.INSTANCE.getEventBus().register(this);
         this.onEnable();
     }
 
     public final void unregister() {
-        Razer.eventBus.unregister(this);
+        Razer.INSTANCE.getEventBus().unregister(this);
         this.onDisable();
     }
 
