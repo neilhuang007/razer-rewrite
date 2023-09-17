@@ -6,7 +6,6 @@ import dev.razer.ui.impl.standard.components.value.ValueComponent;
 import dev.razer.util.font.FontManager;
 import dev.razer.util.gui.GUIUtil;
 import dev.razer.util.render.ColorUtil;
-import dev.razer.util.render.RenderUtil;
 import dev.razer.value.Value;
 import dev.razer.value.impl.ColorValue;
 import net.minecraft.client.gui.GuiScreen;
@@ -61,23 +60,23 @@ public class ColorValueComponent extends ValueComponent {
             double x = this.position.x + edge + offset + valueWidth + 4, y = this.position.y + edge;
 
             // Main Panel Shadow
-            RenderUtil.dropShadow(10, (float) x, (float) y, (float) pickerWidth, (float) pickerHeight,
+            RenderManager.dropShadow(10, (float) x, (float) y, (float) pickerWidth, (float) pickerHeight,
                     40, getStandardClickGUI().round * 2);
 
             // Main Panel Border
-            RenderUtil.roundedRectangle(x - edge, this.position.y, pickerWidth, pickerHeight,
+            RenderManager.roundedRectangle(x - edge, this.position.y, pickerWidth, pickerHeight,
                     getStandardClickGUI().round, getStandardClickGUI().sidebarColor);
 
             // Main Panel
-            RenderUtil.roundedRectangle(x, y, pickerWidth - edge * 2, pickerHeight - edge * 2,
+            RenderManager.roundedRectangle(x, y, pickerWidth - edge * 2, pickerHeight - edge * 2,
                     getStandardClickGUI().round, getStandardClickGUI().backgroundColor);
 
             double pickerHeight = this.pickerHeight * 0.55;
 
             // Main Color Gradient
-            RenderUtil.drawRoundedGradientRect(x, y, pickerWidth - edge * 2, pickerHeight, getStandardClickGUI().round, Color.WHITE, hueSelectorColor, false);
-            RenderUtil.drawRoundedGradientRect(x - 0.5, y, pickerWidth - edge * 2 + 1, pickerHeight + 0.5, 0.5, Color.BLACK, new Color(0, 0, 0, 0), true);
-//                RenderUtil.rectangle(x, y + pickerHeight - 2, pickerWidth - edge * 2, 5, Color.BLACK);
+            RenderManager.drawRoundedGradientRect(x, y, pickerWidth - edge * 2, pickerHeight, getStandardClickGUI().round, Color.WHITE, hueSelectorColor, false);
+            RenderManager.drawRoundedGradientRect(x - 0.5, y, pickerWidth - edge * 2 + 1, pickerHeight + 0.5, 0.5, Color.BLACK, new Color(0, 0, 0, 0), true);
+//                RenderManager.rectangle(x, y + pickerHeight - 2, pickerWidth - edge * 2, 5, Color.BLACK);
 
             double padding = 8.5f;
 
@@ -86,13 +85,13 @@ public class ColorValueComponent extends ValueComponent {
             double huePickerWidth = pickerWidth - padding * 2;
 
             // Hue Selector
-            RenderUtil.roundedRectangle(huePickerX, huePickerY + 0.5, 20, getStandardClickGUI().round - 1.5, 2.5F, Color.RED);
-            RenderUtil.roundedRectangle(huePickerX + huePickerWidth - 20, huePickerY + 0.5, 20, getStandardClickGUI().round - 1.5, 2.5F, Color.RED);
+            RenderManager.roundedRectangle(huePickerX, huePickerY + 0.5, 20, getStandardClickGUI().round - 1.5, 2.5F, Color.RED);
+            RenderManager.roundedRectangle(huePickerX + huePickerWidth - 20, huePickerY + 0.5, 20, getStandardClickGUI().round - 1.5, 2.5F, Color.RED);
 
-            RenderUtil.rainbowRectangle(huePickerX, huePickerY + 0.5, huePickerWidth, getStandardClickGUI().round - 1);
+            RenderManager.rainbowRectangle(huePickerX, huePickerY + 0.5, huePickerWidth, getStandardClickGUI().round - 1);
 
             // Color Preview
-            RenderUtil.roundedRectangle(x + padding, y + pickerHeight + padding + padding + getStandardClickGUI().round - 1, 15, 22.5f,
+            RenderManager.roundedRectangle(x + padding, y + pickerHeight + padding + padding + getStandardClickGUI().round - 1, 15, 22.5f,
                     7 / 2f, colorValue.getValue());
 
             if (colorPickerDown) {
@@ -117,18 +116,18 @@ public class ColorValueComponent extends ValueComponent {
             }
 
             // Selected Hue Marker
-            RenderUtil.roundedRectangle(huePickerX + huePointer - getStandardClickGUI().round / 2f - 0.5f, huePickerY - 0.5f, getStandardClickGUI().round + 1, getStandardClickGUI().round + 1, getStandardClickGUI().round / 2f, Color.WHITE);
-            RenderUtil.roundedRectangle(huePickerX + huePointer - getStandardClickGUI().round / 2f, huePickerY, getStandardClickGUI().round, getStandardClickGUI().round, getStandardClickGUI().round / 2f, Color.BLACK);
-            RenderUtil.roundedRectangle(huePickerX + huePointer - getStandardClickGUI().round / 2f + 0.5f, huePickerY + 0.5f, getStandardClickGUI().round - 1, getStandardClickGUI().round - 1, getStandardClickGUI().round / 2f, hueSelectorColor);
+            RenderManager.roundedRectangle(huePickerX + huePointer - getStandardClickGUI().round / 2f - 0.5f, huePickerY - 0.5f, getStandardClickGUI().round + 1, getStandardClickGUI().round + 1, getStandardClickGUI().round / 2f, Color.WHITE);
+            RenderManager.roundedRectangle(huePickerX + huePointer - getStandardClickGUI().round / 2f, huePickerY, getStandardClickGUI().round, getStandardClickGUI().round, getStandardClickGUI().round / 2f, Color.BLACK);
+            RenderManager.roundedRectangle(huePickerX + huePointer - getStandardClickGUI().round / 2f + 0.5f, huePickerY + 0.5f, getStandardClickGUI().round - 1, getStandardClickGUI().round - 1, getStandardClickGUI().round / 2f, hueSelectorColor);
 
             if (pointer.x != -1 && pointer.y != -1) {
-                RenderUtil.roundedRectangle(x - 1 + pointer.x - COLOR_WIDTH / 2, y - 1 + pointer.y - COLOR_WIDTH / 2, COLOR_WIDTH + 2,
+                RenderManager.roundedRectangle(x - 1 + pointer.x - COLOR_WIDTH / 2, y - 1 + pointer.y - COLOR_WIDTH / 2, COLOR_WIDTH + 2,
                         COLOR_WIDTH + 2, COLOR_WIDTH / 2.0F + 1, Color.WHITE);
 
-                RenderUtil.roundedRectangle(x - 0.5f + pointer.x - COLOR_WIDTH / 2, y - 0.5f + pointer.y - COLOR_WIDTH / 2, COLOR_WIDTH + 1,
+                RenderManager.roundedRectangle(x - 0.5f + pointer.x - COLOR_WIDTH / 2, y - 0.5f + pointer.y - COLOR_WIDTH / 2, COLOR_WIDTH + 1,
                         COLOR_WIDTH + 1, COLOR_WIDTH / 2.0F + 0.5, Color.BLACK);
 
-                RenderUtil.roundedRectangle(x + pointer.x - COLOR_WIDTH / 2, y + pointer.y - COLOR_WIDTH / 2, COLOR_WIDTH, COLOR_WIDTH,
+                RenderManager.roundedRectangle(x + pointer.x - COLOR_WIDTH / 2, y + pointer.y - COLOR_WIDTH / 2, COLOR_WIDTH, COLOR_WIDTH,
                         COLOR_WIDTH / 2.0F, colorValue.getValue());
             }
 

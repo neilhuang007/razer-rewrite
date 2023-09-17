@@ -1,9 +1,9 @@
 package dev.razer.util.render.particle;
 
+import dev.razer.managers.RenderManager;
 import dev.razer.util.Timers.StopWatch;
 import dev.razer.util.interfaces.InstanceAccess;
 import dev.razer.util.render.ColorUtil;
-import dev.razer.util.render.RenderUtil;
 import dev.razer.util.vector.Vector2f;
 
 import java.awt.*;
@@ -37,10 +37,10 @@ public class Particle implements InstanceAccess {
     public void render() {
 
         NORMAL_POST_BLOOM_RUNNABLES.add(() -> {
-            RenderUtil.polygon(position.x, position.y, scale, (int) Math.ceil(scale * Math.PI * 2), ColorUtil.withAlpha(color, (int) alpha * 2));
+            RenderManager.polygon(position.x, position.y, scale, (int) Math.ceil(scale * Math.PI * 2), ColorUtil.withAlpha(color, (int) alpha * 2));
         });
 
-        RenderUtil.polygon(position.x, position.y, scale, (int) Math.ceil(scale * Math.PI * 2), ColorUtil.withAlpha(color, (int) alpha));
+        RenderManager.polygon(position.x, position.y, scale, (int) Math.ceil(scale * Math.PI * 2), ColorUtil.withAlpha(color, (int) alpha));
 
     }
 

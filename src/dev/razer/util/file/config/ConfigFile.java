@@ -1,7 +1,6 @@
 package dev.razer.util.file.config;
 
 
-
 import com.google.gson.JsonObject;
 import dev.razer.Razer;
 import dev.razer.module.Module;
@@ -14,7 +13,6 @@ import dev.razer.value.impl.*;
 
 import javax.vecmath.Vector2d;
 import java.awt.*;
-
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;

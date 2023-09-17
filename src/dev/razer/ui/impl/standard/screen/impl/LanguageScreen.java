@@ -1,12 +1,12 @@
 package dev.razer.ui.impl.standard.screen.impl;
 
+import dev.razer.managers.RenderManager;
 import dev.razer.ui.impl.standard.components.language.LanguageComponent;
 import dev.razer.ui.impl.standard.screen.Screen;
 import dev.razer.util.font.FontManager;
 import dev.razer.util.gui.ScrollUtil;
 import dev.razer.util.localization.Locale;
 import dev.razer.util.localization.Localization;
-import dev.razer.util.render.RenderUtil;
 
 import javax.vecmath.Vector2f;
 import java.awt.*;
@@ -40,8 +40,8 @@ public class LanguageScreen extends Screen {
             this.languages.get(i).draw((i + 1) * 46 + scrollUtil.getScroll());
         }
 
-        RenderUtil.roundedRectangle(position.getX(), position.getY(), scale.x, 40, getStandardClickGUI().round, getStandardClickGUI().backgroundColor);
-        RenderUtil.rectangle(position.getX(), position.getY() + 20, scale.x, 20, getStandardClickGUI().backgroundColor);
+        RenderManager.roundedRectangle(position.getX(), position.getY(), scale.x, 40, getStandardClickGUI().round, getStandardClickGUI().backgroundColor);
+        RenderManager.rectangle(position.getX(), position.getY() + 20, scale.x, 20, getStandardClickGUI().backgroundColor);
 
 //        FontManager.getIconsThree(28).drawString("4",
 //                position.getX() + sidebar + 14, position.getY() + 16, -1);

@@ -1,10 +1,10 @@
 package dev.razer.ui.impl.standard.screen.impl;
 
 import dev.razer.Razer;
+import dev.razer.managers.RenderManager;
 import dev.razer.ui.impl.standard.screen.Screen;
 import dev.razer.util.font.FontManager;
 import dev.razer.util.render.ColorUtil;
-import dev.razer.util.render.RenderUtil;
 import dev.razer.util.render.ScissorUtil;
 import net.minecraft.client.gui.ScaledResolution;
 
@@ -108,9 +108,9 @@ public class InfoScreen extends Screen {
                 position.getY() + 100 - offset + (scale.getY() - 175), new Color(164, 164, 164, 64).getRGB());
 
         // Draw gradients to make the fade in/out look on the scrolling text
-        RenderUtil.verticalGradient(position.getX() + sidebar, position.getY() + 89, scale.getX() - sidebar,
+        RenderManager.verticalGradient(position.getX() + sidebar, position.getY() + 89, scale.getX() - sidebar,
                 35, getStandardClickGUI().getBackgroundColor(), ColorUtil.withAlpha(getStandardClickGUI().getBackgroundColor(), 0));
-        RenderUtil.verticalGradient(position.getX() + sidebar, position.getY() + scale.getY() - 120,
+        RenderManager.verticalGradient(position.getX() + sidebar, position.getY() + scale.getY() - 120,
                 scale.getX() - sidebar, 35, ColorUtil.withAlpha(getStandardClickGUI().getBackgroundColor(), 0),
                 getStandardClickGUI().getBackgroundColor());
 

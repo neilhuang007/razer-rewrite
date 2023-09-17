@@ -1672,7 +1672,6 @@ public class Minecraft implements IThreadListener, IPlayerUsage {
 
                 if (Keyboard.getEventKeyState()) {
                     Razer.INSTANCE.getEventBus().handle(new KeyboardInputEvent(k, currentScreen));
-
                     if (k == 62 && this.entityRenderer != null) {
                         this.entityRenderer.switchUseShader();
                     }

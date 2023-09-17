@@ -7,10 +7,10 @@ import dev.razer.event.Priorities;
 import dev.razer.event.annotations.EventLink;
 import dev.razer.event.impl.client.Render2DEvent;
 import dev.razer.event.impl.input.KeyboardInputEvent;
+import dev.razer.managers.RenderManager;
 import dev.razer.module.Module;
 import dev.razer.module.api.Category;
 import dev.razer.module.api.ModuleInfo;
-import dev.razer.util.render.RenderUtil;
 import org.lwjgl.input.Keyboard;
 
 import java.awt.*;
@@ -44,7 +44,7 @@ public final class ClickGUI extends Module {
 
         UI_RENDER_RUNNABLES.add(() -> Razer.INSTANCE.getStandardClickGUI().render());
         UI_BLOOM_RUNNABLES.add(() -> Razer.INSTANCE.getStandardClickGUI().bloom());
-        NORMAL_BLUR_RUNNABLES.add(() -> RenderUtil.rectangle(0, 0, width, height, Color.BLACK));
+        NORMAL_BLUR_RUNNABLES.add(() -> RenderManager.rectangle(0, 0, width, height, Color.BLACK));
     };
 
     @EventLink()

@@ -2,10 +2,10 @@ package dev.razer.util.gui;
 
 
 import dev.razer.managers.ColorManager;
+import dev.razer.managers.RenderManager;
 import dev.razer.util.Timers.StopWatch;
 import dev.razer.util.interfaces.InstanceAccess;
 import dev.razer.util.math.MathUtil;
-import dev.razer.util.render.RenderUtil;
 import lombok.Getter;
 import lombok.Setter;
 import org.lwjgl.input.Mouse;
@@ -53,7 +53,7 @@ public class ScrollUtil implements InstanceAccess {
         double scrollY = position.y + maxHeight * percentage - scrollBarHeight * percentage;
         Color color = ColorManager.withAlpha(Color.WHITE, 60);
 
-        RenderUtil.drawRoundedGradientRect(scrollX, scrollY, 1, scrollBarHeight, 0.5,
+        RenderManager.drawRoundedGradientRect(scrollX, scrollY, 1, scrollBarHeight, 0.5,
                 color, color, true);
     }
 

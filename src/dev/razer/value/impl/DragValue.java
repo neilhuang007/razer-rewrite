@@ -5,7 +5,6 @@ import dev.razer.util.animation.Animation;
 import dev.razer.value.Mode;
 import dev.razer.value.Value;
 import lombok.Setter;
-
 import net.minecraft.client.gui.ScaledResolution;
 
 import javax.vecmath.Vector2d;

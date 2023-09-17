@@ -1,18 +1,9 @@
 package dev.razer.util.file.data;
 
 
-
-
 import dev.razer.util.file.FileManager;
 import dev.razer.util.file.FileType;
 
-import java.io.File;
-import java.util.ArrayList;
-
-/**
- * @author Patrick
- * @since 10/19/2021
- */
 import java.io.File;
 import java.util.ArrayList;
 

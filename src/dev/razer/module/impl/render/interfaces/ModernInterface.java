@@ -8,12 +8,12 @@ import dev.razer.event.impl.render.Render2DEvent;
 import dev.razer.event.impl.world.TickEvent;
 import dev.razer.gg.component.impl.render.ParticleComponent;
 import dev.razer.gg.event.impl.other.KillEvent;
+import dev.razer.managers.RenderManager;
 import dev.razer.module.impl.render.Interface;
 import dev.razer.util.Timers.StopWatch;
 import dev.razer.util.font.Font;
 import dev.razer.util.font.FontManager;
 import dev.razer.util.render.ColorUtil;
-import dev.razer.util.render.RenderUtil;
 import dev.razer.util.render.particle.Particle;
 import dev.razer.util.vector.Vector2f;
 import dev.razer.value.Mode;
@@ -104,7 +104,7 @@ public class ModernInterface extends Mode<Interface> {
 
             if (this.normalBackGround || this.blurBackGround) {
                 Runnable backgroundRunnable = () ->
-                        RenderUtil.rectangle(x + 0.5 - widthOffset, y - 2.5,
+                        RenderManager.rectangle(x + 0.5 - widthOffset, y - 2.5,
                                 (moduleComponent.nameWidth + moduleComponent.tagWidth) + 2 + widthOffset,
                                 this.getParent().moduleSpacing, getTheme().getBackgroundShade());
 
@@ -114,7 +114,7 @@ public class ModernInterface extends Mode<Interface> {
 
                 if (this.blurBackGround) {
                     NORMAL_BLUR_RUNNABLES.add(() ->
-                            RenderUtil.rectangle(x + 0.5 - widthOffset, y - 2.5,
+                            RenderManager.rectangle(x + 0.5 - widthOffset, y - 2.5,
                                     (moduleComponent.nameWidth + moduleComponent.tagWidth) + 2 + widthOffset,
                                     this.getParent().moduleSpacing, Color.BLACK));
                 }
@@ -123,7 +123,7 @@ public class ModernInterface extends Mode<Interface> {
                 NORMAL_POST_BLOOM_RUNNABLES.add(() -> {
                     if (glow || shadow) {
 
-                        RenderUtil.rectangle(x + 0.5 - widthOffset, y - 2.5,
+                        RenderManager.rectangle(x + 0.5 - widthOffset, y - 2.5,
                                 (moduleComponent.nameWidth + moduleComponent.tagWidth) + 2 + widthOffset,
                                 this.getParent().moduleSpacing, glow ? ColorUtil.withAlpha(finalColor, 164) : getTheme().getDropShadow());
                     }
@@ -165,7 +165,7 @@ public class ModernInterface extends Mode<Interface> {
             }
 
             if (this.sidebar.getValue()) {
-                Runnable runnable = () -> RenderUtil.roundedRectangle(x + moduleComponent.getNameWidth() + moduleComponent.getTagWidth() + 2, y - 1.5f,
+                Runnable runnable = () -> RenderManager.roundedRectangle(x + moduleComponent.getNameWidth() + moduleComponent.getTagWidth() + 2, y - 1.5f,
                         2, 9, 1, finalColor);
 
                 runnable.run();
