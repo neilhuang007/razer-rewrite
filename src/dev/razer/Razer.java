@@ -38,6 +38,7 @@ public enum Razer {
     private ModuleManager moduleManager;
     private ThemeManager themeManager;
 
+
     private final ExecutorService executor = Executors.newSingleThreadExecutor();
 
     private ConfigFile configFile;
@@ -72,6 +73,11 @@ public enum Razer {
         this.themeManager = new ThemeManager();
         this.eventBus = new EventBus();
 
+
+        this.dataManager.init();
+        this.moduleManager.init();
+        this.fileManager.init();
+        this.configManager.init();
 
     }
 }

@@ -11,6 +11,7 @@ import com.mojang.authlib.properties.PropertyMap;
 import com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService;
 import dev.razer.Razer;
 import dev.razer.event.impl.client.GameEvent;
+import dev.razer.event.impl.input.KeyboardInputEvent;
 import dev.razer.event.impl.world.TickEvent;
 import dev.razer.ui.impl.intro.IntroSequence;
 import dev.razer.ui.impl.menu.Mainmenu;
@@ -1670,6 +1671,8 @@ public class Minecraft implements IThreadListener, IPlayerUsage {
                 this.dispatchKeypresses();
 
                 if (Keyboard.getEventKeyState()) {
+                    Razer.INSTANCE.getEventBus().handle(new KeyboardInputEvent(k, currentScreen));
+
                     if (k == 62 && this.entityRenderer != null) {
                         this.entityRenderer.switchUseShader();
                     }
