@@ -8,13 +8,13 @@ import dev.razer.event.impl.input.GuiMouseReleaseEvent;
 import dev.razer.gg.component.Component;
 import dev.razer.gg.component.impl.hud.dragcomponent.api.Orientation;
 import dev.razer.gg.component.impl.hud.dragcomponent.api.Snap;
+import dev.razer.managers.RenderManager;
 import dev.razer.module.Module;
 import dev.razer.util.Timers.StopWatch;
 import dev.razer.util.animation.Animation;
 import dev.razer.util.animation.Easing;
 import dev.razer.util.gui.GUIUtil;
 import dev.razer.util.render.ColorUtil;
-import dev.razer.util.render.RenderUtil;
 import dev.razer.value.Value;
 import dev.razer.value.impl.DragValue;
 import net.minecraft.client.gui.GuiChat;
@@ -154,11 +154,11 @@ public class DragComponent extends Component {
             if (selected != null) {
                 switch (selected.orientation) {
                     case VERTICAL:
-                        RenderUtil.rectangle(0, selected.position, scaledResolution.getScaledWidth(), 0.5, color);
+                        RenderManager.rectangle(0, selected.position, scaledResolution.getScaledWidth(), 0.5, color);
                         break;
 
                     case HORIZONTAL:
-                        RenderUtil.rectangle(selected.position, 0, 0.5, scaledResolution.getScaledHeight(), color);
+                        RenderManager.rectangle(selected.position, 0, 0.5, scaledResolution.getScaledHeight(), color);
                         break;
                 }
             }

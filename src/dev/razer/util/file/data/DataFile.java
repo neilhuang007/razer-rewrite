@@ -6,7 +6,6 @@ import dev.razer.Razer;
 import dev.razer.util.file.File;
 import dev.razer.util.file.FileType;
 
-
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;

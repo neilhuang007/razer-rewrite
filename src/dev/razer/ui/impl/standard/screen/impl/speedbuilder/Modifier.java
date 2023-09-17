@@ -1,8 +1,8 @@
 package dev.razer.ui.impl.standard.screen.impl.speedbuilder;
 
+import dev.razer.managers.RenderManager;
 import dev.razer.util.gui.GUIUtil;
 import dev.razer.util.interfaces.InstanceAccess;
-import dev.razer.util.render.RenderUtil;
 import dev.razer.util.vector.Vector2f;
 import net.minecraft.client.Minecraft;
 
@@ -36,8 +36,8 @@ public abstract class Modifier implements InstanceAccess {
 
         this.position = position;
 
-        RenderUtil.dropShadow(36, position.x, position.y, width, height, 50, 24);
-        RenderUtil.roundedRectangle(position.x, position.y, width, height, 11, new Color(0, 0, 0, 70));
+        RenderManager.dropShadow(36, position.x, position.y, width, height, 50, 24);
+        RenderManager.roundedRectangle(position.x, position.y, width, height, 11, new Color(0, 0, 0, 70));
 
         nunitoSmall.drawString(name, position.x + 8, position.y + 8, Color.WHITE.hashCode());
 

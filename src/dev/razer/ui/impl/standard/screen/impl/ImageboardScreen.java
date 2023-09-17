@@ -1,9 +1,9 @@
 package dev.razer.ui.impl.standard.screen.impl;
 
+import dev.razer.managers.RenderManager;
 import dev.razer.ui.impl.standard.RiseClickGUI;
 import dev.razer.ui.impl.standard.screen.Screen;
 import dev.razer.util.gui.ScrollUtil;
-import dev.razer.util.render.RenderUtil;
 import net.kodehawa.lib.imageboards.DefaultImageBoards;
 import net.kodehawa.lib.imageboards.ImageBoard;
 import net.kodehawa.lib.imageboards.entities.BoardImage;
@@ -116,7 +116,7 @@ public final class ImageboardScreen extends Screen {
 
             for (final ResourceLocation location : cache) {
                 if (location != null) {
-                    RenderUtil.image(location, baseX, (baseY + 14 + scrollUtil.getScroll()) + (height * i) + (i != 0 ? 5 * i : 0), width, height);
+                    RenderManager.image(location, baseX, (baseY + 14 + scrollUtil.getScroll()) + (height * i) + (i != 0 ? 5 * i : 0), width, height);
 
                     ++i;
                 }

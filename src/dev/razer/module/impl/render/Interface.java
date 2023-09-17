@@ -1,7 +1,6 @@
 package dev.razer.module.impl.render;
 
 import dev.razer.Razer;
-
 import dev.razer.event.Listener;
 import dev.razer.event.annotations.EventLink;
 import dev.razer.event.impl.client.Render2DEvent;

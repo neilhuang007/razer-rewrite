@@ -1,10 +1,10 @@
 package dev.razer.ui.impl.standard.components.value.impl;
 
 
+import dev.razer.managers.RenderManager;
 import dev.razer.ui.impl.standard.components.value.ValueComponent;
 import dev.razer.util.Timers.StopWatch;
 import dev.razer.util.gui.GUIUtil;
-import dev.razer.util.render.RenderUtil;
 import dev.razer.value.Value;
 import dev.razer.value.impl.BooleanValue;
 
@@ -34,10 +34,10 @@ public class BooleanValueComponent extends ValueComponent {
             scale = Math.max(0, scale - stopwatch.getElapsedTime() / 20f);
         }
 
-        RenderUtil.roundedRectangle(positionX - 5f / 2f + 5, this.position.y - 5f / 2f + 2.5, 5, 5, 2.5F, getStandardClickGUI().backgroundColor);
+        RenderManager.roundedRectangle(positionX - 5f / 2f + 5, this.position.y - 5f / 2f + 2.5, 5, 5, 2.5F, getStandardClickGUI().backgroundColor);
 
         if (scale != 0) {
-            RenderUtil.roundedRectangle(positionX - scale / 2 + 4, this.position.y - scale / 2 + 2.5, scale, scale, scale / 2.0F, this.getTheme().getFirstColor());
+            RenderManager.roundedRectangle(positionX - scale / 2 + 4, this.position.y - scale / 2 + 2.5, scale, scale, scale / 2.0F, this.getTheme().getFirstColor());
         }
 
         stopwatch.reset();
@@ -68,7 +68,7 @@ public class BooleanValueComponent extends ValueComponent {
         }
 
         final double positionX = this.position.x + this.nunitoSmall.width(this.value.getName()) + 2;
-        RenderUtil.circle(positionX - scale / 2 + 5, this.position.y - scale / 2 + 2.5, scale, getTheme().getFirstColor());
+        RenderManager.circle(positionX - scale / 2 + 5, this.position.y - scale / 2 + 2.5, scale, getTheme().getFirstColor());
     }
 
     @Override
