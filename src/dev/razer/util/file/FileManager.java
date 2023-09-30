@@ -1,7 +1,6 @@
 package dev.razer.util.file;
 
 
-
 import dev.razer.Razer;
 import dev.razer.util.interfaces.InstanceAccess;
 

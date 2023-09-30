@@ -1,7 +1,6 @@
 package dev.razer.util.file.config;
 
 
-
 import dev.razer.util.file.FileManager;
 import dev.razer.util.file.FileType;
 

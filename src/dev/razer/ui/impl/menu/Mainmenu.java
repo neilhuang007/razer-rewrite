@@ -28,7 +28,7 @@ public final class Mainmenu extends Menu {
     // "Logo" animation
     private final Font fontRenderer = FontManager.getProductSansRegular(64);
 
-//    private static final ResourceLocation SETTINGS_ICON = new ResourceLocation("rise/icons/main_menu/SettingsIcon.png");
+    //    private static final ResourceLocation SETTINGS_ICON = new ResourceLocation("rise/icons/main_menu/SettingsIcon.png");
 //    private static final ResourceLocation LANGUAGES_ICON = new ResourceLocation("rise/icons/main_menu/LanguagesIcon.png");
     Minecraft mc = Minecraft.getMinecraft();
     private Animation animation = new Animation(Easing.EASE_OUT_QUINT, 600);

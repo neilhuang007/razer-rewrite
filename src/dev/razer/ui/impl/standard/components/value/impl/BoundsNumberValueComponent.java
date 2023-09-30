@@ -1,7 +1,6 @@
 package dev.razer.ui.impl.standard.components.value.impl;
 
 
-
 import dev.razer.managers.RenderManager;
 import dev.razer.ui.impl.standard.components.value.ValueComponent;
 import dev.razer.util.Timers.StopWatch;

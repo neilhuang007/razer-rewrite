@@ -26,9 +26,9 @@ import static org.lwjgl.opengl.GL11.glBegin;
 
 @UtilityClass
 public final class RenderManager implements InstanceAccess {
+    public static final int GENERIC_SCALE = 22;
     private static final Frustum FRUSTUM = new Frustum();
     private static final net.minecraft.client.renderer.entity.RenderManager RENDER_MANAGER = mc.getRenderManager();
-    public static final int GENERIC_SCALE = 22;
 
     public Vector3d getCameraVector() {
         return new Vector3d(

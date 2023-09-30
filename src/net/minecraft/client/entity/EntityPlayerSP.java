@@ -1,8 +1,9 @@
 package net.minecraft.client.entity;
 
 import dev.razer.Razer;
-import dev.razer.event.impl.world.PostMotionEvent;
-import dev.razer.event.impl.world.PreUpdateEvent;
+
+import dev.razer.event.impl.motion.PostMotionEvent;
+import dev.razer.event.impl.motion.PreUpdateEvent;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.MovingSoundMinecartRiding;
 import net.minecraft.client.audio.PositionedSoundRecord;

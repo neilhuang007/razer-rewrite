@@ -4,27 +4,69 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9ad04c4-c420-49a0-acba-06004f353030" name="Changes" comment="finally no error in builds still have bugs in run">
+    <list default="true" id="c9ad04c4-c420-49a0-acba-06004f353030" name="Changes" comment="merged RenderUtil.java and RenderManager.java&#10;fixed keyboard input event&#10;clickgui still cannot be toggled?&#10;mabye other event problems???&#10;where is the config file">
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/input/ChatInputEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/input/ClickEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/input/MoveInputEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/inventory/SyncCurrentItemEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/motion/HitSlowDownEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/motion/JumpEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/motion/MinimumMotionEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/motion/PostMotionEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/motion/PostStrafeEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/motion/PreMotionEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/motion/PushOutOfBlockEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/motion/SlowDownEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/motion/StrafeEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/motion/WaterEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/other/AttackEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/other/BlockAABBEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/other/BlockBreakEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/other/BlockDamageEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/other/KillEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/other/MoveEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/other/PossibleClickEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/other/StepEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/other/TeleportEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/other/TickEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/packet/PacketReceiveEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/packet/PacketSendEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/render/GlintEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/render/HurtRenderEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/render/LookEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/render/MouseOverEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/render/Render3DEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/render/RenderHungerEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/render/RenderItemEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/render/SwingAnimationEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/render/ViewBobbingEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/gg/component/impl/hud/DragComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/gg/component/impl/hud/DragComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/managers/RenderManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/managers/RenderManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/event/bus/impl/EventBus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/event/bus/impl/EventBus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/event/impl/client/GameEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/other/GameEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/event/impl/client/ModuleToggleEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/other/ModuleToggleEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/event/impl/client/Render2DEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/render/LimitedRender2DEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/event/impl/input/GuiClickEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/input/GuiClickEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/event/impl/input/GuiMouseReleaseEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/input/GuiMouseReleaseEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/event/impl/input/KeyboardInputEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/input/KeyboardInputEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/event/impl/motion/PreUpdateEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/motion/PreUpdateEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/event/impl/render/Render2DEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/render/Render2DEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/event/impl/server/ServerJoinEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/other/ServerJoinEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/event/impl/server/ServerKickEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/other/ServerKickEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/event/impl/world/PostMotionEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/event/impl/world/PreUpdateEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/event/impl/world/TickEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/event/impl/world/WorldChangeEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/event/impl/other/WorldChangeEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/module/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/module/Module.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/razer/module/api/manager/ModuleManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/module/api/manager/ModuleManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dev/razer/module/impl/render/ClickGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/module/impl/render/ClickGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dev/razer/module/impl/render/Interface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/module/impl/render/Interface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dev/razer/module/impl/render/interfaces/ModernInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/module/impl/render/interfaces/ModernInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/theme/ThemeKeyColorComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/theme/ThemeKeyColorComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/value/impl/BooleanValueComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/value/impl/BooleanValueComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/value/impl/ColorValueComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/components/value/impl/ColorValueComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/screen/impl/ImageboardScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/screen/impl/ImageboardScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/screen/impl/InfoScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/screen/impl/InfoScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/screen/impl/LanguageScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/screen/impl/LanguageScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/screen/impl/speedbuilder/Modifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/ui/impl/standard/screen/impl/speedbuilder/Modifier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/util/file/config/ConfigFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/util/file/config/ConfigFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/util/file/data/DataFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/util/file/data/DataFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/util/file/data/DataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/util/file/data/DataManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/util/gui/ScrollUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/util/gui/ScrollUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/util/render/RenderUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/util/render/particle/Particle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/util/render/particle/Particle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/razer/value/impl/DragValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/razer/value/impl/DragValue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/minecraft/client/Minecraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/minecraft/client/Minecraft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/minecraft/client/entity/EntityPlayerSP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/minecraft/client/entity/EntityPlayerSP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/minecraft/client/gui/GuiDisconnected.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/minecraft/client/gui/GuiDisconnected.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/minecraft/client/multiplayer/GuiConnecting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/minecraft/client/multiplayer/GuiConnecting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/minecraft/client/renderer/EntityRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/minecraft/client/renderer/EntityRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/net/optifine/RandomEntities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/optifine/RandomEntities.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +87,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2R6JfJb3DqPItaCxsHT6sErcQwC" />
   <component name="ProjectViewState">
@@ -62,7 +104,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/neilhuang007/Documents/idea_projects/razer-rewrite/src/dev/razer/util&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/neilhuang007/Documents/idea_projects/razer-rewrite/src/dev/razer/event&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -71,9 +113,9 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\neilhuang007\Documents\idea_projects\razer-rewrite\src\dev\razer\event" />
       <recent name="C:\Users\neilhuang007\Documents\idea_projects\razer-rewrite\src\dev\razer\util" />
       <recent name="C:\Users\neilhuang007\Documents\idea_projects\razer-rewrite\src\dev\razer\ui\impl" />
-      <recent name="C:\Users\neilhuang007\Documents\idea_projects\razer-rewrite\src\dev\razer\event" />
       <recent name="C:\Users\neilhuang007\Documents\idea_projects\razer-rewrite\src\dev\razer\event\" />
       <recent name="C:\Users\neilhuang007\Documents\idea_projects\razer-rewrite\src\dev\razer\event\impl\world" />
     </key>
@@ -164,7 +206,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694844699330</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="merged RenderUtil.java and RenderManager.java&#10;fixed keyboard input event&#10;clickgui still cannot be toggled?&#10;mabye other event problems???&#10;where is the config file">
+      <created>1694915231479</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1694915231479</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -188,7 +237,24 @@
     <MESSAGE value="fix some bugs, still more to go&#10;fix imports&#10;merge set in progress" />
     <MESSAGE value="fix some bugs, still more to go&#10;fix imports&#10;MERGE BEFORE U CODE&#10;IMPORTANT" />
     <MESSAGE value="finally no error in builds still have bugs in run" />
-    <option name="LAST_COMMIT_MESSAGE" value="finally no error in builds still have bugs in run" />
+    <MESSAGE value="merged RenderUtil.java and RenderManager.java&#10;fixed keyboard input event&#10;clickgui still cannot be toggled?&#10;mabye other event problems???&#10;where is the config file" />
+    <option name="LAST_COMMIT_MESSAGE" value="merged RenderUtil.java and RenderManager.java&#10;fixed keyboard input event&#10;clickgui still cannot be toggled?&#10;mabye other event problems???&#10;where is the config file" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/dev/razer/module/impl/render/ClickGUI.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/dev/razer/module/api/manager/ModuleManager.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

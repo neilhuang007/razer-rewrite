@@ -18,11 +18,10 @@ import java.awt.*;
 public class ColorValueComponent extends ValueComponent {
 
     private final static double COLOR_WIDTH = 5;
-
-    private boolean selected = false;
-    private boolean colorPickerDown, huePickerDown;
     private final float offset = 10;
     private final float edge = 0.5f;
+    private boolean selected = false;
+    private boolean colorPickerDown, huePickerDown;
     private float huePointer = 0;
     private double pickerWidth = 90, pickerHeight = 100;
     private Vector2f pointer = new Vector2f(1, 1);

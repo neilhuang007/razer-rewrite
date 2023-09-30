@@ -1,7 +1,6 @@
 package dev.razer.value.impl;
 
 
-
 import dev.razer.module.Module;
 import dev.razer.value.Mode;
 import dev.razer.value.Value;

@@ -1,7 +1,7 @@
 package dev.razer.module;
 
 import dev.razer.Razer;
-import dev.razer.event.impl.client.ModuleToggleEvent;
+import dev.razer.event.impl.other.ModuleToggleEvent;
 import dev.razer.module.api.Category;
 import dev.razer.module.api.ModuleInfo;
 import dev.razer.module.impl.render.ClickGUI;

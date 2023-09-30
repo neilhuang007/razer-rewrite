@@ -2,14 +2,14 @@ package dev.razer.module.impl.render.interfaces;
 
 import dev.razer.Razer;
 import dev.razer.Type;
+import dev.razer.component.impl.render.ParticleComponent;
 import dev.razer.event.Listener;
 import dev.razer.event.annotations.EventLink;
+import dev.razer.event.impl.other.TickEvent;
 import dev.razer.event.impl.render.Render2DEvent;
-import dev.razer.event.impl.world.TickEvent;
-import dev.razer.gg.component.impl.render.ParticleComponent;
-import dev.razer.gg.event.impl.other.KillEvent;
 import dev.razer.managers.RenderManager;
 import dev.razer.module.impl.render.Interface;
+import dev.razer.other.KillEvent;
 import dev.razer.util.Timers.StopWatch;
 import dev.razer.util.font.Font;
 import dev.razer.util.font.FontManager;
@@ -30,50 +30,53 @@ public class ModernInterface extends Mode<Interface> {
     private final dev.razer.util.font.Font productSansMedium36 = FontManager.getProductSansMedium(36);
     private final dev.razer.util.font.Font productSansRegular = FontManager.getProductSansRegular(18);
     private final dev.razer.util.font.Font minecraft = FontManager.getMinecraft();
-
-    private dev.razer.util.font.Font arrayListFont = productSansRegular;
     private final Font productSansMedium18 = FontManager.getProductSansMedium(18);
     private final StopWatch stopWatch = new StopWatch();
-
     private final ModeValue colorMode = new ModeValue("ArrayList Color Mode", this, () -> Razer.CLIENT_TYPE != Type.RISE) {{
         add(new SubMode("Static"));
         add(new SubMode("Fade"));
         add(new SubMode("Breathe"));
         setDefault("Fade");
     }};
-
     private final ModeValue font = new ModeValue("ArrayList Font", this, () -> Razer.CLIENT_TYPE != Type.RISE) {{
         add(new SubMode("Product Sans"));
         add(new SubMode("Minecraft"));
         setDefault("Product Sans");
     }};
-
     private final ModeValue shader = new ModeValue("Shader Effect", this, () -> Razer.CLIENT_TYPE != Type.RISE) {{
         add(new SubMode("Glow"));
         add(new SubMode("Shadow"));
         add(new SubMode("None"));
         setDefault("Shadow");
     }};
-
     private final BooleanValue dropShadow = new BooleanValue("Drop Shadow", this, true, () -> Razer.CLIENT_TYPE != Type.RISE);
     private final BooleanValue sidebar = new BooleanValue("Sidebar", this, true, () -> Razer.CLIENT_TYPE != Type.RISE);
     private final BooleanValue particles = new BooleanValue("Particles on Kill", this, true, () -> Razer.CLIENT_TYPE != Type.RISE);
+    @EventLink()
+    public final Listener<KillEvent> onKill = event -> {
+        if (Razer.CLIENT_TYPE != Type.RISE) return;
+
+        if (!stopWatch.finished(2000) && this.particles.getValue()) {
+            for (int i = 0; i <= 10; i++) {
+                ParticleComponent.add(new Particle(new Vector2f(0, 0),
+                        new Vector2f((float) Math.random(), (float) Math.random())));
+            }
+        }
+
+        stopWatch.reset();
+    };
     private final ModeValue background = new ModeValue("BackGround", this, () -> Razer.CLIENT_TYPE != Type.RISE) {{
         add(new SubMode("Off"));
         add(new SubMode("Normal"));
         add(new SubMode("Blur"));
         setDefault("Normal");
     }};
+    private dev.razer.util.font.Font arrayListFont = productSansRegular;
     private boolean glow, shadow;
     private boolean normalBackGround, blurBackGround;
     private String username, coordinates;
     private float nameWidth, userWidth, xyzWidth;
     private Color logoColor;
-
-    public ModernInterface(String name, Interface parent) {
-        super(name, parent);
-    }
-
     @EventLink()
     public final Listener<Render2DEvent> onRender2D = event -> {
 
@@ -217,21 +220,6 @@ public class ModernInterface extends Mode<Interface> {
             stopWatch.reset();
         }
     };
-
-    @EventLink()
-    public final Listener<KillEvent> onKill = event -> {
-        if (Razer.CLIENT_TYPE != Type.RISE) return;
-
-        if (!stopWatch.finished(2000) && this.particles.getValue()) {
-            for (int i = 0; i <= 10; i++) {
-                ParticleComponent.add(new Particle(new Vector2f(0, 0),
-                        new Vector2f((float) Math.random(), (float) Math.random())));
-            }
-        }
-
-        stopWatch.reset();
-    };
-
     @EventLink()
     public final Listener<TickEvent> onTick = event -> {
         if (Razer.CLIENT_TYPE != Type.RISE || mc.thePlayer == null || !mc.getNetHandler().doneLoadingTerrain) return;
@@ -285,4 +273,8 @@ public class ModernInterface extends Mode<Interface> {
             }
         });
     };
+
+    public ModernInterface(String name, Interface parent) {
+        super(name, parent);
+    }
 }

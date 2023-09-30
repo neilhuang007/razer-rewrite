@@ -20,9 +20,9 @@ import java.util.stream.Collectors;
 
 public final class SidebarCategory implements InstanceAccess {
 
+    private final List<CategoryComponent> categories;
     /* Information */
     public double sidebarWidth = 100;
-    private final List<CategoryComponent> categories;
     private double opacity, fadeOpacity;
     private long lastTime = 0;
 

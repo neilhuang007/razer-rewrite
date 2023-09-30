@@ -1,5 +1,6 @@
 package dev.razer.event.impl.input;
 
+
 import dev.razer.event.Event;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

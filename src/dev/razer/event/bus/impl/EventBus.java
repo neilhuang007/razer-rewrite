@@ -4,10 +4,10 @@ package dev.razer.event.bus.impl;
 import dev.razer.event.Listener;
 import dev.razer.event.annotations.EventLink;
 import dev.razer.event.bus.Bus;
-import dev.razer.event.impl.client.GameEvent;
-import dev.razer.event.impl.server.ServerJoinEvent;
-import dev.razer.event.impl.server.ServerKickEvent;
-import dev.razer.event.impl.world.WorldChangeEvent;
+import dev.razer.event.impl.other.GameEvent;
+import dev.razer.event.impl.other.ServerJoinEvent;
+import dev.razer.event.impl.other.ServerKickEvent;
+import dev.razer.event.impl.other.WorldChangeEvent;
 import dev.razer.util.interfaces.InstanceAccess;
 
 import java.lang.invoke.MethodHandles;

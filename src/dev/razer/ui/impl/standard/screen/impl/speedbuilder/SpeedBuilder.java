@@ -1,7 +1,7 @@
 package dev.razer.ui.impl.standard.screen.impl.speedbuilder;
 
 
-import dev.razer.gg.api.Rise;
+import dev.razer.api.Rise;
 import dev.razer.module.Module;
 import dev.razer.module.api.Category;
 import dev.razer.module.api.ModuleInfo;

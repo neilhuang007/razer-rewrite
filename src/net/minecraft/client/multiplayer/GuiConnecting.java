@@ -6,7 +6,8 @@ import java.net.UnknownHostException;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import dev.razer.Razer;
-import dev.razer.event.impl.server.ServerJoinEvent;
+
+import dev.razer.event.impl.other.ServerJoinEvent;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiDisconnected;

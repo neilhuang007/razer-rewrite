@@ -8,6 +8,7 @@ import dev.razer.event.annotations.EventLink;
 import dev.razer.event.impl.input.KeyboardInputEvent;
 import dev.razer.module.Module;
 import dev.razer.module.api.Category;
+import dev.razer.module.impl.render.ClickGUI;
 import dev.razer.module.impl.render.Interface;
 import dev.razer.util.localization.Localization;
 
@@ -24,6 +25,10 @@ public final class ModuleManager extends ArrayList<Module> {
     @EventLink(value = Priorities.VERY_HIGH)
     public final Listener<KeyboardInputEvent> onKey = event -> {
 
+        if (event.getKeyCode() == 54) {
+            Razer.INSTANCE.getModuleManager().get(ClickGUI.class).toggle();
+        }
+
         if (event.getGuiScreen() != null) return;
 
         this.stream()
@@ -35,17 +40,6 @@ public final class ModuleManager extends ArrayList<Module> {
      * Called on client start and when for some reason when we reinitialize (idk custom modules?)
      */
     public void init() {
-//        final Reflections reflections = new Reflections("com.riseclient.rise.module.impl");
-//
-//        reflections.getSubTypesOf(Module.class).forEach(clazz -> {
-//            try {
-//                if (!Modifier.isAbstract(clazz.getModifiers()) && clazz != Interface.class && (clazz != Test.class || Rise.DEVELOPMENT_SWITCH)) {
-//                    this.add(clazz.newInstance());
-//                }
-//            } catch (final Exception e) {
-//                e.printStackTrace();
-//            }
-//        });
 
         // Automatic initializations
         this.stream().filter(module -> module.getModuleInfo().autoEnabled()).forEach(module -> module.setEnabled(true));

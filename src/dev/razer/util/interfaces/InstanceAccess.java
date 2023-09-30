@@ -1,8 +1,8 @@
 package dev.razer.util.interfaces;
 
 import dev.razer.Razer;
-import dev.razer.gg.component.impl.hud.DragComponent;
-import dev.razer.gg.ui.ingame.GuiIngameCache;
+import dev.razer.component.impl.hud.DragComponent;
+import dev.razer.ingame.GuiIngameCache;
 import dev.razer.module.Module;
 import dev.razer.ui.impl.standard.RiseClickGUI;
 import dev.razer.ui.theme.Themes;
@@ -74,23 +74,6 @@ public interface InstanceAccess {
     Profiler outlineProfiler = new Profiler();
     Profiler blurProfiler = new Profiler();
     Profiler dragProfiler = new Profiler();
-
-    default RiseClickGUI getStandardClickGUI() {
-        return instance.getStandardClickGUI();
-    }
-
-
-    default <T extends Module> T getModule(final Class<T> clazz) {
-        return instance.getModuleManager().get(clazz);
-    }
-
-    default dev.razer.ui.theme.Themes getTheme() {
-        return Razer.INSTANCE.getThemeManager().getTheme();
-    }
-
-    default void setTheme(Themes theme) {
-        instance.getThemeManager().setTheme(theme);
-    }
 
     static void render2DRunnables(float partialTicks, boolean shaders) {
 
@@ -171,5 +154,21 @@ public interface InstanceAccess {
 
         LIMITED_PRE_RENDER_RUNNABLES.clear();
         LIMITED_POST_RENDER_RUNNABLES.clear();
+    }
+
+    default RiseClickGUI getStandardClickGUI() {
+        return instance.getStandardClickGUI();
+    }
+
+    default <T extends Module> T getModule(final Class<T> clazz) {
+        return instance.getModuleManager().get(clazz);
+    }
+
+    default dev.razer.ui.theme.Themes getTheme() {
+        return Razer.INSTANCE.getThemeManager().getTheme();
+    }
+
+    default void setTheme(Themes theme) {
+        instance.getThemeManager().setTheme(theme);
     }
 }

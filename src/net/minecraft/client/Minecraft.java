@@ -10,9 +10,11 @@ import com.mojang.authlib.properties.Property;
 import com.mojang.authlib.properties.PropertyMap;
 import com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService;
 import dev.razer.Razer;
-import dev.razer.event.impl.client.GameEvent;
+
 import dev.razer.event.impl.input.KeyboardInputEvent;
-import dev.razer.event.impl.world.TickEvent;
+
+import dev.razer.event.impl.other.GameEvent;
+import dev.razer.event.impl.other.TickEvent;
 import dev.razer.ui.impl.intro.IntroSequence;
 import dev.razer.ui.impl.menu.Mainmenu;
 import dev.razer.util.Timers.StopWatch;

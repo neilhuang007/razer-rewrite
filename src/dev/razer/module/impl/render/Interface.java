@@ -3,8 +3,8 @@ package dev.razer.module.impl.render;
 import dev.razer.Razer;
 import dev.razer.event.Listener;
 import dev.razer.event.annotations.EventLink;
-import dev.razer.event.impl.client.Render2DEvent;
-import dev.razer.event.impl.world.PreUpdateEvent;
+import dev.razer.event.impl.motion.PreUpdateEvent;
+import dev.razer.event.impl.render.Render2DEvent;
 import dev.razer.module.Module;
 import dev.razer.module.api.Category;
 import dev.razer.module.api.ModuleInfo;
@@ -86,8 +86,7 @@ public final class Interface extends Module {
                     }
 
                     for (final Value<?> value : moduleComponent.getModule().getValues()) {
-                        if (value instanceof ModeValue) {
-                            final ModeValue modeValue = (ModeValue) value;
+                        if (value instanceof ModeValue modeValue) {
                             moduleComponent.setTag(modeValue.getValue().getName());
                             break;
                         }

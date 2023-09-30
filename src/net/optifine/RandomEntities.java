@@ -13,7 +13,8 @@ import java.util.Set;
 import java.util.UUID;
 
 import dev.razer.Razer;
-import dev.razer.event.impl.world.WorldChangeEvent;
+
+import dev.razer.event.impl.other.WorldChangeEvent;
 import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.entity.DataWatcher;

@@ -1,7 +1,7 @@
 package dev.razer.event.impl.motion;
 
-import dev.razer.event.Event;
 
+import dev.razer.event.Event;
 
 /**
  * @author Patrick

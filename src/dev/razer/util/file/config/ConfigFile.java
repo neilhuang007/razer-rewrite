@@ -20,7 +20,6 @@ import java.util.Date;
 import java.util.Optional;
 
 
-
 /**
  * @author Patrick
  * @since 10/19/2021
@@ -95,14 +94,12 @@ public class ConfigFile extends File {
                             if (valueJsonObject.has("value")) {
                                 enumValue.setDefault(valueJsonObject.get("value").getAsString());
                             }
-                        } else if (value instanceof BooleanValue) {
-                            final BooleanValue booleanValue = (BooleanValue) value;
+                        } else if (value instanceof BooleanValue booleanValue) {
 
                             if (valueJsonObject.has("value")) {
                                 booleanValue.setValue(valueJsonObject.get("value").getAsBoolean());
                             }
-                        } else if (value instanceof StringValue) {
-                            final StringValue stringValue = (StringValue) value;
+                        } else if (value instanceof StringValue stringValue) {
 
                             if (valueJsonObject.has("value")) {
 
@@ -111,14 +108,12 @@ public class ConfigFile extends File {
 
                                 stringValue.setValue(load);
                             }
-                        } else if (value instanceof NumberValue) {
-                            final NumberValue numberValue = (NumberValue) value;
+                        } else if (value instanceof NumberValue numberValue) {
 
                             if (valueJsonObject.has("value")) {
                                 numberValue.setValue(valueJsonObject.get("value").getAsDouble());
                             }
-                        } else if (value instanceof BoundsNumberValue) {
-                            final BoundsNumberValue boundsNumberValue = (BoundsNumberValue) value;
+                        } else if (value instanceof BoundsNumberValue boundsNumberValue) {
 
                             if (valueJsonObject.has("first")) {
                                 boundsNumberValue.setValue(valueJsonObject.get("first").getAsDouble());
@@ -127,8 +122,7 @@ public class ConfigFile extends File {
                             if (valueJsonObject.has("second")) {
                                 boundsNumberValue.setSecondValue(valueJsonObject.get("second").getAsDouble());
                             }
-                        } else if (value instanceof ColorValue) {
-                            final ColorValue colorValue = (ColorValue) value;
+                        } else if (value instanceof ColorValue colorValue) {
 
                             int red = 0, green = 0, blue = 0, alpha = 0;
 
@@ -146,8 +140,7 @@ public class ConfigFile extends File {
                             }
 
                             colorValue.setValue(new Color(red, green, blue, alpha));
-                        } else if (value instanceof DragValue) {
-                            final DragValue positionValue = (DragValue) value;
+                        } else if (value instanceof DragValue positionValue) {
 
                             double positionX = 0, positionY = 0, scaleX = 0, scaleY = 0;
 
@@ -170,8 +163,7 @@ public class ConfigFile extends File {
                             positionValue.setTargetPosition(new Vector2d(positionX, positionY));
                             positionValue.setPosition(new Vector2d(positionX, positionY));
                             positionValue.setScale(new Vector2d(scaleX, scaleY));
-                        } else if (value instanceof ListValue) {
-                            final ListValue<?> enumValue = (ListValue<?>) value;
+                        } else if (value instanceof ListValue<?> enumValue) {
 
                             for (Object mode : enumValue.getModes()) {
                                 if (mode.toString().equals(valueJsonObject.get("value").getAsString())) {
@@ -246,40 +238,33 @@ public class ConfigFile extends File {
                     if (value instanceof ModeValue) {
                         final ModeValue enumValue = (ModeValue) value;
                         valueJsonObject.addProperty("value", enumValue.getValue().getName());
-                    } else if (value instanceof BooleanValue) {
-                        final BooleanValue booleanValue = (BooleanValue) value;
+                    } else if (value instanceof BooleanValue booleanValue) {
                         valueJsonObject.addProperty("value", booleanValue.getValue());
-                    } else if (value instanceof NumberValue) {
-                        final NumberValue numberValue = (NumberValue) value;
+                    } else if (value instanceof NumberValue numberValue) {
                         valueJsonObject.addProperty("value", numberValue.getValue().doubleValue());
-                    } else if (value instanceof StringValue) {
-                        final StringValue stringValue = (StringValue) value;
+                    } else if (value instanceof StringValue stringValue) {
 
                         String save = stringValue.getValue();
                         save = save.replace("%", "<percentsign>");
 
                         valueJsonObject.addProperty("value", save);
-                    } else if (value instanceof BoundsNumberValue) {
-                        final BoundsNumberValue boundsNumberValue = (BoundsNumberValue) value;
+                    } else if (value instanceof BoundsNumberValue boundsNumberValue) {
                         valueJsonObject.addProperty("first", boundsNumberValue.getValue().doubleValue());
                         valueJsonObject.addProperty("second", boundsNumberValue.getSecondValue().doubleValue());
-                    } else if (value instanceof ColorValue) {
-                        final ColorValue colorValue = (ColorValue) value;
+                    } else if (value instanceof ColorValue colorValue) {
 
                         valueJsonObject.addProperty("red", colorValue.getValue().getRed());
                         valueJsonObject.addProperty("green", colorValue.getValue().getGreen());
                         valueJsonObject.addProperty("blue", colorValue.getValue().getBlue());
                         valueJsonObject.addProperty("alpha", colorValue.getValue().getAlpha());
-                    } else if (value instanceof DragValue) {
-                        final DragValue positionValue = (DragValue) value;
+                    } else if (value instanceof DragValue positionValue) {
 
                         valueJsonObject.addProperty("positionX", positionValue.position.x);
                         valueJsonObject.addProperty("positionY", positionValue.position.y);
 
                         valueJsonObject.addProperty("scaleX", positionValue.scale.x);
                         valueJsonObject.addProperty("scaleY", positionValue.scale.y);
-                    } else if (value instanceof ListValue) {
-                        final ListValue<?> enumValue = (ListValue<?>) value;
+                    } else if (value instanceof ListValue<?> enumValue) {
                         valueJsonObject.addProperty("value", enumValue.getValue().toString());
                     }
 

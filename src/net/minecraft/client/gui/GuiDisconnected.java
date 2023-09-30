@@ -4,7 +4,8 @@ import java.io.IOException;
 import java.util.List;
 
 import dev.razer.Razer;
-import dev.razer.event.impl.server.ServerKickEvent;
+
+import dev.razer.event.impl.other.ServerKickEvent;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.IChatComponent;
 
